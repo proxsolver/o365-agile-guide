@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 07: 안전 점검 체크리스트 앱 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="cases.html" class="nav-back"><i class="fas fa-arrow-left"></i> 사례 목록</a>
+        <div class="week-indicator">
+            <a href="case06.html" class="prev"><i class="fas fa-arrow-left"></i> Case 06</a>
+            <span class="current case">Case 07</span>
+            <a href="case08.html" class="next">Case 08 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="case-study-banner safety-theme">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Case 07: 안전 점검 체크리스트 앱</h2>
+            <p>Microsoft Forms로 일일 안전 점검 디지털화, 이상 발견 시 즉시 알림</p>
+        </div>
+    </div>
+
+    <section class="week-hero week9-theme">
+        <div class="hero-content">
+            <span class="week-badge">Case 07 | 안전관리</span>
+            <h1>🛡️ 안전 점검 체크리스트 앱</h1>
+            <p>종이 체크리스트를 Forms로 전환하고, 이상 항목 발견 시 자동 알림으로 즉각 대응합니다</p>
+            <div class="kpi-focus">
+                <div class="kpi-item active"><i class="fas fa-clipboard-check"></i><span>디지털 점검</span></div>
+                <div class="kpi-item"><i class="fas fa-bell"></i><span>즉시 알림</span></div>
+                <div class="kpi-item"><i class="fas fa-chart-bar"></i><span>이력 분석</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card safety">
+                <h2><i class="fas fa-exclamation-circle"></i> 문제 상황</h2>
+                <div class="scenario-box">
+                    <h4><i class="fas fa-users"></i> 현장의 목소리</h4>
+                    <p>안전담당 한OO 주임이 ISO 45001 심사 준비 중 문제를 발견합니다:<br>
+                        <em>"매일 아침 작업 전 안전 점검을 하는데, 종이 체크리스트에 체크만 하고 끝이에요.
+                            이상 발견해도 보고가 늦어지고, 과거 점검 기록 찾으려면 창고에서 서류함을 뒤져야 합니다.
+                            심사관이 '3개월 전 점검 기록'을 요청하면 찾는 데만 30분이 걸려요.
+                            그리고 점검을 했는지 안 했는지 실시간 확인도 안 됩니다."</em>
+                    </p>
+                </div>
+                <div class="goal-metrics">
+                    <div class="metric"><span class="metric-label">일일 점검 횟수</span><span
+                            class="metric-value">3회/라인</span></div>
+                    <div class="metric"><span class="metric-label">월간 기록</span><span class="metric-value">180건</span>
+                    </div>
+                    <div class="metric"><span class="metric-label">개선 기간</span><span class="metric-value">2주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 실행 가이드</h2>
+
+            <!-- ===== STEP 1: Forms 체크리스트 ===== -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool forms"><i class="fab fa-wpforms"></i><span>Microsoft Forms</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (월~화)</span>
+                </div>
+                <h3>안전 점검 Forms 상세 구축</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>Forms 생성하기</h5>
+                                <div
+                                    style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 생성 경로:</strong><br><br>
+                                    <strong>방법 1 (직접):</strong><br>
+                                    forms.office.com 접속 → "새 양식" 클릭<br><br>
+                                    <strong>방법 2 (Teams에서):</strong><br>
+                                    Teams → 안전관리 채널 → 탭 "+" → Forms → "새 양식 만들기"<br><br>
+                                    <strong>양식 이름:</strong> 일일 안전 점검 체크리스트<br>
+                                    <strong>설명:</strong> 작업 시작 전 필수 안전 점검 항목입니다. 이상 발견 시 즉시 보고됩니다.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>질문 구성 (총 15개)</h5>
+
+                                <h6 style="margin-top: 1.5rem; color: #0078d4;">🔹 기본 정보 (3개)</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>질문</th>
+                                            <th>유형</th>
+                                            <th>설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><strong>점검자</strong></td>
+                                            <td>텍스트</td>
+                                            <td>필수, 짧은 답변</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><strong>점검 일시</strong></td>
+                                            <td>날짜</td>
+                                            <td>필수, 기본값: 오늘</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><strong>점검 구역</strong></td>
+                                            <td>선택</td>
+                                            <td>
+                                                필수, 드롭다운<br>
+                                                • A동 1층 생산라인<br>
+                                                • A동 2층 조립라인<br>
+                                                • B동 창고<br>
+                                                • 옥외 야적장
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #ef4444;">🔹 안전 점검 항목 (10개)</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>점검 항목</th>
+                                            <th>유형</th>
+                                            <th>선택지</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><strong>비상구 통로 확보</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><strong>소화기 비치 및 상태</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td><strong>안전보호구 착용 상태</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td><strong>설비 안전장치 작동</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td><strong>경고 표지판 부착 상태</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td><strong>바닥 상태 (미끄럼 위험)</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td><strong>전기 배선 상태</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td><strong>가스/화학물질 누출</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td><strong>정리정돈 (5S)</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td><strong>조명 상태</strong></td>
+                                            <td>선택</td>
+                                            <td>✅ 정상 / ⚠️ 이상 / ➖ 해당없음</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #f59e0b;">🔹 이상 발견 시 상세 (2개)</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>질문</th>
+                                            <th>유형</th>
+                                            <th>설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>14</td>
+                                            <td><strong>이상 항목 상세 설명</strong></td>
+                                            <td>텍스트</td>
+                                            <td>긴 답변, 조건부 (이상 선택 시만 표시)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td><strong>현장 사진</strong></td>
+                                            <td>파일 업로드</td>
+                                            <td>이미지만, 최대 3개</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-3</span>
+                            <div class="instruction-content">
+                                <h5>질문 추가하기 상세 단계</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 "선택" 질문 만들기:</strong><br><br>
+                                    <strong>Step 1:</strong> "+ 새로 추가" 클릭<br>
+                                    <strong>Step 2:</strong> "선택" 아이콘 클릭<br>
+                                    <strong>Step 3:</strong> 질문 입력: "비상구 통로 확보"<br>
+                                    <strong>Step 4:</strong> 옵션 입력:<br>
+                                    <div
+                                        style="background: white; padding: 0.75rem; margin: 0.5rem 0; border-radius: 4px;">
+                                        옵션 1: ✅ 정상<br>
+                                        옵션 2: ⚠️ 이상<br>
+                                        옵션 3: ➖ 해당없음
+                                    </div>
+                                    <strong>Step 5:</strong> "필수" 토글 켜기<br>
+                                    <strong>Step 6:</strong> 우측 "..." → "드롭다운" 선택 (공간 절약)<br><br>
+                                    <span style="color: #0078d4;">💡 Tip: 첫 번째 질문 만든 후 "복제" 버튼으로 빠르게 복사!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-4</span>
+                            <div class="instruction-content">
+                                <h5>조건부 질문 설정 (분기)</h5>
+                                <div
+                                    style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>💡 "이상" 선택 시에만 상세 설명 표시하기:</strong><br><br>
+                                    <strong>Step 1:</strong> "이상 항목 상세 설명" 질문 선택<br>
+                                    <strong>Step 2:</strong> 우측 "..." → "분기 추가"<br>
+                                    <strong>Step 3:</strong> 분기 조건 설정:<br>
+                                    <div
+                                        style="background: white; padding: 0.75rem; margin: 0.5rem 0; border-radius: 4px;">
+                                        IF 질문 4~13 중 하나라도 = "⚠️ 이상"<br>
+                                        THEN 이 질문으로 이동
+                                    </div>
+                                    <span style="color: #b45309;">⚠️ 주의: Forms 분기는 단순해서, 복잡한 조건은 Power Automate로
+                                        처리</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-5</span>
+                            <div class="instruction-content">
+                                <h5>파일 업로드 질문 설정</h5>
+                                <div
+                                    style="background: #dbeafe; border-left: 4px solid #3b82f6; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 현장 사진 업로드 설정:</strong><br><br>
+                                    <strong>Step 1:</strong> "+ 새로 추가" → "파일 업로드" 선택<br>
+                                    <strong>Step 2:</strong> 질문: "현장 사진 (이상 발견 시)"<br>
+                                    <strong>Step 3:</strong> 파일 제한 설정:<br>
+                                    &nbsp;&nbsp;• 파일 수 제한: 3개<br>
+                                    &nbsp;&nbsp;• 단일 파일 크기: 10MB<br>
+                                    &nbsp;&nbsp;• 파일 형식: 이미지만 (jpg, png)<br><br>
+                                    <span style="color: #1d4ed8;">📁 업로드된 파일은 OneDrive > Apps > Microsoft Forms 폴더에
+                                        저장됩니다.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-6</span>
+                            <div class="instruction-content">
+                                <h5>Forms 설정 최적화</h5>
+                                <div
+                                    style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 설정 (우측 상단 "..." → "설정"):</strong><br><br>
+                                    <strong>응답 옵션:</strong><br>
+                                    ☑️ 응답 수락 (항상 켜기)<br>
+                                    ☑️ 응답자에게 결과 표시 → 끄기 (결과 비공개)<br>
+                                    ☑️ 진행률 표시줄 → 끄기<br><br>
+                                    <strong>알림:</strong><br>
+                                    ☑️ 각 응답에 대한 이메일 알림 받기 → 켜기<br><br>
+                                    <strong>응답자 기록:</strong><br>
+                                    ☑️ 이름 기록 → 켜기 (자동으로 로그인 사용자 기록)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> 상단 "미리 보기" 버튼으로 PC/모바일 화면을 확인하세요.
+                        모바일에서 작성하기 편한지 반드시 테스트!
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 2: Power Automate 알림 ===== -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool powerautomate"><i class="fas fa-cog"></i><span>Power Automate</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (수~금)</span>
+                </div>
+                <h3>이상 발견 시 자동 알림 흐름</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-bolt"></i> 흐름 1: 이상 발견 즉시 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>흐름 전체 구조</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+                                        <div
+                                            style="background: #fee2e2; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>1️⃣ 트리거: 새 응답이 제출될 때</strong><br>
+                                            <small>Microsoft Forms</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>2️⃣ 응답 세부 정보 가져오기</strong><br>
+                                            <small>Forms 커넥터</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #e0e7ff; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>3️⃣ 조건: 이상 항목 포함 여부</strong><br>
+                                            <small>응답 중 "⚠️ 이상" 있는지 확인</small>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; width: 85%;">
+                                            <div style="flex: 1; text-align: center;">
+                                                <div style="color: #ef4444;">예 ↓</div>
+                                                <div style="background: #fee2e2; padding: 1rem; border-radius: 8px;">
+                                                    <strong>🚨 Teams 긴급 알림</strong><br>
+                                                    <small>안전관리 채널 + 담당자 멘션</small>
+                                                </div>
+                                            </div>
+                                            <div style="flex: 1; text-align: center;">
+                                                <div style="color: #10b981;">아니요 ↓</div>
+                                                <div style="background: #d1fae5; padding: 1rem; border-radius: 8px;">
+                                                    점검 완료 기록<br>
+                                                    <small>(Lists에 저장)</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>Forms 트리거 및 응답 가져오기</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 Step 1: 트리거 설정</strong><br>
+                                    커넥터: Microsoft Forms<br>
+                                    트리거: "새 응답이 제출되는 경우"<br>
+                                    양식 ID: [드롭다운에서 "일일 안전 점검 체크리스트" 선택]<br><br>
+
+                                    <strong>📍 Step 2: 응답 세부 정보 가져오기</strong><br>
+                                    커넥터: Microsoft Forms<br>
+                                    작업: "응답 세부 정보 가져오기"<br>
+                                    양식 ID: [동일한 양식 선택]<br>
+                                    응답 ID: @{triggerOutputs()?['body/resourceData/responseId']}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-3</span>
+                            <div class="instruction-content">
+                                <h5>이상 포함 여부 조건 설정</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem; overflow-x: auto;">
+                                    <strong style="color: #60a5fa;">// 조건식: 응답 중 "이상"이 하나라도 있는지 확인</strong><br><br>
+                                    @or(<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r비상구_통로_확보'], '⚠️ 이상'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r소화기_비치_및_상태'], '⚠️ 이상'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r안전보호구_착용_상태'], '⚠️ 이상'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r설비_안전장치_작동'], '⚠️ 이상'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r경고_표지판_부착_상태'], '⚠️ 이상'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r바닥_상태'], '⚠️ 이상'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r전기_배선_상태'], '⚠️ 이상'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r가스_화학물질_누출'], '⚠️ 이상'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r정리정돈'], '⚠️ 이상'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r조명_상태'], '⚠️ 이상')<br>
+                                    )
+                                </div>
+                                <div style="background: #fef3c7; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
+                                    💡 <strong>Tip:</strong> 질문 ID(r비상구_통로_확보 등)는 Forms에서 자동 생성됩니다.
+                                    동적 콘텐츠에서 해당 질문을 선택하면 자동으로 입력됩니다.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-4</span>
+                            <div class="instruction-content">
+                                <h5>Teams 긴급 알림 메시지</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                                    <strong style="color: #ef4444;">// Teams 채널에 메시지 게시</strong><br><br>
+                                    팀: 안전관리팀<br>
+                                    채널: 긴급알림<br><br>
+                                    메시지:<br>
+                                    🚨 <strong>안전 점검 이상 발견!</strong><br><br>
+                                    📍 <strong>점검 정보</strong><br>
+                                    • 점검자: @{outputs('응답_세부_정보_가져오기')?['body/r점검자']}<br>
+                                    • 점검일시: @{outputs('응답_세부_정보_가져오기')?['body/r점검_일시']}<br>
+                                    • 점검구역: @{outputs('응답_세부_정보_가져오기')?['body/r점검_구역']}<br><br>
+
+                                    ⚠️ <strong>이상 항목</strong><br>
+                                    • 비상구: @{outputs('응답_세부_정보_가져오기')?['body/r비상구_통로_확보']}<br>
+                                    • 소화기: @{outputs('응답_세부_정보_가져오기')?['body/r소화기_비치_및_상태']}<br>
+                                    • (... 모든 항목 나열 ...)<br><br>
+
+                                    📝 <strong>상세 설명</strong><br>
+                                    @{outputs('응답_세부_정보_가져오기')?['body/r이상_항목_상세_설명']}<br><br>
+
+                                    &lt;at&gt;안전담당자@company.com&lt;/at&gt; 즉시 확인 부탁드립니다!
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2.5rem;"><i class="fas fa-bolt"></i> 흐름 2: 점검 내역 SharePoint 자동 저장</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-5</span>
+                            <div class="instruction-content">
+                                <h5>모든 응답을 Lists에 자동 기록</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+                                        <div
+                                            style="background: #fee2e2; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>트리거: 새 응답 제출</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>응답 세부 정보 가져오기</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #d1fae5; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>SharePoint - 항목 만들기</strong><br>
+                                            <small>목록: 안전점검이력</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-6</span>
+                            <div class="instruction-content">
+                                <h5>"안전점검이력" Lists 자동 저장 필드 매핑</h5>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>Lists 컬럼</th>
+                                            <th>Forms 필드</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>점검자</td>
+                                            <td>@{outputs('응답_세부_정보_가져오기')?['body/r점검자']}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>점검일시</td>
+                                            <td>@{outputs('응답_세부_정보_가져오기')?['body/submitDate']}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>점검구역</td>
+                                            <td>@{outputs('응답_세부_정보_가져오기')?['body/r점검_구역']}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>비상구</td>
+                                            <td>@{outputs('응답_세부_정보_가져오기')?['body/r비상구_통로_확보']}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>결과</td>
+                                            <td>"정상" 또는 "이상" (조건에 따라)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2.5rem;"><i class="fas fa-bolt"></i> 흐름 3: 미점검 알림 (선택)</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-7</span>
+                            <div class="instruction-content">
+                                <h5>정해진 시간까지 점검 미완료 시 알림</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+                                        <div
+                                            style="background: #dbeafe; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>예약: 매일 오전 9시</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>SharePoint: 오늘 점검 조회</strong><br>
+                                            <small>점검일시 = 오늘</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #e0e7ff; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>조건: 결과 = 0건?</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fee2e2; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>⚠️ Teams 알림</strong><br>
+                                            <small>"오늘 안전 점검이 아직 수행되지 않았습니다!"</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> Forms 응답 데이터를 Excel Online으로도 자동 저장할 수 있습니다.
+                        Forms → 응답 탭 → "Excel에서 열기" → OneDrive에 자동 연결
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 3: 모바일 배포 ===== -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams / QR</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (월)</span>
+                </div>
+                <h3>현장 배포 및 접근성 확보</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>Forms 링크 공유 방법</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 방법 1: 링크 복사</strong><br>
+                                    Forms → "공유" → "링크 복사"<br>
+                                    → Teams 채널에 게시 또는 즐겨찾기<br><br>
+
+                                    <strong>📍 방법 2: QR 코드</strong><br>
+                                    Forms → "공유" → "QR 코드" → 다운로드<br>
+                                    → 인쇄하여 각 구역 입구에 부착<br><br>
+
+                                    <strong>📍 방법 3: Teams 탭</strong><br>
+                                    Teams 채널 → 탭 "+" → Forms → 양식 선택<br>
+                                    → 채널 상단에 고정
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>구역별 QR 코드 게시</h5>
+                                <div class="insight-cards"
+                                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                                    <div class="insight-card" style="text-align: center; background: #fef2f2;">
+                                        <h4>🏭 A동 1층</h4>
+                                        <div
+                                            style="background: white; width: 100px; height: 100px; margin: 0.5rem auto; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                            [QR]
+                                        </div>
+                                        <small>입구 게시판 부착</small>
+                                    </div>
+                                    <div class="insight-card" style="text-align: center; background: #fef2f2;">
+                                        <h4>🏭 A동 2층</h4>
+                                        <div
+                                            style="background: white; width: 100px; height: 100px; margin: 0.5rem auto; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                            [QR]
+                                        </div>
+                                        <small>계단 옆 부착</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 4: 대시보드 ===== -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel / Power BI</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (화~수)</span>
+                </div>
+                <h3>점검 현황 대시보드</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-1</span>
+                            <div class="instruction-content">
+                                <h5>오늘 점검 현황</h5>
+                                <div class="dashboard-layout">
+                                    <div class="dash-item success" style="background: #d1fae5;">
+                                        <i class="fas fa-check-circle"></i>
+                                        <h5>완료</h5>
+                                        <span class="dash-value">3구역</span>
+                                    </div>
+                                    <div class="dash-item warning" style="background: #fef3c7;">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <h5>이상 발견</h5>
+                                        <span class="dash-value">1건</span>
+                                    </div>
+                                    <div class="dash-item" style="background: #e5e7eb;">
+                                        <i class="fas fa-clock"></i>
+                                        <h5>미완료</h5>
+                                        <span class="dash-value">1구역</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-2</span>
+                            <div class="instruction-content">
+                                <h5>월간 이상 발생 트렌드</h5>
+                                <div class="excel-template">
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>항목</th>
+                                                <th>1월</th>
+                                                <th>2월</th>
+                                                <th>3월</th>
+                                                <th>추세</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>비상구 통로</td>
+                                                <td>2건</td>
+                                                <td>1건</td>
+                                                <td>0건</td>
+                                                <td>📉 개선</td>
+                                            </tr>
+                                            <tr>
+                                                <td>정리정돈</td>
+                                                <td>5건</td>
+                                                <td>6건</td>
+                                                <td>4건</td>
+                                                <td>➡️ 유지</td>
+                                            </tr>
+                                            <tr>
+                                                <td>안전보호구</td>
+                                                <td>1건</td>
+                                                <td>3건</td>
+                                                <td>5건</td>
+                                                <td>📈 악화</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 5: 운영 ===== -->
+            <div class="step-card" id="step5">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>운영</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (목~금)</span>
+                </div>
+                <h3>운영 및 지속적 개선</h3>
+                <div class="step-content">
+                    <div class="retro-board">
+                        <div class="retro-column start">
+                            <h4>✅ 시작할 것</h4>
+                            <ul>
+                                <li>매 교대 시작 전 Forms 점검 필수화</li>
+                                <li>이상 발견 시 30분 내 조치 원칙</li>
+                                <li>월간 이상 항목 분석 보고</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column stop">
+                            <h4>🛑 멈출 것</h4>
+                            <ul>
+                                <li>종이 체크리스트 사용</li>
+                                <li>점검 결과 구두 보고</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column continue">
+                            <h4>🔄 계속할 것</h4>
+                            <ul>
+                                <li>이상 발견 즉시 알림</li>
+                                <li>점검 이력 자동 저장</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="step-guide" style="background: #fef2f2;">
+        <div class="container">
+            <h2 class="section-title">❓ 자주 묻는 질문 (FAQ)</h2>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q1. Forms에서 사진 업로드가 안 돼요</h3>
+                <div class="step-content">
+                    <div style="background: #d1fae5; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> 파일 업로드는 조직 내 사용자만 가능합니다.<br><br>
+                        <strong>확인:</strong> Forms 설정 → "누가 이 양식을 채울 수 있나요?" →
+                        "내 조직의 사용자만" 선택<br><br>
+                        외부인도 사용해야 한다면 파일 업로드 대신 "링크 입력" 질문으로 대체
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q2. 점검 항목을 추가하고 싶어요</h3>
+                <div class="step-content">
+                    <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> Forms에서 언제든 질문 추가 가능합니다.<br><br>
+                        <strong>주의:</strong> Power Automate 흐름에서 새 필드를 매핑해야 합니다.<br>
+                        1. Forms에 질문 추가<br>
+                        2. Power Automate 편집 → 조건/저장 로직에 새 필드 추가
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q3. 오프라인에서도 점검할 수 있나요?</h3>
+                <div class="step-content">
+                    <div style="background: #dbeafe; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> Forms는 온라인 전용입니다.<br><br>
+                        <strong>대안:</strong><br>
+                        • Power Apps로 오프라인 지원 앱 개발 (고급)<br>
+                        • 현장 Wi-Fi 확장으로 연결 보장
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card value-card">
+                <h2><i class="fas fa-chart-line"></i> 개선 결과</h2>
+                <div class="result-grid">
+                    <div class="result-item"><i class="fas fa-file-alt"></i>
+                        <h4>100%</h4>
+                        <p>디지털 전환</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-bell"></i>
+                        <h4>즉시</h4>
+                        <p>이상 알림</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-search"></i>
+                        <h4>5초</h4>
+                        <p>이력 검색</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-certificate"></i>
+                        <h4>Pass</h4>
+                        <p>ISO 심사 대응</p>
+                    </div>
+                </div>
+                <div class="value-metrics">
+                    <div class="value-item">
+                        <div class="value-icon" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                            <i class="fas fa-shield-alt"></i></div>
+                        <div class="value-info">
+                            <h4>안전사고 예방</h4>
+                            <p>이상 발견 즉시 조치로 사고 위험 선제 대응</p>
+                            <span class="value-tag">이상 조치 시간 4시간 → 30분</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview safety">
+                <span class="preview-label">다음 사례</span>
+                <h2>Case 08: 아차 사고 신고 시스템</h2>
+                <p>익명 신고 가능한 니어미스 보고 체계로 잠재 위험 발굴</p>
+                <a href="case08.html" class="btn btn-primary">다음 사례 보기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="cases.html">사례 목록</a> | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
