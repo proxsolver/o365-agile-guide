@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Service Team 실전 사례집 | Office 365 Agile</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="case-study.css">
+    <style>
+        /* Cases Page Specific Styles */
+        .cases-hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #38bdf8 100%);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .cases-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .cases-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .case-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            background: white;
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            background: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--ms-blue);
+            border-color: var(--ms-blue);
+            color: white;
+        }
+
+        .filter-btn.inventory.active {
+            background: #6366f1;
+            border-color: #6366f1;
+        }
+
+        .filter-btn.rm.active {
+            background: #f59e0b;
+            border-color: #f59e0b;
+        }
+
+        .filter-btn.ot.active {
+            background: #10b981;
+            border-color: #10b981;
+        }
+
+        .filter-btn.safety.active {
+            background: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .filter-btn.energy.active {
+            background: #06b6d4;
+            border-color: #06b6d4;
+        }
+
+        /* Cases Grid */
+        .cases-section {
+            padding: 4rem 2rem;
+            background: #f8fafc;
+        }
+
+        .cases-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Case Card */
+        .case-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .case-header {
+            padding: 1.5rem;
+            color: white;
+            position: relative;
+        }
+
+        .case-header.inventory {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+
+        .case-header.rm {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .case-header.ot {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .case-header.safety {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .case-header.energy {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        }
+
+        .case-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .case-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .case-body {
+            padding: 1.5rem;
+        }
+
+        .case-problem {
+            background: #fef3c7;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .case-problem h4 {
+            font-size: 0.85rem;
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-problem p {
+            font-size: 0.9rem;
+            color: #78350f;
+        }
+
+        .case-solution {
+            margin-bottom: 1rem;
+        }
+
+        .case-solution h4 {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-steps {
+            list-style: none;
+            padding: 0;
+        }
+
+        .solution-steps li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .solution-steps li:last-child {
+            border-bottom: none;
+        }
+
+        .solution-steps li i {
+            color: var(--ms-blue);
+            margin-top: 0.2rem;
+        }
+
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .result-item {
+            background: #f0fdf4;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-item.warning {
+            background: #fef3c7;
+        }
+
+        .result-item.info {
+            background: #dbeafe;
+        }
+
+        .result-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #047857;
+        }
+
+        .result-item.warning .result-value {
+            color: #b45309;
+        }
+
+        .result-item.info .result-value {
+            color: #1d4ed8;
+        }
+
+        .result-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        .case-tools {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tool-used {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tool-used.teams {
+            background: rgba(98, 100, 167, 0.15);
+            color: var(--teams-purple);
+        }
+
+        .tool-used.planner {
+            background: rgba(49, 117, 47, 0.15);
+            color: var(--planner-green);
+        }
+
+        .tool-used.excel {
+            background: rgba(33, 115, 70, 0.15);
+            color: var(--excel-green);
+        }
+
+        .tool-used.sharepoint {
+            background: rgba(3, 131, 135, 0.15);
+            color: var(--sharepoint-teal);
+        }
+
+        .tool-used.onenote {
+            background: rgba(119, 25, 170, 0.15);
+            color: var(--onenote-purple);
+        }
+
+        .tool-used.powerautomate {
+            background: rgba(0, 120, 212, 0.15);
+            color: var(--ms-blue);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> 전체 로드맵</a>
+        <div class="week-indicator">
+            <span class="current case">실전 사례집</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="cases-hero">
+        <div>
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team</span>
+            <h1>Office 365 Agile 실전 사례집</h1>
+            <p>제조 현장 Technical Service 팀이 Office 365로 Agile을 실천한 생생한 사례들</p>
+            <div class="case-count">
+                <i class="fas fa-folder-open"></i>
+                <span>20개 사례 수록</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+        <div class="filter-container">
+            <button class="filter-btn active" data-category="all">전체</button>
+            <button class="filter-btn inventory" data-category="inventory">📦 재고관리</button>
+            <button class="filter-btn rm" data-category="rm">🔧 R&M Cost</button>
+            <button class="filter-btn ot" data-category="ot">🖥️ OT 전산화</button>
+            <button class="filter-btn safety" data-category="safety">⚠️ 안전관리</button>
+            <button class="filter-btn energy" data-category="energy">⚡ 에너지</button>
+        </div>
+    </div>
+
+    <!-- Cases Grid -->
+    <section class="cases-section">
+        <div class="cases-container">
+            <div class="cases-grid">
+                <!-- Case 1 -->
+                <div class="case-card" data-category="inventory">
+                    <div class="case-header inventory">
+                        <span class="case-number">Case #01</span>
+                        <span class="case-category">재고관리</span>
+                        <h3>MRO 부품 과잉재고 해소</h3>
+                        <p>2년 이상 미사용 부품 1.2억원 처분</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>창고에 2년 이상 미사용된 MRO 부품이 쌓여 재고 비용 증가 및 창고 공간 부족 문제 발생</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Excel로 재고 회전율 분석 (ABC 분류)</li>
+                                <li><i class="fas fa-check"></i> Planner에서 부서별 처분 협의 태스크 관리</li>
+                                <li><i class="fas fa-check"></i> Teams 미팅으로 주간 진행상황 공유</li>
+                                <li><i class="fas fa-check"></i> SharePoint에 처분 결과 문서화</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">1.2억</div>
+                                <div class="result-label">불용재고 처분</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">87개</div>
+                                <div class="result-label">품목 정리</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel</span>
+                            <span class="tool-used planner"><i class="fas fa-tasks"></i> Planner</span>
+                            <span class="tool-used teams"><i class="fab fa-microsoft"></i> Teams</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="case-card" data-category="inventory">
+                    <div class="case-header inventory">
+                        <span class="case-number">Case #02</span>
+                        <span class="case-category">재고관리</span>
+                        <h3>긴급 부품 품절 제로화</h3>
+                        <p>안전재고 기준 수립으로 긴급 발주 90% 감소</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>핵심 부품 품절 시 긴급 항공 발주로 비용 10배 증가, 생산 라인 대기 시간 발생</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Excel로 사용량 분석 및 안전재고 수준 산정</li>
+                                <li><i class="fas fa-check"></i> Lists에서 재고 알림 자동화 설정</li>
+                                <li><i class="fas fa-check"></i> Daily Standup에서 품절 위험 품목 모니터링</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">90%</div>
+                                <div class="result-label">긴급발주 감소</div>
+                            </div>
+                            <div class="result-item warning">
+                                <div class="result-value">₩5천만</div>
+                                <div class="result-label">연간 절감</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel</span>
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Power Automate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="case-card" data-category="rm">
+                    <div class="case-header rm">
+                        <span class="case-number">Case #03</span>
+                        <span class="case-category">R&M Cost</span>
+                        <h3>예방정비 스케줄 최적화</h3>
+                        <p>고장 정비 비용 35% 절감 달성</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>사후 정비(BM) 비중이 70%로 높아 예상치 못한 고장으로 생산 차질 및 비용 증가</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Excel로 설비별 고장 이력 분석</li>
+                                <li><i class="fas fa-check"></i> Planner에 예방정비 스케줄 등록</li>
+                                <li><i class="fas fa-check"></i> Power Automate로 정비 일정 알림 자동화</li>
+                                <li><i class="fas fa-check"></i> Teams에서 정비 결과 실시간 공유</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">35%</div>
+                                <div class="result-label">정비비용 절감</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">PM 60%</div>
+                                <div class="result-label">예방정비 비율</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used planner"><i class="fas fa-tasks"></i> Planner</span>
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Power Automate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 4 -->
+                <div class="case-card" data-category="rm">
+                    <div class="case-header rm">
+                        <span class="case-number">Case #04</span>
+                        <span class="case-category">R&M Cost</span>
+                        <h3>외주 정비 비용 투명화</h3>
+                        <p>외주 업체별 성과 평가 시스템 구축</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>외주 정비 업체 5곳의 작업 품질과 비용 효율성 비교가 어려워 최적 업체 선정 불가</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Lists에서 외주 작업 이력 데이터베이스 구축</li>
+                                <li><i class="fas fa-check"></i> Excel 피벗으로 업체별 비용/품질 분석</li>
+                                <li><i class="fas fa-check"></i> 분기별 Sprint Review에서 업체 평가 리뷰</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">20%</div>
+                                <div class="result-label">외주비용 절감</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">5→3</div>
+                                <div class="result-label">협력업체 최적화</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel</span>
+                            <span class="tool-used sharepoint"><i class="fas fa-share-alt"></i> Lists</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 5 -->
+                <div class="case-card" data-category="ot">
+                    <div class="case-header ot">
+                        <span class="case-number">Case #05</span>
+                        <span class="case-category">OT 전산화</span>
+                        <h3>설비 이력 관리 디지털화</h3>
+                        <p>종이 기록에서 SharePoint 기반 전자 이력으로 전환</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>설비 정비 이력이 종이 문서로 관리되어 검색 불가, 분실 위험, 분석 불가능</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> SharePoint Lists로 설비 마스터 DB 구축</li>
+                                <li><i class="fas fa-check"></i> 정비 이력 입력 폼 제작 (Power Apps)</li>
+                                <li><i class="fas fa-check"></i> 2주 스프린트로 점진적 데이터 이관</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">500대</div>
+                                <div class="result-label">설비 이력 관리</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">80%</div>
+                                <div class="result-label">검색시간 단축</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used sharepoint"><i class="fas fa-share-alt"></i> SharePoint</span>
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Power Apps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 6 -->
+                <div class="case-card" data-category="ot">
+                    <div class="case-header ot">
+                        <span class="case-number">Case #06</span>
+                        <span class="case-category">OT 전산화</span>
+                        <h3>작업 지시서 전자화</h3>
+                        <p>현장 작업자 모바일 작업 지시 시스템</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>작업 지시서 출력/배포에 30분 소요, 변경 시 재출력 필요, 현장 피드백 지연</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Planner를 작업 지시 플랫폼으로 활용</li>
+                                <li><i class="fas fa-check"></i> Teams 모바일 앱으로 현장 확인</li>
+                                <li><i class="fas fa-check"></i> 작업 완료 시 사진 첨부로 증빙</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">95%</div>
+                                <div class="result-label">종이 사용 감소</div>
+                            </div>
+                            <div class="result-item warning">
+                                <div class="result-value">실시간</div>
+                                <div class="result-label">진행상황 확인</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used planner"><i class="fas fa-tasks"></i> Planner</span>
+                            <span class="tool-used teams"><i class="fab fa-microsoft"></i> Teams Mobile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 7 -->
+                <div class="case-card" data-category="safety">
+                    <div class="case-header safety">
+                        <span class="case-number">Case #07</span>
+                        <span class="case-category">안전관리</span>
+                        <h3>아차사고 신속 보고 체계</h3>
+                        <p>보고 시간 24시간 → 1시간으로 단축</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>아차사고 발생 시 서면 보고로 24시간 이상 소요, 즉각적인 예방 조치 지연</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Forms로 모바일 아차사고 신고 양식 제작</li>
+                                <li><i class="fas fa-check"></i> Power Automate로 관리자 즉시 알림</li>
+                                <li><i class="fas fa-check"></i> Planner에 후속 조치 태스크 자동 생성</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">1시간</div>
+                                <div class="result-label">보고 시간</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">3배</div>
+                                <div class="result-label">신고 건수 증가</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Forms</span>
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Power Automate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 8 -->
+                <div class="case-card" data-category="safety">
+                    <div class="case-header safety">
+                        <span class="case-number">Case #08</span>
+                        <span class="case-category">안전관리</span>
+                        <h3>안전 교육 이수 관리</h3>
+                        <p>법정 교육 이수율 100% 달성</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>직원별 교육 이수 현황 파악 어려움, 법정 교육 미이수로 과태료 리스크</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Lists로 교육 이수 현황 DB 구축</li>
+                                <li><i class="fas fa-check"></i> 교육 만료 30일 전 자동 알림</li>
+                                <li><i class="fas fa-check"></i> 월간 Sprint Review에서 이수율 점검</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">100%</div>
+                                <div class="result-label">교육 이수율</div>
+                            </div>
+                            <div class="result-item warning">
+                                <div class="result-value">0건</div>
+                                <div class="result-label">과태료</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used sharepoint"><i class="fas fa-share-alt"></i> Lists</span>
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Power Automate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 9 -->
+                <div class="case-card" data-category="energy">
+                    <div class="case-header energy">
+                        <span class="case-number">Case #09</span>
+                        <span class="case-category">에너지</span>
+                        <h3>압축공기 누설 관리</h3>
+                        <p>월 전력비 1,500만원 절감</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>공장 내 압축공기 누설 지점 파악 불가, 컴프레서 과부하로 전력 낭비</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Forms로 누설 지점 신고 체계 구축</li>
+                                <li><i class="fas fa-check"></i> Planner에 누설 보수 태스크 관리</li>
+                                <li><i class="fas fa-check"></i> Excel로 월별 누설량/비용 추적</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">₩1,500만</div>
+                                <div class="result-label">월 절감</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">47개</div>
+                                <div class="result-label">누설점 보수</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Forms</span>
+                            <span class="tool-used planner"><i class="fas fa-tasks"></i> Planner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 10 -->
+                <div class="case-card" data-category="energy">
+                    <div class="case-header energy">
+                        <span class="case-number">Case #10</span>
+                        <span class="case-category">에너지</span>
+                        <h3>조명 에너지 절감</h3>
+                        <p>불필요 조명 OFF로 연 2,000만원 절감</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>비가동 시간에도 조명 상시 점등, 에너지 낭비 및 전력 비용 증가</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> 구역별 조명 현황 조사 (2주 스프린트)</li>
+                                <li><i class="fas fa-check"></i> Planner로 타이머 설치 작업 관리</li>
+                                <li><i class="fas fa-check"></i> 월별 전력 사용량 대시보드 구축</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">₩2,000만</div>
+                                <div class="result-label">연간 절감</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">25%</div>
+                                <div class="result-label">조명 전력 감소</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used planner"><i class="fas fa-tasks"></i> Planner</span>
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 11 -->
+                <div class="case-card" data-category="inventory">
+                    <div class="case-header inventory">
+                        <span class="case-number">Case #11</span>
+                        <span class="case-category">재고관리</span>
+                        <h3>부품 바코드 시스템 도입</h3>
+                        <p>재고 실사 시간 3일 → 4시간으로 단축</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>수기 재고 실사로 3일 소요, 오류율 높음, 실시간 재고 파악 불가</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Excel 바코드 생성 및 라벨 출력</li>
+                                <li><i class="fas fa-check"></i> 스마트폰 바코드 스캔 앱 연동</li>
+                                <li><i class="fas fa-check"></i> 스프린트별 구역 바코드 부착 진행</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">4시간</div>
+                                <div class="result-label">실사 시간</div>
+                            </div>
+                            <div class="result-item warning">
+                                <div class="result-value">99%</div>
+                                <div class="result-label">재고 정확도</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel</span>
+                            <span class="tool-used sharepoint"><i class="fas fa-share-alt"></i> Lists</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 12 -->
+                <div class="case-card" data-category="rm">
+                    <div class="case-header rm">
+                        <span class="case-number">Case #12</span>
+                        <span class="case-category">R&M Cost</span>
+                        <h3>설비 고장 패턴 분석</h3>
+                        <p>반복 고장 설비 Top 10 집중 개선</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>어떤 설비가 자주 고장나는지 분석 불가, 정비 자원 분배 비효율</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Lists에 고장 이력 데이터 축적</li>
+                                <li><i class="fas fa-check"></i> Excel 피벗으로 파레토 분석</li>
+                                <li><i class="fas fa-check"></i> Top 10 설비 집중 개선 스프린트 실행</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">40%</div>
+                                <div class="result-label">반복고장 감소</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">MTBF 2배</div>
+                                <div class="result-label">고장간격 증가</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used sharepoint"><i class="fas fa-share-alt"></i> Lists</span>
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 13 -->
+                <div class="case-card" data-category="ot">
+                    <div class="case-header ot">
+                        <span class="case-number">Case #13</span>
+                        <span class="case-category">OT 전산화</span>
+                        <h3>전력 모니터링 대시보드</h3>
+                        <p>실시간 전력 사용량 시각화</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>월말에만 전력 사용량 확인, 피크 관리 불가로 기본요금 과다 발생</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Excel 실시간 연결로 전력 데이터 수집</li>
+                                <li><i class="fas fa-check"></i> Power BI 대시보드 구축</li>
+                                <li><i class="fas fa-check"></i> 피크 알림 자동화로 부하 분산</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">15%</div>
+                                <div class="result-label">기본요금 절감</div>
+                            </div>
+                            <div class="result-item warning">
+                                <div class="result-value">실시간</div>
+                                <div class="result-label">피크 모니터링</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel/Power BI</span>
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Power Automate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 14 -->
+                <div class="case-card" data-category="safety">
+                    <div class="case-header safety">
+                        <span class="case-number">Case #14</span>
+                        <span class="case-category">안전관리</span>
+                        <h3>LOTO 관리 디지털화</h3>
+                        <p>잠금/표시(LOTO) 절차 100% 준수</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>정비 시 LOTO 절차 미준수로 안전 사고 위험, 수기 기록으로 추적 불가</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Forms로 LOTO 점검 체크리스트 제작</li>
+                                <li><i class="fas fa-check"></i> QR코드로 현장에서 모바일 체크</li>
+                                <li><i class="fas fa-check"></i> 미체크 시 작업 시작 불가 알림</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">100%</div>
+                                <div class="result-label">LOTO 준수율</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">0건</div>
+                                <div class="result-label">관련 사고</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Forms</span>
+                            <span class="tool-used teams"><i class="fab fa-microsoft"></i> Teams</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 15 -->
+                <div class="case-card" data-category="inventory">
+                    <div class="case-header inventory">
+                        <span class="case-number">Case #15</span>
+                        <span class="case-category">재고관리</span>
+                        <h3>공용 공구 관리 시스템</h3>
+                        <p>공구 분실률 80% 감소</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>공용 공구 대여/반납 기록 없어 분실 빈번, 필요 시 찾기 어려움</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Lists로 공구 대여 대장 디지털화</li>
+                                <li><i class="fas fa-check"></i> Power Automate로 미반납 알림</li>
+                                <li><i class="fas fa-check"></i> 주간 점검으로 현황 파악</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">80%</div>
+                                <div class="result-label">분실 감소</div>
+                            </div>
+                            <div class="result-item warning">
+                                <div class="result-value">₩500만</div>
+                                <div class="result-label">연간 절감</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used sharepoint"><i class="fas fa-share-alt"></i> Lists</span>
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Power Automate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 16 -->
+                <div class="case-card" data-category="rm">
+                    <div class="case-header rm">
+                        <span class="case-number">Case #16</span>
+                        <span class="case-category">R&M Cost</span>
+                        <h3>정비 작업 표준화</h3>
+                        <p>SOP 기반 정비 시간 30% 단축</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>작업자별 정비 방법이 달라 품질 편차, 신규 인력 교육 어려움</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> OneNote에 설비별 정비 SOP 작성</li>
+                                <li><i class="fas fa-check"></i> 사진/영상 첨부로 시각화</li>
+                                <li><i class="fas fa-check"></i> 스프린트 회고에서 SOP 개선</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">30%</div>
+                                <div class="result-label">작업시간 단축</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">50개</div>
+                                <div class="result-label">SOP 문서화</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used onenote"><i class="fas fa-book"></i> OneNote</span>
+                            <span class="tool-used sharepoint"><i class="fas fa-share-alt"></i> SharePoint</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 17 -->
+                <div class="case-card" data-category="ot">
+                    <div class="case-header ot">
+                        <span class="case-number">Case #17</span>
+                        <span class="case-category">OT 전산화</span>
+                        <h3>센서 이상 자동 알림</h3>
+                        <p>설비 이상 감지 시간 평균 5분 이내</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>센서 데이터를 수동 확인, 이상 발견 지연으로 고장 확대</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Excel 임계치 조건부 서식 설정</li>
+                                <li><i class="fas fa-check"></i> Power Automate로 이상 시 Teams 알림</li>
+                                <li><i class="fas fa-check"></i> 알림 규칙 스프린트별 최적화</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">5분</div>
+                                <div class="result-label">평균 감지시간</div>
+                            </div>
+                            <div class="result-item warning">
+                                <div class="result-value">70%</div>
+                                <div class="result-label">긴급정비 감소</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel</span>
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Power Automate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 18 -->
+                <div class="case-card" data-category="energy">
+                    <div class="case-header energy">
+                        <span class="case-number">Case #18</span>
+                        <span class="case-category">에너지</span>
+                        <h3>스팀 트랩 점검 관리</h3>
+                        <p>스팀 누설 손실 연 3,000만원 절감</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>스팀 트랩 불량으로 에너지 손실, 정기 점검 체계 부재</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Lists에 스팀트랩 마스터 등록</li>
+                                <li><i class="fas fa-check"></i> Planner로 분기별 점검 계획</li>
+                                <li><i class="fas fa-check"></i> 불량 트랩 교체 우선순위 관리</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">₩3,000만</div>
+                                <div class="result-label">연간 절감</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">23개</div>
+                                <div class="result-label">불량 교체</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used sharepoint"><i class="fas fa-share-alt"></i> Lists</span>
+                            <span class="tool-used planner"><i class="fas fa-tasks"></i> Planner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 19 -->
+                <div class="case-card" data-category="safety">
+                    <div class="case-header safety">
+                        <span class="case-number">Case #19</span>
+                        <span class="case-category">안전관리</span>
+                        <h3>위험성 평가 디지털화</h3>
+                        <p>작업 전 위험성 평가 100% 수행</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>위험성 평가 서류 작업 번거로움으로 형식적 수행, 실효성 저하</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Forms로 모바일 위험성 평가 양식</li>
+                                <li><i class="fas fa-check"></i> 작업 유형별 위험 항목 템플릿화</li>
+                                <li><i class="fas fa-check"></i> 평가 결과 자동 저장 및 통계화</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">100%</div>
+                                <div class="result-label">평가 수행률</div>
+                            </div>
+                            <div class="result-item warning">
+                                <div class="result-value">5분</div>
+                                <div class="result-label">평가 소요시간</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used powerautomate"><i class="fas fa-cog"></i> Forms</span>
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 20 -->
+                <div class="case-card" data-category="rm">
+                    <div class="case-header rm">
+                        <span class="case-number">Case #20</span>
+                        <span class="case-category">R&M Cost</span>
+                        <h3>정비 KPI 대시보드</h3>
+                        <p>MTBF, MTTR, 가동률 실시간 모니터링</p>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-problem">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 문제 상황</h4>
+                            <p>정비 성과 측정 지표 없이 감 위주 관리, 개선 포인트 파악 불가</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Agile 해결 과정</h4>
+                            <ul class="solution-steps">
+                                <li><i class="fas fa-check"></i> Excel로 정비 KPI 산출 수식 구축</li>
+                                <li><i class="fas fa-check"></i> Power BI 대시보드로 시각화</li>
+                                <li><i class="fas fa-check"></i> 주간 Sprint Review에서 KPI 리뷰</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-value">95%</div>
+                                <div class="result-label">설비 가동률</div>
+                            </div>
+                            <div class="result-item info">
+                                <div class="result-value">데이터 기반</div>
+                                <div class="result-label">의사결정</div>
+                            </div>
+                        </div>
+                        <div class="case-tools">
+                            <span class="tool-used excel"><i class="fas fa-table"></i> Excel/Power BI</span>
+                            <span class="tool-used teams"><i class="fab fa-microsoft"></i> Teams</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+
+    <script>
+        // Category Filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const category = this.dataset.category;
+                document.querySelectorAll('.case-card').forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
