@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 10: 안전 교육 이수 관리 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="cases.html" class="nav-back"><i class="fas fa-arrow-left"></i> 사례 목록</a>
+        <div class="week-indicator">
+            <a href="case09.html" class="prev"><i class="fas fa-arrow-left"></i> Case 09</a>
+            <span class="current case">Case 10</span>
+            <a href="case11.html" class="next">Case 11 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="case-study-banner safety-theme">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Case 10: 안전 교육 이수 관리</h2>
+            <p>법정 의무 교육 이수 현황 관리, 미이수자 자동 알림 시스템</p>
+        </div>
+    </div>
+
+    <section class="week-hero week9-theme">
+        <div class="hero-content">
+            <span class="week-badge">Case 10 | 안전관리</span>
+            <h1>📚 안전 교육 이수 관리</h1>
+            <p>산업안전보건법 필수 교육 이수 현황을 실시간으로 추적하고 미이수자에게 자동 알림합니다</p>
+            <div class="kpi-focus">
+                <div class="kpi-item active"><i class="fas fa-graduation-cap"></i><span>교육 이력</span></div>
+                <div class="kpi-item"><i class="fas fa-bell"></i><span>미이수 알림</span></div>
+                <div class="kpi-item"><i class="fas fa-chart-pie"></i><span>이수율 분석</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card safety">
+                <h2><i class="fas fa-exclamation-circle"></i> 문제 상황</h2>
+                <div class="scenario-box">
+                    <h4><i class="fas fa-users"></i> 현장의 목소리</h4>
+                    <p>안전교육 담당 김OO 주임이 관리의 어려움을 토로합니다:<br>
+                        <em>"법정 의무 교육만 해도 신규자 교육, 정기 교육, 특별 교육 등 종류가 많고,
+                            200명의 이수 현황을 Excel로 관리하는데 한계가 있어요. 누가 미이수인지 일일이 확인해서
+                            메일 보내는 것도 일이고, 노동부 점검 때마다 이수증 모아서 제출하는 게 정말 힘듭니다.
+                            근로자별 교육 이력을 한눈에 볼 수 있으면 좋겠어요."</em>
+                    </p>
+                </div>
+                <div class="goal-metrics">
+                    <div class="metric"><span class="metric-label">관리 인원</span><span class="metric-value">200명</span>
+                    </div>
+                    <div class="metric"><span class="metric-label">연간 교육 건수</span><span class="metric-value">800건</span>
+                    </div>
+                    <div class="metric"><span class="metric-label">개선 기간</span><span class="metric-value">3주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 실행 가이드</h2>
+
+            <!-- ===== STEP 1: 교육 마스터 & 이수 이력 Lists ===== -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool sharepoint"><i class="fas fa-share-alt"></i><span>SharePoint Lists</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (월~수)</span>
+                </div>
+                <h3>교육 관리 DB 구축 (2개 Lists)</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>법정 의무 교육 현황 이해</h5>
+                                <div
+                                    style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📋 산업안전보건법 필수 교육</strong><br><br>
+                                    <table class="excel-table" style="font-size: 0.85rem;">
+                                        <thead>
+                                            <tr>
+                                                <th>교육 종류</th>
+                                                <th>대상</th>
+                                                <th>시간</th>
+                                                <th>주기</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>신규자 교육</td>
+                                                <td>신규 채용자</td>
+                                                <td>8시간 이상</td>
+                                                <td>채용 시</td>
+                                            </tr>
+                                            <tr>
+                                                <td>정기 교육</td>
+                                                <td>전 근로자</td>
+                                                <td>분기 6시간</td>
+                                                <td>분기 1회</td>
+                                            </tr>
+                                            <tr>
+                                                <td>특별 교육</td>
+                                                <td>위험작업 종사자</td>
+                                                <td>16시간 이상</td>
+                                                <td>해당 작업 전</td>
+                                            </tr>
+                                            <tr>
+                                                <td>관리감독자 교육</td>
+                                                <td>관리감독자</td>
+                                                <td>연간 16시간</td>
+                                                <td>연 1회</td>
+                                            </tr>
+                                            <tr>
+                                                <td>작업내용 변경 시</td>
+                                                <td>해당 근로자</td>
+                                                <td>2시간 이상</td>
+                                                <td>변경 시</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br><span style="color: #dc2626;">⚠️ 미실시 과태료: 최대 500만원</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>Lists 1: "교육과정마스터" (10개 컬럼)</h5>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>과정코드</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>EDU-001 형식</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>과정명</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>필수</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교육유형</strong></td>
+                                            <td>선택</td>
+                                            <td>신규자, 정기, 특별, 관리감독자, 작업변경</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교육시간</strong></td>
+                                            <td>숫자</td>
+                                            <td>시간 단위</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>대상자구분</strong></td>
+                                            <td>선택(복수)</td>
+                                            <td>전체, 생산직, 사무직, 관리자, 특정작업</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교육주기</strong></td>
+                                            <td>선택</td>
+                                            <td>1회성, 분기, 반기, 연간, 수시</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>법정여부</strong></td>
+                                            <td>예/아니요</td>
+                                            <td>법정 의무 교육 여부</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교육방법</strong></td>
+                                            <td>선택</td>
+                                            <td>집합교육, 온라인, 현장교육</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>담당자</strong></td>
+                                            <td>사용자</td>
+                                            <td>교육 운영 담당</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교재링크</strong></td>
+                                            <td>하이퍼링크</td>
+                                            <td>SharePoint 문서 링크</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-3</span>
+                            <div class="instruction-content">
+                                <h5>Lists 2: "교육이수현황" (12개 컬럼)</h5>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>이수번호</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>자동채번 TRN-2025-0001</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교육과정</strong></td>
+                                            <td>조회(Lookup)</td>
+                                            <td>교육과정마스터 → 과정명</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교육대상자</strong></td>
+                                            <td>사용자</td>
+                                            <td>필수</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>부서</strong></td>
+                                            <td>선택</td>
+                                            <td>생산1팀, 생산2팀, 물류팀, 정비팀, 사무국</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교육일자</strong></td>
+                                            <td>날짜</td>
+                                            <td>교육 실시일</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교육시간</strong></td>
+                                            <td>숫자</td>
+                                            <td>실제 이수 시간</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>이수상태</strong></td>
+                                            <td>선택</td>
+                                            <td>
+                                                📝 예정<br>
+                                                ✅ 이수완료<br>
+                                                ❌ 미이수<br>
+                                                🔄 재교육필요
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>이수증</strong></td>
+                                            <td>하이퍼링크</td>
+                                            <td>스캔 파일 링크</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>평가점수</strong></td>
+                                            <td>숫자</td>
+                                            <td>100점 만점 (해당 시)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>다음교육예정일</strong></td>
+                                            <td>날짜</td>
+                                            <td>주기에 따른 다음 교육일</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>비고</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>등록일</strong></td>
+                                            <td>날짜</td>
+                                            <td>자동 (생성일)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-4</span>
+                            <div class="instruction-content">
+                                <h5>다음 교육 예정일 계산 (Power Automate)</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                                    <strong style="color: #60a5fa;">// 교육 이수 완료 시 다음 교육일 자동 계산</strong><br><br>
+
+                                    <strong style="color: #60a5fa;">// 교육주기에 따른 분기</strong><br>
+                                    Switch on 교육주기:<br><br>
+
+                                    Case "분기":<br>
+                                    &nbsp;&nbsp;addToTime(교육일자, 3, 'Month')<br><br>
+
+                                    Case "반기":<br>
+                                    &nbsp;&nbsp;addToTime(교육일자, 6, 'Month')<br><br>
+
+                                    Case "연간":<br>
+                                    &nbsp;&nbsp;addToTime(교육일자, 1, 'Year')<br><br>
+
+                                    Default (1회성, 수시):<br>
+                                    &nbsp;&nbsp;null (다음 교육일 없음)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-5</span>
+                            <div class="instruction-content">
+                                <h5>관리용 뷰 설정</h5>
+                                <table class="excel-table">
+                                    <thead>
+                                        <tr>
+                                            <th>뷰 이름</th>
+                                            <th>필터</th>
+                                            <th>그룹화</th>
+                                            <th>용도</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>❌ 미이수자</td>
+                                            <td>이수상태 = 미이수</td>
+                                            <td>교육과정</td>
+                                            <td>독촉 대상</td>
+                                        </tr>
+                                        <tr>
+                                            <td>📅 이번달 교육</td>
+                                            <td>교육일자 = 이번 달</td>
+                                            <td>교육일자</td>
+                                            <td>일정 확인</td>
+                                        </tr>
+                                        <tr>
+                                            <td>⏰ 예정 교육</td>
+                                            <td>다음교육예정일 ≤ 오늘+30일</td>
+                                            <td>부서</td>
+                                            <td>사전 안내</td>
+                                        </tr>
+                                        <tr>
+                                            <td>👤 내 교육</td>
+                                            <td>교육대상자 = [Me]</td>
+                                            <td>-</td>
+                                            <td>개인 이력</td>
+                                        </tr>
+                                        <tr>
+                                            <td>📊 부서별 현황</td>
+                                            <td>-</td>
+                                            <td>부서</td>
+                                            <td>통계</td>
+                                        </tr>
+                                        <tr>
+                                            <td>📋 법정 교육</td>
+                                            <td>Lookup 법정여부 = 예</td>
+                                            <td>교육과정</td>
+                                            <td>법적 대응</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> Lookup 컬럼 생성 시 "추가 필드도 표시"를 선택하면,
+                        과정명뿐 아니라 교육시간, 교육유형도 자동 표시됩니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 2: Power Automate ===== -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool powerautomate"><i class="fas fa-cog"></i><span>Power Automate</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (목~금)</span>
+                </div>
+                <h3>자동 알림 시스템 구축 (4개 흐름)</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-bolt"></i> 흐름 1: 교육 예정 30일 전 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>교육 대상자에게 사전 안내</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+                                        <div
+                                            style="background: #dbeafe; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>예약: 매일 오전 8시</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>여러 항목 가져오기 (교육이수현황)</strong><br>
+                                            <small>필터: 다음교육예정일 = 오늘+30일</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #e0e7ff; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>Apply to each</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #d1fae5; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>Teams 채팅으로 알림</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>알림 메시지</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                                    📚 <strong>안전 교육 예정 안내</strong><br><br>
+                                    안녕하세요, @{items('Apply_to_each')?['교육대상자/DisplayName']}님<br><br>
+                                    아래 안전 교육이 30일 후 예정되어 있습니다.<br><br>
+                                    📋 <strong>교육 정보</strong><br>
+                                    • 교육명: @{items('Apply_to_each')?['교육과정/과정명']}<br>
+                                    • 예정일: @{formatDateTime(items('Apply_to_each')?['다음교육예정일'], 'yyyy-MM-dd')}<br>
+                                    • 교육시간: @{items('Apply_to_each')?['교육시간']}시간<br><br>
+                                    일정을 확인하시고 교육에 참석해 주세요. 🙏
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;"><i class="fas fa-bolt"></i> 흐름 2: 미이수자 독촉 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-3</span>
+                            <div class="instruction-content">
+                                <h5>교육일 초과 시 미이수자 알림</h5>
+                                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                                    <strong>예약:</strong> 매주 월요일 오전 9시<br>
+                                    <strong>필터:</strong> 다음교육예정일 < 오늘 AND 이수상태 ≠ 이수완료<br>
+                                        <strong>액션 1:</strong> 미이수자 본인에게 Teams 알림<br>
+                                        <strong>액션 2:</strong> 미이수자 목록을 담당자에게 이메일 발송<br><br>
+                                        <div style="background: #fee2e2; padding: 1rem; border-radius: 8px;">
+                                            ⚠️ <strong>미이수 교육 알림</strong><br><br>
+                                            @{items('Apply_to_each')?['교육대상자/DisplayName']}님,<br>
+                                            "@{items('Apply_to_each')?['교육과정/과정명']}" 교육이 미이수 상태입니다.<br>
+                                            빠른 시일 내 이수해 주세요.
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;"><i class="fas fa-bolt"></i> 흐름 3: 이수 완료 시 다음 교육일 자동 설정</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-4</span>
+                            <div class="instruction-content">
+                                <h5>이수상태 "완료" 시 자동 계산</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+                                        <div
+                                            style="background: #dbeafe; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>트리거: 항목 수정됨</strong><br>
+                                            <small>이수상태 = 이수완료</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>Get Item (교육과정마스터)</strong><br>
+                                            <small>교육주기 조회</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #d1fae5; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>Switch on 교육주기</strong><br>
+                                            <small>분기/반기/연간에 따라 다음 교육일 계산</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #e0e7ff; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>Update Item</strong><br>
+                                            <small>다음교육예정일 필드 업데이트</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;"><i class="fas fa-bolt"></i> 흐름 4: 월간 이수 현황 리포트</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-5</span>
+                            <div class="instruction-content">
+                                <h5>월초 자동 요약 발송</h5>
+                                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                                    <strong>예약:</strong> 매월 1일 오전 10시<br>
+                                    <strong>집계:</strong> 전월 이수 현황 (부서별 이수율, 미이수자 명단)<br>
+                                    <strong>발송 대상:</strong> 안전팀장, 각 부서 관리자<br><br>
+                                    <div style="background: #dbeafe; padding: 1rem; border-radius: 8px;">
+                                        📊 <strong>2025년 1월 안전 교육 이수 현황</strong><br><br>
+                                        ✅ 전체 이수율: 94%<br>
+                                        ❌ 미이수자: 12명<br>
+                                        📋 상세 내역은 첨부 파일 참조
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> Outlook "일정" 커넥터를 추가하면,
+                        교육 예정일에 자동으로 캘린더 일정도 생성할 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 3: 대시보드 ===== -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool excel"><i class="fas fa-chart-bar"></i><span>Excel / Power BI</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (월~화)</span>
+                </div>
+                <h3>교육 이수 현황 대시보드</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>전체 현황 대시보드</h5>
+                                <div class="dashboard-layout">
+                                    <div class="dash-item" style="background: #dbeafe;">
+                                        <i class="fas fa-users"></i>
+                                        <h5>총 인원</h5>
+                                        <span class="dash-value">200명</span>
+                                    </div>
+                                    <div class="dash-item success" style="background: #d1fae5;">
+                                        <i class="fas fa-check-circle"></i>
+                                        <h5>이수 완료</h5>
+                                        <span class="dash-value">188명</span>
+                                    </div>
+                                    <div class="dash-item" style="background: #fee2e2;">
+                                        <i class="fas fa-times-circle"></i>
+                                        <h5>미이수</h5>
+                                        <span class="dash-value">12명</span>
+                                    </div>
+                                    <div class="dash-item" style="background: #fef3c7;">
+                                        <i class="fas fa-percentage"></i>
+                                        <h5>이수율</h5>
+                                        <span class="dash-value">94%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>부서별 이수율</h5>
+                                <div class="excel-template">
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>부서</th>
+                                                <th>인원</th>
+                                                <th>이수</th>
+                                                <th>미이수</th>
+                                                <th>이수율</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>생산1팀</td>
+                                                <td>60명</td>
+                                                <td>58명</td>
+                                                <td>2명</td>
+                                                <td style="background: #d1fae5;">97%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>생산2팀</td>
+                                                <td>55명</td>
+                                                <td>52명</td>
+                                                <td>3명</td>
+                                                <td style="background: #d1fae5;">95%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>물류팀</td>
+                                                <td>40명</td>
+                                                <td>38명</td>
+                                                <td>2명</td>
+                                                <td style="background: #d1fae5;">95%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>정비팀</td>
+                                                <td>30명</td>
+                                                <td>27명</td>
+                                                <td>3명</td>
+                                                <td style="background: #fef3c7;">90%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>사무국</td>
+                                                <td>15명</td>
+                                                <td>13명</td>
+                                                <td>2명</td>
+                                                <td style="background: #fef3c7;">87%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-3</span>
+                            <div class="instruction-content">
+                                <h5>교육 종류별 현황</h5>
+                                <div class="excel-template">
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>교육</th>
+                                                <th>대상</th>
+                                                <th>이수</th>
+                                                <th>진행율</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>정기 교육 (1분기)</td>
+                                                <td>200명</td>
+                                                <td>188명</td>
+                                                <td>94%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>관리감독자 교육</td>
+                                                <td>25명</td>
+                                                <td>25명</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>특별 교육 (용접)</td>
+                                                <td>15명</td>
+                                                <td>15명</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>신규자 교육</td>
+                                                <td>8명</td>
+                                                <td>8명</td>
+                                                <td>100%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 4: 운영 ===== -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>운영</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2-3</span>
+                </div>
+                <h3>기존 데이터 이관 및 운영</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-1</span>
+                            <div class="instruction-content">
+                                <h5>기존 데이터 이관 계획</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 이관 순서:</strong><br><br>
+                                    <strong>1단계:</strong> 교육과정마스터 등록 (약 20개 과정)<br>
+                                    <strong>2단계:</strong> 금년도 이수 내역 이관 (약 400건)<br>
+                                    <strong>3단계:</strong> 전년도 이력 이관 (선택, 400건)<br><br>
+                                    <span style="color: #0078d4;">💡 그리드 보기에서 Excel 붙여넣기로 30분 내 완료 가능</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="retro-board">
+                        <div class="retro-column start">
+                            <h4>✅ 시작할 것</h4>
+                            <ul>
+                                <li>교육 완료 즉시 Lists 이수 등록</li>
+                                <li>이수증 스캔 후 SharePoint 업로드</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column stop">
+                            <h4>🛑 멈출 것</h4>
+                            <ul>
+                                <li>개인 Excel에 교육 이력 관리</li>
+                                <li>이수증 종이 보관만</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column continue">
+                            <h4>🔄 계속할 것</h4>
+                            <ul>
+                                <li>미이수자 자동 알림</li>
+                                <li>월간 이수율 리포트</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="step-guide" style="background: #fef2f2;">
+        <div class="container">
+            <h2 class="section-title">❓ 자주 묻는 질문 (FAQ)</h2>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q1. 외부 교육도 관리할 수 있나요?</h3>
+                <div class="step-content">
+                    <div style="background: #d1fae5; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> 네, 교육과정마스터에 "외부 위탁 교육"도 등록하면 됩니다.<br>
+                        이수증은 하이퍼링크 컬럼에 스캔본 URL을 첨부하세요.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q2. 근로자별 전체 이력을 한눈에 보려면?</h3>
+                <div class="step-content">
+                    <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> "내 교육" 뷰 또는 필터에서 특정 사용자 검색<br>
+                        Power BI 연결 시 개인별 교육 카드 형태로 시각화 가능
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q3. 노동부 점검 시 어떻게 제출하나요?</h3>
+                <div class="step-content">
+                    <div style="background: #dbeafe; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> Lists → Excel로 내보내기 → 필요한 기간/교육 필터링 후 제출<br>
+                        이수증은 SharePoint 문서 라이브러리에서 일괄 다운로드
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card value-card">
+                <h2><i class="fas fa-chart-line"></i> 개선 결과</h2>
+                <div class="result-grid">
+                    <div class="result-item"><i class="fas fa-users"></i>
+                        <h4>200명</h4>
+                        <p>통합 관리</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-bell"></i>
+                        <h4>자동</h4>
+                        <p>미이수 알림</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-percentage"></i>
+                        <h4>94%↑</h4>
+                        <p>이수율 향상</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-certificate"></i>
+                        <h4>즉시</h4>
+                        <p>이력 조회</p>
+                    </div>
+                </div>
+                <div class="value-metrics">
+                    <div class="value-item">
+                        <div class="value-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <i class="fas fa-clock"></i></div>
+                        <div class="value-info">
+                            <h4>관리 시간 절감</h4>
+                            <p>Excel 수작업 → 자동화로 관리 업무 최소화</p>
+                            <span class="value-tag">월 8시간 → 2시간 (75% 절감)</span>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                            <i class="fas fa-gavel"></i></div>
+                        <div class="value-info">
+                            <h4>법적 리스크 제거</h4>
+                            <p>미이수 자동 알림으로 과태료 위험 제거</p>
+                            <span class="value-tag">과태료 500만원 리스크 해소</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview communication">
+                <span class="preview-label">다음 사례</span>
+                <h2>Case 11: 팀 커뮤니케이션 효율화</h2>
+                <p>Teams 채널 구조화, 정보 분산 방지</p>
+                <a href="case11.html" class="btn btn-primary">다음 사례 보기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="cases.html">사례 목록</a> | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
