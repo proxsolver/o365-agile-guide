@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 9: OT 설비 전산화 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> 전체 로드맵</a>
+        <div class="week-indicator">
+            <a href="week8.html" class="prev"><i class="fas fa-arrow-left"></i> Week 8</a>
+            <span class="current case">Week 9</span>
+            <a href="week10.html" class="next">Week 10 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="case-study-banner ot-theme">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Sprint 4: OT 설비 전산화</h2>
+            <p>Operations Technology 조직과 협업한 설비 데이터 디지털화</p>
+        </div>
+    </div>
+
+    <section class="week-hero week9-theme">
+        <div class="hero-content">
+            <span class="week-badge">Week 9 of 10 | Sprint 4 시작</span>
+            <h1>🖥️ 설비 전산화 킥오프</h1>
+            <p>OT팀과 협업하여 설비 마스터 데이터 및 IoT 연동 계획 수립</p>
+            <div class="kpi-focus">
+                <div class="kpi-item"><i class="fas fa-boxes"></i><span>Inventory Level</span></div>
+                <div class="kpi-item"><i class="fas fa-tools"></i><span>R&M Cost</span></div>
+                <div class="kpi-item active"><i class="fas fa-microchip"></i><span>OT 전산화</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card ot">
+                <h2><i class="fas fa-bullseye"></i> Sprint 4 목표</h2>
+                <p class="goal-statement">"설비 마스터 데이터를 <strong>체계적으로 정비</strong>하고,
+                    <strong>실시간 모니터링 파일럿</strong>을 위한 기반을 구축한다"
+                </p>
+                <div class="goal-metrics">
+                    <div class="metric"><span class="metric-label">마스터 데이터</span><span class="metric-value">100%
+                            정비</span></div>
+                    <div class="metric"><span class="metric-label">파일럿 설비</span><span class="metric-value">5대 선정</span>
+                    </div>
+                    <div class="metric"><span class="metric-label">스프린트 기간</span><span class="metric-value">2주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 Week 9 실행 가이드</h2>
+
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 월요일</span>
+                </div>
+                <h3>OT팀 협업 킥오프 미팅</h3>
+                <div class="step-content">
+                    <div class="scenario-box">
+                        <h4><i class="fas fa-handshake"></i> 협업 시나리오</h4>
+                        <p>Technical Service팀과 OT(Operations Technology)팀이 처음으로 Agile 방식의 협업 미팅을 진행합니다.</p>
+                    </div>
+
+                    <div class="meeting-setup">
+                        <h4>Teams 미팅 설정:</h4>
+                        <ul>
+                            <li><strong>제목:</strong> [Sprint 4] OT-TS 협업 킥오프</li>
+                            <li><strong>참석:</strong> TS팀 전원 + OT팀 담당자 2명</li>
+                            <li><strong>공유:</strong> 기존 설비 목록, ERP 설비 마스터</li>
+                        </ul>
+                    </div>
+
+                    <div class="backlog-example">
+                        <h4>Sprint 4 백로그:</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>태스크</th>
+                                    <th>담당</th>
+                                    <th>SP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>설비 마스터 현황 조사</td>
+                                    <td>TS팀</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>설비 분류 체계 정의</td>
+                                    <td>TS+OT</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>마스터 데이터 정비</td>
+                                    <td>TS팀</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>센서 현황 조사</td>
+                                    <td>OT팀</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>파일럿 설비 선정</td>
+                                    <td>TS+OT</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>IoT 연동 요건 정의</td>
+                                    <td>OT팀</td>
+                                    <td>5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="total-sp">총 스토리 포인트: <strong>27</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool sharepoint"><i class="fas fa-share-alt"></i><span>SharePoint</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 화~수요일</span>
+                </div>
+                <h3>설비 마스터 데이터 정비</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>SharePoint 리스트로 설비 마스터 구축</h5>
+                                <p>SharePoint → 사이트 콘텐츠 → 새로 만들기 → 리스트</p>
+                                <table class="excel-table">
+                                    <thead>
+                                        <tr>
+                                            <th>설비코드</th>
+                                            <th>설비명</th>
+                                            <th>라인</th>
+                                            <th>설치일</th>
+                                            <th>제조사</th>
+                                            <th>중요도</th>
+                                            <th>센서유무</th>
+                                            <th>상태</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>EQ-001</td>
+                                            <td>컨베이어 #1</td>
+                                            <td>A라인</td>
+                                            <td>2018-03-15</td>
+                                            <td>현대로보틱스</td>
+                                            <td>Critical</td>
+                                            <td>있음</td>
+                                            <td>가동중</td>
+                                        </tr>
+                                        <tr>
+                                            <td>EQ-023</td>
+                                            <td>펌프 #5</td>
+                                            <td>B라인</td>
+                                            <td>2015-07-22</td>
+                                            <td>그런포스</td>
+                                            <td>Critical</td>
+                                            <td>없음</td>
+                                            <td>정비예정</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>설비 분류 체계 (Taxonomy)</h5>
+                                <div class="taxonomy-tree">
+                                    <div class="tax-level1">
+                                        <i class="fas fa-sitemap"></i> 공장
+                                        <div class="tax-level2">
+                                            📍 생산동
+                                            <div class="tax-level3">
+                                                <span>A라인</span>
+                                                <span>B라인</span>
+                                                <span>C라인</span>
+                                            </div>
+                                        </div>
+                                        <div class="tax-level2">
+                                            📍 유틸리티동
+                                            <div class="tax-level3">
+                                                <span>전력</span>
+                                                <span>용수</span>
+                                                <span>공조</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 목요일</span>
+                </div>
+                <h3>파일럿 설비 선정 매트릭스</h3>
+                <div class="step-content">
+                    <div class="selection-matrix">
+                        <h4>파일럿 설비 선정 기준:</h4>
+                        <table class="excel-table">
+                            <thead>
+                                <tr>
+                                    <th>설비</th>
+                                    <th>중요도</th>
+                                    <th>고장빈도</th>
+                                    <th>센서유무</th>
+                                    <th>연동용이성</th>
+                                    <th>총점</th>
+                                    <th>선정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>펌프 #5</td>
+                                    <td>5</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>17</td>
+                                    <td>✅</td>
+                                </tr>
+                                <tr>
+                                    <td>컨베이어 #3</td>
+                                    <td>5</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>4</td>
+                                    <td>18</td>
+                                    <td>✅</td>
+                                </tr>
+                                <tr>
+                                    <td>모터 #12</td>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td>5</td>
+                                    <td>5</td>
+                                    <td>17</td>
+                                    <td>✅</td>
+                                </tr>
+                                <tr>
+                                    <td>압축기 #2</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>16</td>
+                                    <td>✅</td>
+                                </tr>
+                                <tr>
+                                    <td>냉각탑 #1</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                    <td>5</td>
+                                    <td>5</td>
+                                    <td>16</td>
+                                    <td>✅</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="note">* 1~5점 척도, 총점 15점 이상 선정</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool onenote"><i class="fas fa-book"></i><span>OneNote</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 금요일</span>
+                </div>
+                <h3>IoT 연동 요건 정의</h3>
+                <div class="step-content">
+                    <div class="iot-requirements">
+                        <h4>파일럿 설비 IoT 연동 요건:</h4>
+                        <div class="requirement-card">
+                            <h5><i class="fas fa-thermometer-half"></i> 펌프 #5</h5>
+                            <ul>
+                                <li>모니터링: 진동, 온도, 압력</li>
+                                <li>알람: 진동 3mm/s 초과 시</li>
+                                <li>주기: 10초 간격</li>
+                            </ul>
+                        </div>
+                        <div class="requirement-card">
+                            <h5><i class="fas fa-exchange-alt"></i> 컨베이어 #3</h5>
+                            <ul>
+                                <li>모니터링: 모터 전류, 속도</li>
+                                <li>알람: 전류 정격 120% 초과 시</li>
+                                <li>주기: 1초 간격</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card">
+                <h2><i class="fas fa-flag-checkered"></i> Week 9 완료 후 결과물</h2>
+                <div class="result-grid">
+                    <div class="result-item"><i class="fas fa-list"></i>
+                        <h4>설비 마스터</h4>
+                        <p>SharePoint 리스트 구축</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-sitemap"></i>
+                        <h4>분류 체계</h4>
+                        <p>공장-동-라인 구조</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-check-double"></i>
+                        <h4>파일럿 5대</h4>
+                        <p>IoT 연동 대상 선정</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-file-alt"></i>
+                        <h4>연동 요건서</h4>
+                        <p>설비별 모니터링 항목</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview ot">
+                <span class="preview-label">다음 주</span>
+                <h2>Week 10: 전산화 로드맵 수립</h2>
+                <p>파일럿 결과를 바탕으로 전사 설비 전산화 로드맵을 수립합니다.</p>
+                <a href="week10.html" class="btn btn-primary">Week 10 시작하기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

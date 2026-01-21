@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 5: Inventory 최적화 시작 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> 전체 로드맵</a>
+        <div class="week-indicator">
+            <a href="week4.html" class="prev"><i class="fas fa-arrow-left"></i> Week 4</a>
+            <span class="current case">Week 5</span>
+            <a href="week6.html" class="next">Week 6 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Case Study Badge -->
+    <div class="case-study-banner">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Sprint 2: Inventory Level 최적화</h2>
+            <p>재고 수준 가시화 및 최적화를 통한 비용 절감</p>
+        </div>
+    </div>
+
+    <section class="week-hero week5-theme">
+        <div class="hero-content">
+            <span class="week-badge">Week 5 of 10 | Sprint 2 시작</span>
+            <h1>📦 재고 현황 가시화</h1>
+            <p>MRO 부품 재고를 실시간으로 파악하고 분석 기반을 구축합니다</p>
+            <div class="kpi-focus">
+                <div class="kpi-item active">
+                    <i class="fas fa-boxes"></i>
+                    <span>Inventory Level</span>
+                </div>
+                <div class="kpi-item">
+                    <i class="fas fa-tools"></i>
+                    <span>R&M Cost</span>
+                </div>
+                <div class="kpi-item">
+                    <i class="fas fa-microchip"></i>
+                    <span>OT 전산화</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sprint Goal -->
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card">
+                <h2><i class="fas fa-bullseye"></i> Sprint 2 목표</h2>
+                <p class="goal-statement">"MRO 부품 재고 현황을 <strong>실시간으로 모니터링</strong>하고,
+                    <strong>과잉/부족 재고를 식별</strong>하여 최적 재고 수준을 도출한다"
+                </p>
+                <div class="goal-metrics">
+                    <div class="metric">
+                        <span class="metric-label">목표 재고 절감</span>
+                        <span class="metric-value">15%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">데이터 가시화율</span>
+                        <span class="metric-value">100%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">스프린트 기간</span>
+                        <span class="metric-value">2주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Guide -->
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 Week 5 실행 가이드</h2>
+
+            <!-- Step 1: Sprint Planning -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 월요일 오전</span>
+                </div>
+                <h3>Sprint 2 Planning: 재고 최적화 킥오프</h3>
+                <div class="step-content">
+                    <div class="scenario-box">
+                        <h4><i class="fas fa-users"></i> 상황 설정</h4>
+                        <p>Technical Service Team 주간 미팅에서 창고 담당자가 보고합니다:<br>
+                            <em>"일부 부품은 2년치 재고가 쌓여있고, 긴급 필요한 부품은 항상 품절입니다."</em>
+                        </p>
+                    </div>
+
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>Teams 미팅에서 문제 정의</h5>
+                                <p>Sprint Planning 채널에서 미팅 시작</p>
+                                <div class="agenda-example">
+                                    <h5>아젠다:</h5>
+                                    <ol>
+                                        <li>현재 재고 문제점 공유 (창고 담당자)</li>
+                                        <li>데이터 소스 확인 (ERP, Excel 등)</li>
+                                        <li>Sprint 2 백로그 확정</li>
+                                        <li>담당자 배정</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>Planner에 Sprint 2 백로그 등록</h5>
+                                <div class="backlog-example">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>태스크</th>
+                                                <th>담당자</th>
+                                                <th>SP</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ERP에서 재고 데이터 추출</td>
+                                                <td>김OO</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Excel로 재고 분석 템플릿 제작</td>
+                                                <td>이OO</td>
+                                                <td>5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ABC 분석 수행</td>
+                                                <td>박OO</td>
+                                                <td>5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>과잉재고 리스트 작성</td>
+                                                <td>최OO</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>부족재고 리스트 작성</td>
+                                                <td>최OO</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>재고 대시보드 초안 작성</td>
+                                                <td>이OO</td>
+                                                <td>8</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="total-sp">총 스토리 포인트: <strong>27</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Data Collection -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 월~화요일</span>
+                </div>
+                <h3>재고 데이터 수집 및 정리</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>SharePoint에 데이터 수집 폴더 생성</h5>
+                                <p>02_Sprint_Deliverables → Sprint_02_Inventory → Data 폴더 생성</p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>Excel 재고 분석 템플릿 제작</h5>
+                                <div class="excel-template">
+                                    <h5>Inventory_Analysis.xlsx 구조:</h5>
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>부품코드</th>
+                                                <th>부품명</th>
+                                                <th>카테고리</th>
+                                                <th>현재고</th>
+                                                <th>단가(원)</th>
+                                                <th>재고금액</th>
+                                                <th>월평균사용량</th>
+                                                <th>재고회전월</th>
+                                                <th>ABC등급</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>MRO-001</td>
+                                                <td>베어링 6205</td>
+                                                <td>회전체</td>
+                                                <td>150</td>
+                                                <td>25,000</td>
+                                                <td>=D2*E2</td>
+                                                <td>12</td>
+                                                <td>=D2/G2</td>
+                                                <td>A</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tip-box">
+                                    💡 <strong>수식 팁:</strong><br>
+                                    • 재고회전월 = 현재고 / 월평균사용량<br>
+                                    • 12개월 이상 = 과잉재고 경고<br>
+                                    • 1개월 미만 = 부족재고 경고
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-3</span>
+                            <div class="instruction-content">
+                                <h5>ABC 분석 수행</h5>
+                                <p>재고금액 기준 ABC 분류:</p>
+                                <div class="abc-analysis">
+                                    <div class="abc-item a">
+                                        <span class="abc-grade">A</span>
+                                        <span class="abc-desc">상위 20% 품목 (금액 80%)</span>
+                                        <span class="abc-action">집중 관리</span>
+                                    </div>
+                                    <div class="abc-item b">
+                                        <span class="abc-grade">B</span>
+                                        <span class="abc-desc">중간 30% 품목 (금액 15%)</span>
+                                        <span class="abc-action">정기 검토</span>
+                                    </div>
+                                    <div class="abc-item c">
+                                        <span class="abc-grade">C</span>
+                                        <span class="abc-desc">하위 50% 품목 (금액 5%)</span>
+                                        <span class="abc-action">간소화 관리</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Daily Standup -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 매일 9:30</span>
+                </div>
+                <h3>Daily Standup: 진행 상황 공유</h3>
+                <div class="step-content">
+                    <div class="standup-example">
+                        <h4><i class="fas fa-comments"></i> 스탠드업 예시 (수요일)</h4>
+                        <div class="standup-person">
+                            <strong>김OO (데이터 추출 담당)</strong>
+                            <ul>
+                                <li>🟢 어제: ERP에서 5,000개 부품 데이터 추출 완료</li>
+                                <li>🔵 오늘: Excel로 데이터 정제 작업</li>
+                                <li>🔴 블로커: 일부 부품코드 중복 → 창고팀 확인 필요</li>
+                            </ul>
+                        </div>
+                        <div class="standup-person">
+                            <strong>이OO (분석 템플릿 담당)</strong>
+                            <ul>
+                                <li>🟢 어제: 분석 템플릿 기본 구조 완성</li>
+                                <li>🔵 오늘: 피벗 테이블 및 차트 추가</li>
+                                <li>🔴 블로커: 없음</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> 블로커 발생 시 Planner에 "🔴 Blocked" 레이블 추가하고,
+                        담당자를 지정하여 즉시 해결
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: OneNote Documentation -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool onenote"><i class="fas fa-book"></i><span>OneNote</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 수시</span>
+                </div>
+                <h3>분석 인사이트 기록</h3>
+                <div class="step-content">
+                    <div class="onenote-example">
+                        <h4>Sprint 2 - Inventory 분석 노트</h4>
+                        <div class="note-content">
+                            <h5>📅 2026-01-22 데이터 분석 결과</h5>
+                            <p><strong>주요 발견:</strong></p>
+                            <ul>
+                                <li>전체 재고 금액: 15억원</li>
+                                <li>A등급 품목: 245개 (12억원, 80%)</li>
+                                <li>24개월 이상 재고: 87개 품목 (1.2억원)</li>
+                                <li>품절 빈도 상위 10개 부품 확인</li>
+                            </ul>
+                            <p><strong>조치 제안:</strong></p>
+                            <ul>
+                                <li>과잉재고 87개 품목 → 사용부서 협의 후 처분 검토</li>
+                                <li>품절 빈도 상위 10개 → 안전재고 수준 상향</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Week Summary -->
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card">
+                <h2><i class="fas fa-flag-checkered"></i> Week 5 완료 후 결과물</h2>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <i class="fas fa-database"></i>
+                        <h4>재고 데이터셋</h4>
+                        <p>5,000개 부품 정보 정리</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-chart-pie"></i>
+                        <h4>ABC 분석 결과</h4>
+                        <p>품목별 등급 분류 완료</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h4>과잉재고 리스트</h4>
+                        <p>87개 품목 (1.2억원)</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>부족재고 리스트</h4>
+                        <p>상위 10개 긴급 품목</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Week Preview -->
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview">
+                <span class="preview-label">다음 주</span>
+                <h2>Week 6: 재고 대시보드 완성</h2>
+                <p>Power BI / Excel로 실시간 재고 모니터링 대시보드를 구축하고 Sprint Review를 진행합니다.</p>
+                <a href="week6.html" class="btn btn-primary">Week 6 시작하기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

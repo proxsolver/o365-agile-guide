@@ -540,6 +540,215 @@ section {
 }
 
 /* ========================================
+   Case Study Section
+   ======================================== */
+.case-study-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+}
+
+.section-badge.case {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+}
+
+.case-kpi-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.case-kpi-intro h3 {
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+}
+
+.kpi-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.kpi-card {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    min-width: 180px;
+    transition: transform 0.3s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+}
+
+.kpi-card i {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.kpi-card.inventory {
+    border-top: 4px solid var(--teams-purple);
+}
+
+.kpi-card.inventory i {
+    color: var(--teams-purple);
+}
+
+.kpi-card.rm {
+    border-top: 4px solid #f59e0b;
+}
+
+.kpi-card.rm i {
+    color: #f59e0b;
+}
+
+.kpi-card.ot {
+    border-top: 4px solid #10b981;
+}
+
+.kpi-card.ot i {
+    color: #10b981;
+}
+
+.kpi-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.kpi-card p {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+.sprint-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sprint-block {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.sprint-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    flex-wrap: wrap;
+}
+
+.sprint-block.inventory .sprint-header {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+}
+
+.sprint-block.rm .sprint-header {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    color: #78350f;
+}
+
+.sprint-block.ot .sprint-header {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: white;
+}
+
+.sprint-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.sprint-header h3 {
+    flex: 1;
+    font-size: 1.2rem;
+}
+
+.sprint-weeks {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.sprint-weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.week-mini-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.week-mini-card .week-num {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    background: var(--ms-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.week-mini-card h4 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.week-mini-card p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 0.75rem;
+}
+
+.week-mini-card a {
+    color: var(--ms-blue);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.week-mini-card a:hover {
+    text-decoration: underline;
+}
+
+.sprint-outcome {
+    padding: 1rem 2rem;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.outcome-label {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.outcome-value {
+    color: #059669;
+    font-weight: 500;
+}
+
+/* ========================================
    Footer
    ======================================== */
 .footer {
