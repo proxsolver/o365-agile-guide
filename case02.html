@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 02: 긴급 부품 품절 제로화 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="cases.html" class="nav-back"><i class="fas fa-arrow-left"></i> 사례 목록</a>
+        <div class="week-indicator">
+            <a href="case01.html" class="prev"><i class="fas fa-arrow-left"></i> Case 01</a>
+            <span class="current case">Case 02</span>
+            <a href="case03.html" class="next">Case 03 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Case Study Banner -->
+    <div class="case-study-banner">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Case 02: 긴급 부품 품절 제로화</h2>
+            <p>안전재고 기준 수립으로 긴급 항공 발주 90% 감소</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="week-hero week5-theme">
+        <div class="hero-content">
+            <span class="week-badge">Case 02 | 재고관리</span>
+            <h1>🚨 긴급 부품 품절 제로화</h1>
+            <p>핵심 부품의 안전재고 수준을 과학적으로 산정하여 긴급 발주 비용을 대폭 절감합니다</p>
+            <div class="kpi-focus">
+                <div class="kpi-item active">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>긴급발주 감소</span>
+                </div>
+                <div class="kpi-item">
+                    <i class="fas fa-won-sign"></i>
+                    <span>발주비용 절감</span>
+                </div>
+                <div class="kpi-item">
+                    <i class="fas fa-clock"></i>
+                    <span>라인 대기시간 Zero</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Definition -->
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card">
+                <h2><i class="fas fa-exclamation-circle"></i> 문제 상황</h2>
+                <div class="scenario-box">
+                    <h4><i class="fas fa-users"></i> 현장의 목소리</h4>
+                    <p>
+                        설비팀 이OO 과장이 긴급 미팅을 요청합니다:<br>
+                        <em>"어제 밤 라인 1의 컨베이어 베어링이 고장났는데, 재고가 없어서 급하게 항공으로 들여왔습니다.
+                            일반 배송이면 5만원인데 당일 항공 특송으로 50만원이 들었어요.
+                            이런 일이 한 달에 3~4번은 발생합니다. 생산 대기시간까지 포함하면 손실이 엄청납니다."</em>
+                    </p>
+                </div>
+                <div class="goal-metrics">
+                    <div class="metric">
+                        <span class="metric-label">월 긴급발주 건수</span>
+                        <span class="metric-value">15건</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">목표</span>
+                        <span class="metric-value">1~2건</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">개선 기간</span>
+                        <span class="metric-value">3주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Guide -->
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 실행 가이드</h2>
+
+            <!-- Step 1: Usage Analysis -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (월~수)</span>
+                </div>
+                <h3>부품별 사용량 분석 및 긴급발주 이력 조사</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>최근 12개월 긴급발주 이력 추출</h5>
+                                <p>ERP 구매 모듈에서 "긴급", "특송", "항공" 키워드로 발주 건 추출</p>
+                                <div class="excel-template">
+                                    <h5>긴급발주_이력.xlsx:</h5>
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>발주일</th>
+                                                <th>부품코드</th>
+                                                <th>부품명</th>
+                                                <th>수량</th>
+                                                <th>일반단가</th>
+                                                <th>긴급단가</th>
+                                                <th>추가비용</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2025-12-15</td>
+                                                <td>BRG-6205</td>
+                                                <td>베어링 6205-2RS</td>
+                                                <td>4</td>
+                                                <td>25,000</td>
+                                                <td>125,000</td>
+                                                <td>=F2-E2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2025-12-18</td>
+                                                <td>MOT-5HP</td>
+                                                <td>모터 5HP</td>
+                                                <td>1</td>
+                                                <td>850,000</td>
+                                                <td>1,700,000</td>
+                                                <td>=F3-E3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>핵심 부품 사용량 패턴 분석</h5>
+                                <p>긴급발주 빈도 상위 20개 부품의 월별 사용량 분석</p>
+                                <div class="excel-template">
+                                    <h5>안전재고 산정 수식:</h5>
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>항목</th>
+                                                <th>수식</th>
+                                                <th>설명</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>평균 일 사용량</td>
+                                                <td>=AVERAGE(월사용량)/30</td>
+                                                <td>월평균을 일평균으로 환산</td>
+                                            </tr>
+                                            <tr>
+                                                <td>사용량 표준편차</td>
+                                                <td>=STDEV(월사용량)/30</td>
+                                                <td>수요 변동성 측정</td>
+                                            </tr>
+                                            <tr>
+                                                <td>리드타임</td>
+                                                <td>일반: 7일, 해외: 21일</td>
+                                                <td>발주~입고 소요기간</td>
+                                            </tr>
+                                            <tr>
+                                                <td>안전재고</td>
+                                                <td>=1.65*표준편차*SQRT(리드타임)</td>
+                                                <td>서비스율 95% 기준</td>
+                                            </tr>
+                                            <tr>
+                                                <td>발주점</td>
+                                                <td>=평균일사용량*리드타임+안전재고</td>
+                                                <td>이 수량 도달 시 발주</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> 서비스율을 99%로 높이려면 Z값을 2.33으로 변경하세요.
+                        단, 안전재고가 늘어나 재고 비용이 증가합니다. 부품 중요도에 따라 조정하세요.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Lists Setup -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool sharepoint"><i class="fas fa-share-alt"></i><span>Lists</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (목~금)</span>
+                </div>
+                <h3>SharePoint Lists로 재고 모니터링 시스템 구축</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>핵심부품 관리 Lists 생성</h5>
+                                <p>Teams → TS팀 채널 → Lists 탭 추가 → "핵심부품 재고현황" 리스트 생성</p>
+                                <div class="excel-template">
+                                    <h5>Lists 컬럼 구성:</h5>
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>컬럼명</th>
+                                                <th>유형</th>
+                                                <th>설정</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>부품코드</td>
+                                                <td>한 줄 텍스트</td>
+                                                <td>필수</td>
+                                            </tr>
+                                            <tr>
+                                                <td>부품명</td>
+                                                <td>한 줄 텍스트</td>
+                                                <td>필수</td>
+                                            </tr>
+                                            <tr>
+                                                <td>현재고</td>
+                                                <td>숫자</td>
+                                                <td>필수</td>
+                                            </tr>
+                                            <tr>
+                                                <td>안전재고</td>
+                                                <td>숫자</td>
+                                                <td>필수</td>
+                                            </tr>
+                                            <tr>
+                                                <td>발주점</td>
+                                                <td>숫자</td>
+                                                <td>필수</td>
+                                            </tr>
+                                            <tr>
+                                                <td>상태</td>
+                                                <td>선택</td>
+                                                <td>정상/주의/위험</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>조건부 서식으로 시각화</h5>
+                                <p>Lists 뷰에서 상태별 색상 구분 설정</p>
+                                <div class="abc-analysis">
+                                    <div class="abc-item a">
+                                        <span class="abc-grade">🔴</span>
+                                        <span class="abc-desc">위험: 현재고 ≤ 안전재고</span>
+                                        <span class="abc-action">즉시 발주</span>
+                                    </div>
+                                    <div class="abc-item b">
+                                        <span class="abc-grade">🟡</span>
+                                        <span class="abc-desc">주의: 안전재고 < 현재고 ≤ 발주점</span>
+                                                <span class="abc-action">발주 준비</span>
+                                    </div>
+                                    <div class="abc-item c">
+                                        <span class="abc-grade">🟢</span>
+                                        <span class="abc-desc">정상: 현재고 > 발주점</span>
+                                        <span class="abc-action">모니터링</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Power Automate -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool powerautomate"><i class="fas fa-cog"></i><span>Power Automate</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (월~화)</span>
+                </div>
+                <h3>재고 부족 자동 알림 흐름 구성</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>자동화 흐름 생성</h5>
+                                <p>Power Automate → 새 흐름 → "예약된 클라우드 흐름"</p>
+                                <div class="automation-flow"
+                                    style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                                    <h5 style="margin-bottom: 1rem;">자동화 흐름 구조:</h5>
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
+                                        <div
+                                            style="background: #dbeafe; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600;">
+                                            ⏰ 트리거: 매일 오전 8시</div>
+                                        <div style="color: #6b7280;">↓</div>
+                                        <div style="background: #fef3c7; padding: 0.75rem 1.5rem; border-radius: 8px;">
+                                            📋 Lists에서 항목 가져오기</div>
+                                        <div style="color: #6b7280;">↓</div>
+                                        <div style="background: #fef3c7; padding: 0.75rem 1.5rem; border-radius: 8px;">
+                                            🔍 필터: 현재고 ≤ 발주점</div>
+                                        <div style="color: #6b7280;">↓</div>
+                                        <div style="background: #fee2e2; padding: 0.75rem 1.5rem; border-radius: 8px;">
+                                            📧 Teams 채널에 알림 게시</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>알림 메시지 템플릿</h5>
+                                <div
+                                    style="background: #1e293b; color: white; padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem;">
+                                    🚨 <strong>재고 부족 알림</strong><br><br>
+                                    다음 부품이 발주점 이하입니다:<br><br>
+                                    • 부품코드: @{items('Apply_to_each')?['부품코드']}<br>
+                                    • 부품명: @{items('Apply_to_each')?['부품명']}<br>
+                                    • 현재고: @{items('Apply_to_each')?['현재고']}<br>
+                                    • 발주점: @{items('Apply_to_each')?['발주점']}<br><br>
+                                    담당자: @구매팀 확인 부탁드립니다.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> "위험" 상태(안전재고 이하)일 때는 Teams 알림과 함께
+                        담당자에게 이메일도 발송하도록 조건 분기를 추가하세요.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Daily Monitoring -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2~3 (매일)</span>
+                </div>
+                <h3>Daily Standup에서 재고 현황 모니터링</h3>
+                <div class="step-content">
+                    <div class="standup-example">
+                        <h4><i class="fas fa-comments"></i> 스탠드업 예시</h4>
+                        <div class="standup-person">
+                            <strong>창고 담당자 (매일 오전 공유)</strong>
+                            <ul>
+                                <li>🔴 위험 품목: 없음</li>
+                                <li>🟡 주의 품목: 베어링 6205 (현재고 8ea, 발주점 10ea) → 발주 완료</li>
+                                <li>🟢 정상 품목: 18개 전체 정상 범위</li>
+                            </ul>
+                        </div>
+                        <div class="standup-person">
+                            <strong>구매 담당자 (발주 현황)</strong>
+                            <ul>
+                                <li>🟢 어제: 베어링 6205 발주 완료 (입고예정 1/25)</li>
+                                <li>🔵 오늘: 모터 5HP 견적 비교 중</li>
+                                <li>🔴 블로커: 없음</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-layout">
+                        <div class="dash-item success">
+                            <i class="fas fa-check-circle"></i>
+                            <h5>정상</h5>
+                            <span class="dash-value">18개</span>
+                        </div>
+                        <div class="dash-item warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h5>주의</h5>
+                            <span class="dash-value">2개</span>
+                        </div>
+                        <div class="dash-item danger">
+                            <i class="fas fa-times-circle"></i>
+                            <h5>위험</h5>
+                            <span class="dash-value">0개</span>
+                        </div>
+                        <div class="dash-item">
+                            <i class="fas fa-truck"></i>
+                            <h5>입고 대기</h5>
+                            <span class="dash-value">1개</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Review -->
+            <div class="step-card" id="step5">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 3 (금요일)</span>
+                </div>
+                <h3>성과 측정 및 안전재고 수준 조정</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">5-1</span>
+                            <div class="instruction-content">
+                                <h5>월간 성과 리포트 작성</h5>
+                                <div class="excel-template">
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>지표</th>
+                                                <th>Before</th>
+                                                <th>After</th>
+                                                <th>개선율</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>월 긴급발주 건수</td>
+                                                <td>15건</td>
+                                                <td>1건</td>
+                                                <td>93% ↓</td>
+                                            </tr>
+                                            <tr>
+                                                <td>긴급발주 추가비용</td>
+                                                <td>450만원</td>
+                                                <td>30만원</td>
+                                                <td>93% ↓</td>
+                                            </tr>
+                                            <tr>
+                                                <td>라인 대기시간</td>
+                                                <td>월 8시간</td>
+                                                <td>0시간</td>
+                                                <td>100% ↓</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="retro-board">
+                        <div class="retro-column start">
+                            <h4>✅ 시작할 것 (Start)</h4>
+                            <ul>
+                                <li>신규 핵심부품 등록 시 안전재고 자동 산정</li>
+                                <li>계절성 수요 반영한 동적 안전재고</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column stop">
+                            <h4>🛑 멈출 것 (Stop)</h4>
+                            <ul>
+                                <li>감에 의존한 발주 → 데이터 기반 발주</li>
+                                <li>긴급 발주 관행 최소화</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column continue">
+                            <h4>🔄 계속할 것 (Continue)</h4>
+                            <ul>
+                                <li>Daily 재고 현황 공유</li>
+                                <li>Power Automate 자동 알림</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card value-card">
+                <h2><i class="fas fa-chart-line"></i> 개선 결과</h2>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h4>93%</h4>
+                        <p>긴급발주 감소</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-won-sign"></i>
+                        <h4>5,000만원</h4>
+                        <p>연간 절감</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>0시간</h4>
+                        <p>부품대기 시간</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-bell"></i>
+                        <h4>자동화</h4>
+                        <p>재고 알림</p>
+                    </div>
+                </div>
+
+                <div class="value-metrics">
+                    <div class="value-item">
+                        <div class="value-icon"><i class="fas fa-piggy-bank"></i></div>
+                        <div class="value-info">
+                            <h4>긴급 항공비 절감</h4>
+                            <p>일반 배송 대비 10배 비싼 항공 특송 비용 절감</p>
+                            <span class="value-tag">월 420만원 → 30만원</span>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon"><i class="fas fa-industry"></i></div>
+                        <div class="value-info">
+                            <h4>생산성 향상</h4>
+                            <p>부품 대기로 인한 라인 정지 시간 제로화</p>
+                            <span class="value-tag">가동률 2% 향상</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Case Preview -->
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview rm">
+                <span class="preview-label">다음 사례</span>
+                <h2>Case 03: 예방정비 스케줄 최적화</h2>
+                <p>고장 정비 비용 35% 절감, 사후정비(BM) 비중 70% → 40%로 개선</p>
+                <a href="case03.html" class="btn btn-primary">다음 사례 보기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="cases.html">사례 목록</a> | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
