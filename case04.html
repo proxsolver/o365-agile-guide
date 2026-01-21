@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 04: 외주 정비 비용 투명화 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="cases.html" class="nav-back"><i class="fas fa-arrow-left"></i> 사례 목록</a>
+        <div class="week-indicator">
+            <a href="case03.html" class="prev"><i class="fas fa-arrow-left"></i> Case 03</a>
+            <span class="current case">Case 04</span>
+            <a href="case05.html" class="next">Case 05 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Case Study Banner -->
+    <div class="case-study-banner rm-theme">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Case 04: 외주 정비 비용 투명화</h2>
+            <p>외주 업체별 성과 평가 시스템 구축으로 비용 20% 절감</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="week-hero week7-theme">
+        <div class="hero-content">
+            <span class="week-badge">Case 04 | R&M Cost</span>
+            <h1>💰 외주 정비 비용 투명화</h1>
+            <p>외주 업체별 작업 이력과 비용을 체계적으로 관리하여 최적의 파트너사를 선정합니다</p>
+            <div class="kpi-focus">
+                <div class="kpi-item active">
+                    <i class="fas fa-building"></i>
+                    <span>업체 평가</span>
+                </div>
+                <div class="kpi-item">
+                    <i class="fas fa-won-sign"></i>
+                    <span>비용 절감</span>
+                </div>
+                <div class="kpi-item">
+                    <i class="fas fa-star"></i>
+                    <span>품질 향상</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Definition -->
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card rm">
+                <h2><i class="fas fa-exclamation-circle"></i> 문제 상황</h2>
+                <div class="scenario-box">
+                    <h4><i class="fas fa-users"></i> 현장의 목소리</h4>
+                    <p>
+                        구매팀 최OO 대리가 외주비 정산 중 문제를 발견합니다:<br>
+                        <em>"외주 정비 업체가 5곳인데, 어디가 잘하고 어디가 비싼지 비교가 안 됩니다.
+                            A업체는 싸게 하는데 재작업이 많고, B업체는 비싸지만 품질이 좋아요.
+                            근데 이게 감으로 느끼는 거지, 숫자로 증명할 수가 없어요.
+                            작업 이력이 엑셀, 종이 견적서, 이메일에 흩어져 있어서 업체 평가가 불가능합니다."</em>
+                    </p>
+                </div>
+                <div class="goal-metrics">
+                    <div class="metric">
+                        <span class="metric-label">연간 외주비</span>
+                        <span class="metric-value">2.4억원</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">목표 절감</span>
+                        <span class="metric-value">20%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">개선 기간</span>
+                        <span class="metric-value">4주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Guide -->
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 실행 가이드</h2>
+
+            <!-- Step 1: SharePoint Lists 상세 구축 -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool sharepoint"><i class="fas fa-share-alt"></i><span>SharePoint Lists</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (월~화)</span>
+                </div>
+                <h3>외주 작업 관리 Lists 상세 구축</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>Lists 생성 위치 및 방법</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 경로:</strong><br>
+                                    Teams → TS팀 → 채널: 정비관리 → 상단 탭 "+" 클릭 → Lists 선택<br><br>
+                                    <strong>⚙️ 설정:</strong><br>
+                                    • "새 목록" 선택 → 이름: "외주작업 이력"<br>
+                                    • "Teams 채널에서 표시" 체크<br>
+                                    • 색상: 주황색 (R&M 테마)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>컬럼 상세 설정 (총 12개)</h5>
+                                <p>각 컬럼의 <strong>유형, 필수 여부, 선택값, 유효성 검사</strong>까지 정확히 설정합니다.</p>
+                                <div class="excel-template" style="overflow-x: auto;">
+                                    <h5>컬럼 구성 상세:</h5>
+                                    <table class="excel-table" style="font-size: 0.85rem;">
+                                        <thead>
+                                            <tr>
+                                                <th>컬럼명</th>
+                                                <th>유형</th>
+                                                <th>필수</th>
+                                                <th>상세 설정</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>작업번호</strong></td>
+                                                <td>한 줄 텍스트</td>
+                                                <td>✓</td>
+                                                <td>형식: OUT-2025-0001 (자동채번은 Power Automate에서)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>업체명</strong></td>
+                                                <td>선택</td>
+                                                <td>✓</td>
+                                                <td>선택값: A산업, B테크, C정밀, D엔지니어링, E서비스</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>작업일</strong></td>
+                                                <td>날짜</td>
+                                                <td>✓</td>
+                                                <td>기본값: 오늘 날짜</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>설비코드</strong></td>
+                                                <td>조회 (Lookup)</td>
+                                                <td>✓</td>
+                                                <td>원본: 설비마스터 Lists의 "설비코드" 컬럼</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>작업구분</strong></td>
+                                                <td>선택</td>
+                                                <td>✓</td>
+                                                <td>선택값: 수리, 점검, 설치, 교체, 기타</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>작업내용</strong></td>
+                                                <td>여러 줄 텍스트</td>
+                                                <td>✓</td>
+                                                <td>서식 있는 텍스트 사용</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>견적금액</strong></td>
+                                                <td>통화</td>
+                                                <td>✓</td>
+                                                <td>소수 자릿수: 0, 통화: ₩</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>실제금액</strong></td>
+                                                <td>통화</td>
+                                                <td></td>
+                                                <td>작업 완료 후 입력</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>차이(계산)</strong></td>
+                                                <td>계산됨</td>
+                                                <td>-</td>
+                                                <td>수식: =[실제금액]-[견적금액]</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>작업시간(hr)</strong></td>
+                                                <td>숫자</td>
+                                                <td></td>
+                                                <td>소수점 1자리 허용</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>품질평가</strong></td>
+                                                <td>선택</td>
+                                                <td></td>
+                                                <td>선택값: ⭐⭐⭐⭐⭐(5점), ⭐⭐⭐⭐(4점), ⭐⭐⭐(3점), ⭐⭐(2점), ⭐(1점)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>재작업여부</strong></td>
+                                                <td>예/아니요</td>
+                                                <td></td>
+                                                <td>기본값: 아니요</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-3</span>
+                            <div class="instruction-content">
+                                <h5>"조회(Lookup)" 컬럼 만들기 상세</h5>
+                                <div
+                                    style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>💡 Lookup 컬럼이란?</strong><br>
+                                    다른 Lists의 데이터를 참조하여 선택할 수 있게 하는 컬럼입니다.
+                                    수동 입력 오류를 방지하고 데이터 일관성을 유지합니다.<br><br>
+                                    <strong>설정 방법:</strong><br>
+                                    1. Lists 설정 → 열 만들기 → <strong>"조회"</strong> 선택<br>
+                                    2. 열 이름: 설비코드<br>
+                                    3. 정보 원본: <strong>설비마스터</strong> (같은 사이트의 다른 Lists)<br>
+                                    4. 이 열: <strong>설비코드</strong><br>
+                                    5. ✓ "다음 필드도 추가": 설비명 체크 (자동으로 같이 표시됨)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-4</span>
+                            <div class="instruction-content">
+                                <h5>"계산됨(Calculated)" 컬럼 수식</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: 'Consolas', monospace; font-size: 0.9rem;">
+                                    <strong style="color: #60a5fa;">// 차이 금액 계산</strong><br>
+                                    =[실제금액]-[견적금액]<br><br>
+
+                                    <strong style="color: #60a5fa;">// 차이율 계산 (별도 컬럼 추가 시)</strong><br>
+                                    =IF([견적금액]=0,0,([실제금액]-[견적금액])/[견적금액]*100)<br><br>
+
+                                    <strong style="color: #60a5fa;">// 시간당 비용 계산</strong><br>
+                                    =IF([작업시간]=0,0,[실제금액]/[작업시간])
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-5</span>
+                            <div class="instruction-content">
+                                <h5>뷰(View) 설정으로 데이터 쉽게 보기</h5>
+                                <div class="excel-template">
+                                    <h5>생성할 뷰 3가지:</h5>
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>뷰 이름</th>
+                                                <th>필터 조건</th>
+                                                <th>그룹화</th>
+                                                <th>용도</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>월별 현황</td>
+                                                <td>작업일 = 이번 달</td>
+                                                <td>업체명</td>
+                                                <td>월간 업체별 실적 확인</td>
+                                            </tr>
+                                            <tr>
+                                                <td>재작업 목록</td>
+                                                <td>재작업여부 = 예</td>
+                                                <td>업체명</td>
+                                                <td>품질 문제 업체 파악</td>
+                                            </tr>
+                                            <tr>
+                                                <td>고비용 작업</td>
+                                                <td>실제금액 > 500만원</td>
+                                                <td>없음</td>
+                                                <td>대형 작업 모니터링</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                                    <strong>📍 뷰 만드는 법:</strong><br>
+                                    Lists 우측 상단 "모든 항목 ▼" 클릭 → "새 보기 만들기" →
+                                    조건 설정 후 저장
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> Lists 설정 → 유효성 검사에서 <code>=IF([실제금액]>[견적금액]*1.2, FALSE, TRUE)</code>를
+                        추가하면 견적 대비 120% 초과 시 경고가 표시됩니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Power Automate 상세 -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool powerautomate"><i class="fas fa-cog"></i><span>Power Automate</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (수~금)</span>
+                </div>
+                <h3>자동 번호 생성 및 알림 흐름 구축</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 흐름 1: 작업번호 자동 생성</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>새 흐름 만들기</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 경로:</strong><br>
+                                    Power Automate (flow.microsoft.com) → 만들기 → <strong>자동화된 클라우드 흐름</strong><br><br>
+                                    <strong>⚙️ 기본 설정:</strong><br>
+                                    • 흐름 이름: "외주작업_번호자동생성"<br>
+                                    • 트리거 선택: "항목이 만들어질 때" (SharePoint)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>흐름 단계별 상세 구성</h5>
+                                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                                    <!-- Step 1 -->
+                                    <div
+                                        style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                                        <div
+                                            style="background: #0078d4; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
+                                            1</div>
+                                        <div style="flex: 1;">
+                                            <h5 style="margin: 0 0 0.5rem 0;">트리거: 항목이 만들어질 때</h5>
+                                            <div
+                                                style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem;">
+                                                <strong>커넥터:</strong> SharePoint<br>
+                                                <strong>사이트 주소:</strong> https://회사.sharepoint.com/sites/TS팀<br>
+                                                <strong>목록 이름:</strong> 외주작업 이력
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 2 -->
+                                    <div style="text-align: center; color: #6b7280; margin: 0.5rem 0;">↓</div>
+                                    <div
+                                        style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                                        <div
+                                            style="background: #f59e0b; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
+                                            2</div>
+                                        <div style="flex: 1;">
+                                            <h5 style="margin: 0 0 0.5rem 0;">작업: 항목 가져오기 (최근 번호 조회)</h5>
+                                            <div
+                                                style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem;">
+                                                <strong>커넥터:</strong> SharePoint - 여러 항목 가져오기<br>
+                                                <strong>필터 쿼리:</strong> <code>startswith(작업번호,'OUT-2025')</code><br>
+                                                <strong>정렬:</strong> 작업번호 desc<br>
+                                                <strong>상위 개수:</strong> 1
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 3 -->
+                                    <div style="text-align: center; color: #6b7280; margin: 0.5rem 0;">↓</div>
+                                    <div
+                                        style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                                        <div
+                                            style="background: #10b981; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
+                                            3</div>
+                                        <div style="flex: 1;">
+                                            <h5 style="margin: 0 0 0.5rem 0;">작업: 변수 초기화 (새 번호)</h5>
+                                            <div
+                                                style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem;">
+                                                <strong>이름:</strong> NewNumber<br>
+                                                <strong>형식:</strong> 문자열<br>
+                                                <strong>값:</strong>
+                                                <div
+                                                    style="background: #1e293b; color: #e2e8f0; padding: 0.75rem; border-radius: 4px; margin-top: 0.5rem; font-family: monospace; font-size: 0.85rem; overflow-x: auto;">
+                                                    concat('OUT-', formatDateTime(utcNow(), 'yyyy'), '-',<br>
+                                                    &nbsp;&nbsp;formatNumber(add(int(substring(<br>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;first(body('여러_항목_가져오기')?['value'])?['작업번호'],<br>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;9, 4)), 1), '0000'))
+                                                </div>
+                                                <div style="color: #6b7280; font-size: 0.8rem; margin-top: 0.5rem;">
+                                                    → 결과: OUT-2025-0001, OUT-2025-0002, ...
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 4 -->
+                                    <div style="text-align: center; color: #6b7280; margin: 0.5rem 0;">↓</div>
+                                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                        <div
+                                            style="background: #8b5cf6; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
+                                            4</div>
+                                        <div style="flex: 1;">
+                                            <h5 style="margin: 0 0 0.5rem 0;">작업: 항목 업데이트</h5>
+                                            <div
+                                                style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem;">
+                                                <strong>커넥터:</strong> SharePoint - 항목 업데이트<br>
+                                                <strong>ID:</strong> <code>@{triggerOutputs()?['body/ID']}</code><br>
+                                                <strong>작업번호:</strong> <code>@{variables('NewNumber')}</code>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;"><i class="fas fa-list-ol"></i> 흐름 2: 고비용 작업 자동 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-3</span>
+                            <div class="instruction-content">
+                                <h5>조건부 알림 흐름</h5>
+                                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                        <div
+                                            style="background: #dbeafe; padding: 1rem; border-radius: 8px; text-align: center;">
+                                            <strong>⏰ 트리거:</strong> 항목을 만들거나 수정할 때
+                                        </div>
+                                        <div style="text-align: center; color: #6b7280;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem; border-radius: 8px; text-align: center;">
+                                            <strong>🔍 조건:</strong> [견적금액] >= 5000000 (500만원 이상)
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; justify-content: center;">
+                                            <div style="flex: 1;">
+                                                <div style="text-align: center; color: #10b981;">예 ↓</div>
+                                                <div
+                                                    style="background: #d1fae5; padding: 1rem; border-radius: 8px; text-align: center;">
+                                                    <strong>📧 Teams 알림</strong><br>
+                                                    "@팀장 고비용 외주작업 등록됨"
+                                                </div>
+                                            </div>
+                                            <div style="flex: 1;">
+                                                <div style="text-align: center; color: #6b7280;">아니요 ↓</div>
+                                                <div
+                                                    style="background: #e2e8f0; padding: 1rem; border-radius: 8px; text-align: center;">
+                                                    종료
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-4</span>
+                            <div class="instruction-content">
+                                <h5>Teams 메시지 카드 서식</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                                    <strong style="color: #60a5fa;">// Adaptive Card JSON</strong><br>
+                                    {<br>
+                                    &nbsp;&nbsp;"type": "AdaptiveCard",<br>
+                                    &nbsp;&nbsp;"body": [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "TextBlock",<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text": "🚨 고비용 외주작업 등록",<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"weight": "Bolder",<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"size": "Large"<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "FactSet",<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"facts": [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"title": "작업번호", "value":
+                                    "@{variables('NewNumber')}"},<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"title": "업체명", "value":
+                                    "@{triggerOutputs()?['body/업체명/Value']}"},<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"title": "견적금액", "value":
+                                    "@{formatNumber(triggerOutputs()?['body/견적금액'], 'C0', 'ko-KR')}"},<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"title": "설비", "value":
+                                    "@{triggerOutputs()?['body/설비코드/Value']}"}<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                    &nbsp;&nbsp;]<br>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> Power Automate에서 SharePoint 커넥터가 보이지 않으면,
+                        상단 검색창에 "SharePoint" 입력 후 선택하세요.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Excel 분석 -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (월~수)</span>
+                </div>
+                <h3>업체별 성과 분석 대시보드</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>Lists 데이터 Excel로 내보내기</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 방법 1: 일회성 내보내기</strong><br>
+                                    Lists 상단 "내보내기" → "Excel로 내보내기"<br><br>
+                                    <strong>📍 방법 2: 실시간 연결 (권장)</strong><br>
+                                    Excel 열기 → 데이터 탭 → "데이터 가져오기" → "SharePoint 목록에서" →
+                                    사이트 URL 입력 → 목록 선택 → "로드"<br><br>
+                                    <span style="color: #0078d4;">※ 실시간 연결 시 데이터 새로 고침으로 최신 데이터 반영</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>업체별 성과 지표 피벗 테이블</h5>
+                                <div class="excel-template">
+                                    <h5>피벗 테이블 설정:</h5>
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>영역</th>
+                                                <th>필드</th>
+                                                <th>설정</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>행</td>
+                                                <td>업체명</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>값</td>
+                                                <td>작업번호</td>
+                                                <td>개수 (작업 건수)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>값</td>
+                                                <td>실제금액</td>
+                                                <td>합계 (총 비용)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>값</td>
+                                                <td>품질평가</td>
+                                                <td>평균 (평균 점수)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>값</td>
+                                                <td>재작업여부</td>
+                                                <td>개수 (재작업 건수)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-3</span>
+                            <div class="instruction-content">
+                                <h5>업체 종합 평가 점수 산출</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem;">
+                                    <strong style="color: #60a5fa;">// 종합평가 점수 (100점 만점)</strong><br><br>
+                                    = (품질점수×0.4) + (비용효율×0.3) + (재작업감점) + (납기점수×0.2)<br><br>
+                                    <strong style="color: #60a5fa;">// 각 항목 수식</strong><br>
+                                    품질점수 = 평균품질평가 × 20 <span style="color: #6b7280;">// 5점→100점</span><br>
+                                    비용효율 = (1 - 평균차이율) × 100 <span style="color: #6b7280;">// 견적 대비 절감할수록 높음</span><br>
+                                    재작업감점 = 재작업건수 / 총건수 × -10<br>
+                                    납기점수 = 100 <span style="color: #6b7280;">// 지연 시 -10점씩</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insight-cards">
+                        <div class="insight-card">
+                            <h4>🏆 A산업 (87점)</h4>
+                            <p>품질 우수, 비용 적정, 재작업 1건</p>
+                            <span class="insight-action">→ 핵심 파트너 유지</span>
+                        </div>
+                        <div class="insight-card" style="background: #fef3c7;">
+                            <h4>⚠️ C정밀 (62점)</h4>
+                            <p>비용 저렴, 품질 보통, 재작업 5건</p>
+                            <span class="insight-action">→ 개선 요청 또는 물량 축소</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Review Meeting -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 3 (매주 금요일)</span>
+                </div>
+                <h3>분기별 업체 평가 리뷰 미팅</h3>
+                <div class="step-content">
+                    <div class="standup-example">
+                        <h4><i class="fas fa-comments"></i> 분기 리뷰 미팅 어젠다</h4>
+                        <div class="standup-person">
+                            <strong>1. 업체별 실적 공유 (15분)</strong>
+                            <ul>
+                                <li>📊 Excel 대시보드 화면 공유</li>
+                                <li>📈 분기 비용 추이 및 TOP 3 고비용 작업</li>
+                            </ul>
+                        </div>
+                        <div class="standup-person">
+                            <strong>2. 품질 이슈 논의 (10분)</strong>
+                            <ul>
+                                <li>🔴 재작업 발생 업체 및 원인 분석</li>
+                                <li>📝 개선 요청 사항 정리</li>
+                            </ul>
+                        </div>
+                        <div class="standup-person">
+                            <strong>3. 다음 분기 계획 (5분)</strong>
+                            <ul>
+                                <li>✅ 계약 갱신 / 물량 조정 결정</li>
+                                <li>🆕 신규 업체 도입 검토</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Results -->
+            <div class="step-card" id="step5">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>결과</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 4</span>
+                </div>
+                <h3>업체 최적화 실행</h3>
+                <div class="step-content">
+                    <div class="excel-template">
+                        <table class="excel-table">
+                            <thead>
+                                <tr>
+                                    <th>업체</th>
+                                    <th>점수</th>
+                                    <th>조치</th>
+                                    <th>예상 효과</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A산업</td>
+                                    <td>87점</td>
+                                    <td>물량 20% 증가</td>
+                                    <td>품질 안정화</td>
+                                </tr>
+                                <tr>
+                                    <td>B테크</td>
+                                    <td>78점</td>
+                                    <td>현상 유지</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr style="background: #fef3c7;">
+                                    <td>C정밀</td>
+                                    <td>62점</td>
+                                    <td>물량 50% 축소</td>
+                                    <td>재작업 비용 감소</td>
+                                </tr>
+                                <tr style="background: #fee2e2;">
+                                    <td>D엔지니어링</td>
+                                    <td>45점</td>
+                                    <td>계약 종료</td>
+                                    <td>연 1,200만원 절감</td>
+                                </tr>
+                                <tr>
+                                    <td>E서비스</td>
+                                    <td>72점</td>
+                                    <td>개선 모니터링</td>
+                                    <td>분기 후 재평가</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="retro-board">
+                        <div class="retro-column start">
+                            <h4>✅ 시작할 것 (Start)</h4>
+                            <ul>
+                                <li>모든 외주 작업 Lists 등록 의무화</li>
+                                <li>분기별 업체 평가 정례화</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column stop">
+                            <h4>🛑 멈출 것 (Stop)</h4>
+                            <ul>
+                                <li>구두 발주 → 반드시 시스템 등록</li>
+                                <li>저가 위주 발주 → 종합 평가 기반</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column continue">
+                            <h4>🔄 계속할 것 (Continue)</h4>
+                            <ul>
+                                <li>작업 완료 후 품질 평가 입력</li>
+                                <li>고비용 작업 자동 알림</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card value-card">
+                <h2><i class="fas fa-chart-line"></i> 개선 결과</h2>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <i class="fas fa-won-sign"></i>
+                        <h4>20%</h4>
+                        <p>외주비용 절감</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-building"></i>
+                        <h4>5 → 3사</h4>
+                        <p>협력업체 최적화</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-star"></i>
+                        <h4>4.2점</h4>
+                        <p>평균 품질점수</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-redo"></i>
+                        <h4>60%↓</h4>
+                        <p>재작업 감소</p>
+                    </div>
+                </div>
+
+                <div class="value-metrics">
+                    <div class="value-item">
+                        <div class="value-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <i class="fas fa-piggy-bank"></i></div>
+                        <div class="value-info">
+                            <h4>연간 외주비 절감</h4>
+                            <p>데이터 기반 업체 선정으로 비용 효율화</p>
+                            <span class="value-tag">연 4,800만원 절감</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Case Preview -->
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview ot">
+                <span class="preview-label">다음 사례</span>
+                <h2>Case 05: 설비 이력 관리 디지털화</h2>
+                <p>종이 기록에서 SharePoint 기반 전자 이력으로 전환, 500대 설비 관리</p>
+                <a href="case05.html" class="btn btn-primary">다음 사례 보기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="cases.html">사례 목록</a> | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
