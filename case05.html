@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 05: 설비 이력 관리 디지털화 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="cases.html" class="nav-back"><i class="fas fa-arrow-left"></i> 사례 목록</a>
+        <div class="week-indicator">
+            <a href="case04.html" class="prev"><i class="fas fa-arrow-left"></i> Case 04</a>
+            <span class="current case">Case 05</span>
+            <a href="case06.html" class="next">Case 06 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="case-study-banner ot-theme">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Case 05: 설비 이력 관리 디지털화</h2>
+            <p>종이 기록에서 SharePoint 기반 전자 이력으로 전환, 500대 설비 체계적 관리</p>
+        </div>
+    </div>
+
+    <section class="week-hero week8-theme">
+        <div class="hero-content">
+            <span class="week-badge">Case 05 | OT 전산화</span>
+            <h1>🖥️ 설비 이력 관리 디지털화</h1>
+            <p>설비 마스터 DB와 정비 이력을 SharePoint에서 통합 관리하여 데이터 기반 의사결정을 지원합니다</p>
+            <div class="kpi-focus">
+                <div class="kpi-item active"><i class="fas fa-database"></i><span>중앙 DB화</span></div>
+                <div class="kpi-item"><i class="fas fa-search"></i><span>검색 시간 80%↓</span></div>
+                <div class="kpi-item"><i class="fas fa-mobile-alt"></i><span>모바일 접근</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card ot">
+                <h2><i class="fas fa-exclamation-circle"></i> 문제 상황</h2>
+                <div class="scenario-box">
+                    <h4><i class="fas fa-users"></i> 현장의 목소리</h4>
+                    <p>설비팀 김OO 대리가 감사 준비 중 곤란한 상황을 이야기합니다:<br>
+                        <em>"ISO 심사에서 3년 전 컨베이어 정비 기록을 요청받았는데, 종이 파일 캐비닛을 뒤져도 안 나와요.
+                            담당자가 바뀌면서 기록이 어디 갔는지 모르겠고, 있어도 손글씨라 읽기가 어렵습니다.
+                            설비별로 어떤 정비를 했는지 한눈에 보려면 하루 종일 걸려요."</em>
+                    </p>
+                </div>
+                <div class="goal-metrics">
+                    <div class="metric"><span class="metric-label">관리 설비</span><span class="metric-value">500대</span>
+                    </div>
+                    <div class="metric"><span class="metric-label">연간 정비 기록</span><span
+                            class="metric-value">2,400건</span></div>
+                    <div class="metric"><span class="metric-label">개선 기간</span><span class="metric-value">8주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 실행 가이드</h2>
+
+            <!-- ===== STEP 1: 설비 마스터 Lists ===== -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool sharepoint"><i class="fas fa-share-alt"></i><span>SharePoint Lists</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1-2</span>
+                </div>
+                <h3>설비 마스터 DB 구축</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>SharePoint 사이트에서 Lists 생성하기</h5>
+                                <div
+                                    style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 생성 경로 (단계별):</strong><br><br>
+                                    <strong>Step A:</strong> Microsoft 365 홈 → SharePoint 아이콘 클릭<br>
+                                    <strong>Step B:</strong> 좌측 메뉴 "사이트" → "TS팀" 사이트 선택<br>
+                                    <strong>Step C:</strong> 상단 "+ 새로 만들기" → "목록" 클릭<br>
+                                    <strong>Step D:</strong> "빈 목록" 선택<br>
+                                    <strong>Step E:</strong> 이름: "설비마스터" / 설명: "전사 설비 기준정보" 입력<br>
+                                    <strong>Step F:</strong> "만들기" 클릭<br><br>
+                                    <span style="color: #047857;">✅ 결과: 빈 Lists가 생성되고 편집 화면으로 이동합니다.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>컬럼 추가하기 (총 18개)</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 컬럼 추가 방법:</strong><br>
+                                    Lists 상단 "+" 버튼 클릭 → 컬럼 유형 선택 → 설정 입력 → 저장
+                                </div>
+
+                                <h6 style="margin-top: 1.5rem; color: #0078d4;">🔹 기본 정보 (필수)</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세 설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>설비코드</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>필수, 고유값 강제 (예: CV-001, PK-002)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>설비명</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>필수 (예: 1라인 컨베이어)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>설비구분</strong></td>
+                                            <td>선택</td>
+                                            <td>선택값: 생산설비, 유틸리티, 물류설비, 검사장비, 기타</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>설치위치</strong></td>
+                                            <td>선택</td>
+                                            <td>선택값: A동1층, A동2층, B동1층, B동2층, 옥외</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>라인</strong></td>
+                                            <td>선택</td>
+                                            <td>선택값: Line1, Line2, Line3, 공용, N/A</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #10b981;">🔹 스펙 정보</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세 설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>제조사</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>예: 삼성테크, 두산공작기계</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>모델명</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>예: SV-2000X</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>시리얼번호</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>제조사에서 부여한 고유번호</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>설치일</strong></td>
+                                            <td>날짜</td>
+                                            <td>날짜만 (시간 제외)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>취득가액</strong></td>
+                                            <td>통화</td>
+                                            <td>소수점 0자리, ₩</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>내용연수</strong></td>
+                                            <td>숫자</td>
+                                            <td>년 단위 (예: 10)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #f59e0b;">🔹 관리 정보</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세 설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>담당자</strong></td>
+                                            <td>사용자</td>
+                                            <td>SharePoint 사용자 선택</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>관리등급</strong></td>
+                                            <td>선택</td>
+                                            <td>A(핵심), B(중요), C(일반)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>상태</strong></td>
+                                            <td>선택</td>
+                                            <td>가동중, 점검중, 고장, 폐기</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>PM주기</strong></td>
+                                            <td>선택</td>
+                                            <td>일일, 주간, 월간, 분기, 반기, 연간</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>최종정비일</strong></td>
+                                            <td>날짜</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>다음정비예정일</strong></td>
+                                            <td>날짜</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #8b5cf6;">🔹 첨부 정보</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세 설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>설비사진</strong></td>
+                                            <td>이미지</td>
+                                            <td>썸네일 형태로 표시</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>매뉴얼링크</strong></td>
+                                            <td>하이퍼링크</td>
+                                            <td>SharePoint 문서 라이브러리 URL</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-3</span>
+                            <div class="instruction-content">
+                                <h5>"선택" 컬럼 만들기 상세 단계</h5>
+                                <div
+                                    style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 "설비구분" 컬럼 만들기 예시:</strong><br><br>
+                                    <strong>Step 1:</strong> Lists 상단 "+" 클릭 → "선택" 선택<br>
+                                    <strong>Step 2:</strong> 이름: 설비구분<br>
+                                    <strong>Step 3:</strong> 선택 항목에 다음 입력 (줄바꿈으로 구분):<br>
+                                    <div
+                                        style="background: white; padding: 0.5rem; margin: 0.5rem 0; border-radius: 4px; font-family: monospace;">
+                                        생산설비<br>유틸리티<br>물류설비<br>검사장비<br>기타
+                                    </div>
+                                    <strong>Step 4:</strong> "복수 선택 허용" - 체크 해제<br>
+                                    <strong>Step 5:</strong> 기본값: 생산설비<br>
+                                    <strong>Step 6:</strong> "저장" 클릭
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-4</span>
+                            <div class="instruction-content">
+                                <h5>"사용자" 컬럼 만들기 (담당자 지정)</h5>
+                                <div
+                                    style="background: #dbeafe; border-left: 4px solid #3b82f6; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>💡 사용자 컬럼이란?</strong><br>
+                                    조직 내 Microsoft 365 사용자를 선택할 수 있는 특수 컬럼입니다.
+                                    이름을 입력하면 자동 완성되어, 오타 없이 정확한 담당자를 지정할 수 있습니다.<br><br>
+                                    <strong>📍 설정 방법:</strong><br>
+                                    1. "+" → "사용자" 선택<br>
+                                    2. 이름: 담당자<br>
+                                    3. "복수 사용자 허용" - 체크 해제 (1명만 지정)<br>
+                                    4. "저장"<br><br>
+                                    <span style="color: #1d4ed8;">✅ 장점: 담당자 변경 시 알림 전송 자동화 가능</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-5</span>
+                            <div class="instruction-content">
+                                <h5>"이미지" 컬럼으로 설비 사진 관리</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 이미지 컬럼 설정:</strong><br><br>
+                                    1. "+" → "기타" → "이미지" 선택<br>
+                                    2. 이름: 설비사진<br>
+                                    3. "저장"<br><br>
+                                    <strong>📸 사진 업로드:</strong><br>
+                                    - 항목 편집 시 이미지 영역 클릭 → 파일 선택 또는 드래그앤드롭<br>
+                                    - 모바일에서는 카메라로 직접 촬영 후 업로드 가능<br><br>
+                                    <strong>📁 권장 사항:</strong><br>
+                                    - 파일명: [설비코드]_photo.jpg (예: CV-001_photo.jpg)<br>
+                                    - 크기: 1MB 이하 권장 (로딩 속도)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-6</span>
+                            <div class="instruction-content">
+                                <h5>갤러리 뷰로 시각적 관리</h5>
+                                <div
+                                    style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 갤러리 뷰 만들기:</strong><br><br>
+                                    1. Lists 우측 상단 뷰 드롭다운 → "새 보기 만들기"<br>
+                                    2. 뷰 이름: "설비 갤러리"<br>
+                                    3. "갤러리"로 표시 선택<br>
+                                    4. 카드에 표시할 필드:<br>
+                                    &nbsp;&nbsp;&nbsp;• 제목(설비사진 썸네일)<br>
+                                    &nbsp;&nbsp;&nbsp;• 설비코드<br>
+                                    &nbsp;&nbsp;&nbsp;• 설비명<br>
+                                    &nbsp;&nbsp;&nbsp;• 상태<br>
+                                    5. "저장"<br><br>
+                                    <span style="color: #047857;">✅ 결과: 설비 사진이 카드 형태로 보기 좋게 표시됩니다.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> Lists 설정 → 열 순서를 드래그로 조정하면 자주 보는 컬럼을 앞에 배치할 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 2: 정비 이력 Lists ===== -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool sharepoint"><i class="fas fa-share-alt"></i><span>SharePoint Lists</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2-3</span>
+                </div>
+                <h3>정비 이력 DB 구축 (설비마스터 연동)</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>"정비이력" Lists 생성</h5>
+                                <p>설비마스터와 동일한 사이트에 새 Lists 생성: <strong>"정비이력"</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>정비이력 컬럼 구성 (15개)</h5>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세 설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>정비번호</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>자동채번 (Power Automate)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>설비</strong></td>
+                                            <td>조회(Lookup)</td>
+                                            <td>원본: 설비마스터 / 컬럼: 설비코드</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>정비일자</strong></td>
+                                            <td>날짜</td>
+                                            <td>필수, 기본값: 오늘</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>정비유형</strong></td>
+                                            <td>선택</td>
+                                            <td>PM(예방정비), BM(사후정비), CM(개량정비), 점검</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>정비구분</strong></td>
+                                            <td>선택</td>
+                                            <td>자체, 외주, 혼합</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>고장부위</strong></td>
+                                            <td>선택</td>
+                                            <td>기계부, 전기부, 제어부, 유압부, 공압부, 기타</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>고장현상</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>서식 사용</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>정비내용</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>필수, 서식 사용</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>교체부품</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>부품명, 수량, 단가</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>정비시간(hr)</strong></td>
+                                            <td>숫자</td>
+                                            <td>소수점 1자리</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>부품비</strong></td>
+                                            <td>통화</td>
+                                            <td>₩, 소수점 0</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>인건비</strong></td>
+                                            <td>통화</td>
+                                            <td>₩</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>외주비</strong></td>
+                                            <td>통화</td>
+                                            <td>₩</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>총비용</strong></td>
+                                            <td>계산됨</td>
+                                            <td>=[부품비]+[인건비]+[외주비]</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>정비자</strong></td>
+                                            <td>사용자</td>
+                                            <td>복수 허용</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-3</span>
+                            <div class="instruction-content">
+                                <h5>조회(Lookup) 컬럼 상세 설정</h5>
+                                <div
+                                    style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 "설비" Lookup 컬럼 만들기:</strong><br><br>
+                                    <strong>Step 1:</strong> "+" → 열 이름에 "설비" 입력<br>
+                                    <strong>Step 2:</strong> 열 유형: "조회" 선택<br>
+                                    <strong>Step 3:</strong> 정보 원본 목록: <strong>설비마스터</strong> 선택<br>
+                                    <strong>Step 4:</strong> 이 열: <strong>설비코드</strong> 선택<br>
+                                    <strong>Step 5:</strong> "다음 필드도 추가" 체크:<br>
+                                    &nbsp;&nbsp;&nbsp;☑️ 설비명<br>
+                                    &nbsp;&nbsp;&nbsp;☑️ 설치위치<br>
+                                    &nbsp;&nbsp;&nbsp;☑️ 담당자<br>
+                                    <strong>Step 6:</strong> "저장"<br><br>
+                                    <span style="color: #b45309;">💡 효과: 정비이력에서 설비코드만 선택하면 설비명, 위치가 자동 표시됩니다!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-4</span>
+                            <div class="instruction-content">
+                                <h5>계산 컬럼 수식 작성</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem;">
+                                    <strong style="color: #60a5fa;">// 총비용 계산</strong><br>
+                                    =[부품비]+[인건비]+[외주비]<br><br>
+                                    <strong style="color: #60a5fa;">// MTTR용 분 단위 변환 (추가 컬럼)</strong><br>
+                                    =[정비시간]*60<br><br>
+                                    <strong style="color: #60a5fa;">// 시간당 비용</strong><br>
+                                    =IF([정비시간]=0,0,[총비용]/[정비시간])
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-5</span>
+                            <div class="instruction-content">
+                                <h5>뷰 설정 (4가지)</h5>
+                                <table class="excel-table">
+                                    <thead>
+                                        <tr>
+                                            <th>뷰 이름</th>
+                                            <th>필터</th>
+                                            <th>그룹화</th>
+                                            <th>정렬</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>이번달 정비</td>
+                                            <td>정비일자 = 이번 달</td>
+                                            <td>설비</td>
+                                            <td>정비일자 내림차순</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BM 이력</td>
+                                            <td>정비유형 = BM</td>
+                                            <td>설비</td>
+                                            <td>정비일자 내림차순</td>
+                                        </tr>
+                                        <tr>
+                                            <td>고비용 정비</td>
+                                            <td>총비용 ≥ 100만원</td>
+                                            <td>없음</td>
+                                            <td>총비용 내림차순</td>
+                                        </tr>
+                                        <tr>
+                                            <td>내 정비</td>
+                                            <td>정비자 = [Me]</td>
+                                            <td>없음</td>
+                                            <td>정비일자 내림차순</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 3: Power Automate 자동화 ===== -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool powerautomate"><i class="fas fa-cog"></i><span>Power Automate</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 4-5</span>
+                </div>
+                <h3>자동화 흐름 구축 (3개)</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-bolt"></i> 흐름 1: 정비번호 자동 생성</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>흐름 생성 및 트리거 설정</h5>
+                                <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                                    <strong>📍 Power Automate 접속:</strong><br>
+                                    flow.microsoft.com → 로그인 → "만들기" → "자동화된 클라우드 흐름"<br><br>
+                                    <strong>흐름 이름:</strong> 정비이력_번호자동생성<br>
+                                    <strong>트리거:</strong> SharePoint - 항목이 만들어질 때
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>전체 흐름 구조</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                                        <div
+                                            style="background: #dbeafe; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>1️⃣ 트리거: 항목이 만들어질 때</strong><br>
+                                            <small>사이트: TS팀 / 목록: 정비이력</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>2️⃣ 여러 항목 가져오기</strong><br>
+                                            <small>필터: 올해 정비번호만 / 상위: 1개 / 정렬: 내림차순</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #d1fae5; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>3️⃣ 변수 초기화</strong><br>
+                                            <small>이름: NewMaintNo / 값: MT-2025-0001 (또는 +1)</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #e0e7ff; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>4️⃣ 항목 업데이트</strong><br>
+                                            <small>정비번호 필드에 변수값 저장</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-3</span>
+                            <div class="instruction-content">
+                                <h5>각 단계별 상세 설정</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem; overflow-x: auto;">
+                                    <strong style="color: #60a5fa;">// Step 2: 여러 항목 가져오기</strong><br>
+                                    사이트 주소: https://회사.sharepoint.com/sites/TS팀<br>
+                                    목록 이름: 정비이력<br>
+                                    필터 쿼리: startswith(정비번호,'MT-2025')<br>
+                                    상위 개수: 1<br>
+                                    정렬 기준: 정비번호 desc<br><br>
+
+                                    <strong style="color: #60a5fa;">// Step 3: 변수 초기화 - 수식</strong><br>
+                                    concat('MT-', formatDateTime(utcNow(), 'yyyy'), '-',<br>
+                                    &nbsp;&nbsp;if(empty(body('여러_항목_가져오기')?['value']),<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;'0001',<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;formatNumber(<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add(int(substring(<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first(body('여러_항목_가져오기')?['value'])?['정비번호'],<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8, 4<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)), 1),<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'0000'<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;)<br>
+                                    &nbsp;&nbsp;)<br>
+                                    )<br><br>
+
+                                    <strong style="color: #60a5fa;">// 결과 예시:</strong><br>
+                                    MT-2025-0001, MT-2025-0002, MT-2025-0003 ...
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2.5rem;"><i class="fas fa-bolt"></i> 흐름 2: 설비마스터 최종정비일 자동 업데이트</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-4</span>
+                            <div class="instruction-content">
+                                <h5>정비이력 등록 시 설비마스터 연동</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                                        <div
+                                            style="background: #dbeafe; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>트리거: 정비이력 항목 생성됨</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>항목 가져오기 (설비마스터)</strong><br>
+                                            <small>ID = 정비이력의 설비 Lookup ID</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #d1fae5; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>항목 업데이트 (설비마스터)</strong><br>
+                                            <small>최종정비일 = 오늘</small><br>
+                                            <small>다음정비예정일 = 오늘 + PM주기</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2.5rem;"><i class="fas fa-bolt"></i> 흐름 3: 정비 예정일 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-5</span>
+                            <div class="instruction-content">
+                                <h5>매일 예정 정비 알림</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                                        <div
+                                            style="background: #dbeafe; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>예약됨: 매일 오전 8시</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>여러 항목 가져오기 (설비마스터)</strong><br>
+                                            <small>필터: 다음정비예정일 = 오늘 ~ 오늘+7일</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fee2e2; padding: 1rem 2rem; border-radius: 8px; width: 80%; text-align: center;">
+                                            <strong>Apply to each: Teams 알림</strong><br>
+                                            <small>담당자에게 정비 예정 알림 전송</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-6</span>
+                            <div class="instruction-content">
+                                <h5>Teams 알림 메시지 양식</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                                    📧 <strong>Teams 채널에 메시지 게시</strong><br><br>
+                                    팀: TS팀<br>
+                                    채널: 정비관리<br>
+                                    메시지:<br><br>
+                                    🔧 <strong>정비 예정 알림</strong><br><br>
+                                    다음 설비의 정비가 예정되어 있습니다:<br><br>
+                                    • 설비: @{items('Apply_to_each')?['설비코드']} - @{items('Apply_to_each')?['설비명']}<br>
+                                    • 예정일: @{formatDateTime(items('Apply_to_each')?['다음정비예정일'], 'yyyy-MM-dd')}<br>
+                                    • 담당자: @{items('Apply_to_each')?['담당자/DisplayName']}<br><br>
+                                    &lt;at&gt;@{items('Apply_to_each')?['담당자/Email']}&lt;/at&gt; 확인 부탁드립니다.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> 흐름이 정상 작동하는지 확인하려면 "테스트" 버튼 → "수동으로" 선택 후
+                        실제 데이터를 입력해 보세요. 오류 발생 시 각 단계를 클릭하면 상세 로그를 볼 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 4: 데이터 이관 ===== -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 5-7</span>
+                </div>
+                <h3>기존 데이터 이관 (스프린트 방식)</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-1</span>
+                            <div class="instruction-content">
+                                <h5>이관 계획 수립</h5>
+                                <div class="backlog-example">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>스프린트</th>
+                                                <th>대상</th>
+                                                <th>건수</th>
+                                                <th>담당</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Sprint 1</td>
+                                                <td>A등급 설비 (핵심)</td>
+                                                <td>50대</td>
+                                                <td>김OO</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sprint 2</td>
+                                                <td>B등급 설비 (중요)</td>
+                                                <td>150대</td>
+                                                <td>이OO</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sprint 3</td>
+                                                <td>C등급 설비 (일반)</td>
+                                                <td>300대</td>
+                                                <td>박OO, 최OO</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-2</span>
+                            <div class="instruction-content">
+                                <h5>Excel → Lists 일괄 가져오기</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 방법 1: Excel에서 복사하여 붙여넣기</strong><br>
+                                    1. Excel에서 데이터 범위 선택 (헤더 제외)<br>
+                                    2. Ctrl+C 복사<br>
+                                    3. Lists 빈 행 선택 후 Ctrl+V 붙여넣기<br>
+                                    4. 컬럼 매핑 확인 후 "붙여넣기"<br><br>
+
+                                    <strong>📍 방법 2: Quick Edit 모드</strong><br>
+                                    1. Lists 상단 "그리드 보기로 편집" 클릭<br>
+                                    2. 엑셀처럼 직접 입력 또는 붙여넣기<br>
+                                    3. "그리드 보기 끝내기"로 저장<br><br>
+
+                                    <span style="color: #0078d4;">※ 500건 이하는 복붙, 그 이상은 Power Automate로 일괄 처리 권장</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-3</span>
+                            <div class="instruction-content">
+                                <h5>이관 후 검증 체크리스트</h5>
+                                <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px;">
+                                    <p style="margin: 0;"><strong>✅ 검증 항목:</strong></p>
+                                    <ul style="margin: 0.5rem 0 0 1.5rem;">
+                                        <li>☐ 총 건수 일치 여부 (Excel vs Lists)</li>
+                                        <li>☐ 필수 컬럼 누락 없음</li>
+                                        <li>☐ 선택 컬럼 값 매핑 정확성</li>
+                                        <li>☐ 날짜 형식 정상 (YYYY-MM-DD)</li>
+                                        <li>☐ 금액 컬럼 숫자 인식 정상</li>
+                                        <li>☐ Lookup 컬럼 연결 정상</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 5: 활용 및 정착 ===== -->
+            <div class="step-card" id="step5">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 8</span>
+                </div>
+                <h3>현장 활용 및 정착</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">5-1</span>
+                            <div class="instruction-content">
+                                <h5>모바일 활용 교육</h5>
+                                <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px;">
+                                    <strong>📱 현장에서 모바일로 정비 기록하기:</strong><br><br>
+                                    1. 스마트폰에서 Teams 앱 실행<br>
+                                    2. TS팀 → 정비관리 채널 → Lists 탭<br>
+                                    3. "+새로 만들기" 터치<br>
+                                    4. 각 필드 입력 (설비는 검색으로 선택)<br>
+                                    5. "저장" 터치<br><br>
+                                    <span style="color: #b45309;">💡 현장에서 사진 첨부도 가능 (카메라 직접 촬영)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">5-2</span>
+                            <div class="instruction-content">
+                                <h5>Daily Standup 활용</h5>
+                                <div class="standup-example">
+                                    <h4><i class="fas fa-comments"></i> 정비 미팅 활용 예시</h4>
+                                    <div class="standup-person">
+                                        <strong>팀장: Lists로 현황 공유</strong>
+                                        <ul>
+                                            <li>📊 "이번달 정비" 뷰 화면 공유</li>
+                                            <li>📈 정비유형별 건수 파이차트</li>
+                                            <li>🔴 이번 주 정비 예정 설비 5대 확인</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="retro-board">
+                        <div class="retro-column start">
+                            <h4>✅ 시작할 것 (Start)</h4>
+                            <ul>
+                                <li>모든 정비 완료 후 즉시 Lists 등록</li>
+                                <li>월간 데이터 분석 리포트 발행</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column stop">
+                            <h4>🛑 멈출 것 (Stop)</h4>
+                            <ul>
+                                <li>종이 정비 일지 작성</li>
+                                <li>개인 엑셀에 정비 기록</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column continue">
+                            <h4>🔄 계속할 것 (Continue)</h4>
+                            <ul>
+                                <li>정비 예정 자동 알림 운영</li>
+                                <li>설비마스터↔정비이력 연동</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card value-card">
+                <h2><i class="fas fa-chart-line"></i> 개선 결과</h2>
+                <div class="result-grid">
+                    <div class="result-item"><i class="fas fa-database"></i>
+                        <h4>500대</h4>
+                        <p>설비 이력 통합</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-search"></i>
+                        <h4>80%↓</h4>
+                        <p>검색 시간 단축</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-mobile"></i>
+                        <h4>실시간</h4>
+                        <p>현장 기록</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-certificate"></i>
+                        <h4>ISO 대응</h4>
+                        <p>감사 즉시 대응</p>
+                    </div>
+                </div>
+                <div class="value-metrics">
+                    <div class="value-item">
+                        <div class="value-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="value-info">
+                            <h4>연간 시간 절감</h4>
+                            <p>이력 검색, 보고서 작성, 감사 대응 시간 감소</p>
+                            <span class="value-tag">연 480시간 절감 (약 60 Man-Day)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview ot">
+                <span class="preview-label">다음 사례</span>
+                <h2>Case 06: 작업 지시서 전자화</h2>
+                <p>현장 작업자 모바일 작업 지시 시스템, 종이 95% 감소</p>
+                <a href="case06.html" class="btn btn-primary">다음 사례 보기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ & Troubleshooting -->
+    <section class="step-guide" style="background: #f0f9ff;">
+        <div class="container">
+            <h2 class="section-title">❓ 자주 묻는 질문 (FAQ)</h2>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q1. Lists에서 Lookup 컬럼이 안 보여요</h3>
+                <div class="step-content">
+                    <div style="background: #d1fae5; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> Lookup은 같은 SharePoint 사이트 내 Lists만 연결됩니다.<br><br>
+                        <strong>해결 방법:</strong><br>
+                        1. 설비마스터와 정비이력이 같은 사이트에 있는지 확인<br>
+                        2. 사이트가 다르면, 설비마스터를 정비이력과 같은 사이트에 복사<br>
+                        3. "새 열 추가" → "조회" → 목록 이름 드롭다운에 해당 Lists 확인
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q2. Power Automate 흐름이 실행되지 않아요</h3>
+                <div class="step-content">
+                    <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> 흐름이 "켜짐" 상태인지 확인하세요.<br><br>
+                        <strong>확인 방법:</strong><br>
+                        1. flow.microsoft.com → 내 흐름<br>
+                        2. 해당 흐름 옆 상태가 "켜짐"인지 확인<br>
+                        3. "꺼짐"이면 클릭 후 "켜기"<br>
+                        4. "실행 기록"에서 실패 원인 확인<br><br>
+                        <strong>일반적인 실패 원인:</strong><br>
+                        • 사이트 URL 오타<br>
+                        • 컬럼명 변경됨 (재매핑 필요)<br>
+                        • 권한 부족
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q3. Excel에서 붙여넣기가 안 돼요</h3>
+                <div class="step-content">
+                    <div style="background: #dbeafe; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> 브라우저 권한 문제일 수 있습니다.<br><br>
+                        <strong>해결 방법:</strong><br>
+                        1. Chrome 사용 권장 (Edge도 가능)<br>
+                        2. 브라우저에서 클립보드 권한 허용<br>
+                        3. Lists "그리드 보기로 편집" 모드에서 시도<br>
+                        4. 안 되면 "가져오기" 기능 사용<br><br>
+                        <strong>가져오기 방법:</strong><br>
+                        Lists → 통합 → Excel에서 가져오기 → 파일 선택
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q4. 모바일에서 Lists가 느려요</h3>
+                <div class="step-content">
+                    <div style="background: #e0e7ff; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> 뷰를 최적화하세요.<br><br>
+                        <strong>최적화 방법:</strong><br>
+                        1. 모바일 전용 뷰 생성 (표시 컬럼 5개 이하)<br>
+                        2. "내 정비" 뷰처럼 필터된 뷰 사용<br>
+                        3. 이미지 컬럼은 모바일 뷰에서 숨김<br>
+                        4. Microsoft Lists 앱 설치 (SharePoint 앱보다 빠름)
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q5. 자동채번이 중복될 때가 있어요</h3>
+                <div class="step-content">
+                    <div style="background: #fee2e2; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> 동시 입력 시 발생할 수 있습니다.<br><br>
+                        <strong>해결 방법:</strong><br>
+                        1. Power Automate 흐름에 "동시성 제어" 설정<br>
+                        &nbsp;&nbsp;→ 트리거 설정 → 동시성 제어 켜기 → 병렬도: 1<br>
+                        2. 이렇게 하면 한 번에 하나씩 순차 처리됨<br><br>
+                        <strong>영구 해결:</strong><br>
+                        Azure SQL 또는 Dataverse 사용 시 트랜잭션 처리 가능
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">🎯 베스트 프랙티스</h2>
+
+            <div class="insight-cards"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div class="insight-card" style="background: #f0fdf4; border-left: 4px solid #10b981;">
+                    <h4>✅ 컬럼 명명 규칙</h4>
+                    <p>한글 사용 가능하지만, 공백 없이 작성<br>예: 설비코드, 정비일자, PM주기</p>
+                </div>
+                <div class="insight-card" style="background: #dbeafe; border-left: 4px solid #3b82f6;">
+                    <h4>✅ 선택 컬럼 값 5개 이내</h4>
+                    <p>선택값이 10개 넘으면 조회 컬럼으로 변경<br>별도 마스터 Lists 생성 권장</p>
+                </div>
+                <div class="insight-card" style="background: #fef3c7; border-left: 4px solid #f59e0b;">
+                    <h4>✅ 뷰는 목적별로 생성</h4>
+                    <p>일일업무용, 보고용, 분석용 분리<br>권한별 뷰 제한도 가능</p>
+                </div>
+                <div class="insight-card" style="background: #e0e7ff; border-left: 4px solid #8b5cf6;">
+                    <h4>✅ Power Automate 명명</h4>
+                    <p>[Lists명]_[동작]_[결과] 형식<br>예: 정비이력_생성_번호채번</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="cases.html">사례 목록</a> | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
