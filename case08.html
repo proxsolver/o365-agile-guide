@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 08: 아차 사고 신고 시스템 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="cases.html" class="nav-back"><i class="fas fa-arrow-left"></i> 사례 목록</a>
+        <div class="week-indicator">
+            <a href="case07.html" class="prev"><i class="fas fa-arrow-left"></i> Case 07</a>
+            <span class="current case">Case 08</span>
+            <a href="case09.html" class="next">Case 09 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="case-study-banner safety-theme">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Case 08: 아차 사고 신고 시스템</h2>
+            <p>익명 신고 가능한 니어미스(Near-Miss) 보고 체계로 잠재 위험 발굴</p>
+        </div>
+    </div>
+
+    <section class="week-hero week9-theme">
+        <div class="hero-content">
+            <span class="week-badge">Case 08 | 안전관리</span>
+            <h1>⚠️ 아차 사고 신고 시스템</h1>
+            <p>사고로 이어질 뻔한 위험 상황을 익명으로 신고받아 선제적으로 대응합니다</p>
+            <div class="kpi-focus">
+                <div class="kpi-item active"><i class="fas fa-user-secret"></i><span>익명 신고</span></div>
+                <div class="kpi-item"><i class="fas fa-chart-line"></i><span>위험 분석</span></div>
+                <div class="kpi-item"><i class="fas fa-shield-alt"></i><span>사고 예방</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card safety">
+                <h2><i class="fas fa-exclamation-circle"></i> 문제 상황</h2>
+                <div class="scenario-box">
+                    <h4><i class="fas fa-users"></i> 현장의 목소리</h4>
+                    <p>안전담당 박OO 과장이 안전 문화의 문제점을 이야기합니다:<br>
+                        <em>"중대재해처벌법 시행 이후 안전이 더 중요해졌는데, 현장에서 '아차' 하는 순간들이 보고가 안 돼요.
+                            작업자들이 '괜히 말했다가 문제 생기면 어쩌나' 하는 분위기고, 신고해도 후속 조치가 어떻게 되는지
+                            피드백이 없어서 신고 의욕이 떨어집니다. 하인리히 법칙대로 아차 사고 300건 중 1건이 중대 사고인데,
+                            그 300건을 발굴해야 합니다."</em>
+                    </p>
+                </div>
+                <div class="goal-metrics">
+                    <div class="metric"><span class="metric-label">월간 신고 목표</span><span class="metric-value">30건</span>
+                    </div>
+                    <div class="metric"><span class="metric-label">조치 완료율</span><span class="metric-value">100%</span>
+                    </div>
+                    <div class="metric"><span class="metric-label">개선 기간</span><span class="metric-value">3주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 실행 가이드</h2>
+
+            <!-- ===== STEP 1: 익명 신고 Forms ===== -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool forms"><i class="fab fa-wpforms"></i><span>Microsoft Forms</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (월~화)</span>
+                </div>
+                <h3>익명 신고 양식 구축</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>익명 응답 Forms 생성</h5>
+                                <div
+                                    style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 핵심: 익명 설정</strong><br><br>
+                                    <strong>Step 1:</strong> forms.office.com → "새 양식"<br>
+                                    <strong>Step 2:</strong> 이름: "🚨 아차 사고(Near-Miss) 신고"<br>
+                                    <strong>Step 3:</strong> 우측 상단 "..." → "설정"<br>
+                                    <strong>Step 4:</strong> <span
+                                        style="background: #fee2e2; padding: 0.25rem 0.5rem; border-radius: 4px;"><strong>중요!</strong></span><br>
+                                    &nbsp;&nbsp;&nbsp;☑️ "누가 양식을 채울 수 있나요?" → <strong>"링크가 있는 모든 사용자가 응답
+                                        가능"</strong><br>
+                                    &nbsp;&nbsp;&nbsp;☐ "이름 기록" → <strong>체크 해제</strong> (익명 보장)<br><br>
+                                    <span style="color: #dc2626;">⚠️ "이름 기록"이 켜져 있으면 익명이 아닙니다!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>신고 양식 질문 구성 (10개)</h5>
+
+                                <h6 style="margin-top: 1.5rem; color: #ef4444;">🔹 발생 정보</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>질문</th>
+                                            <th>유형</th>
+                                            <th>설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><strong>발생 일시</strong></td>
+                                            <td>날짜</td>
+                                            <td>필수</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><strong>발생 장소</strong></td>
+                                            <td>선택</td>
+                                            <td>A동1층, A동2층, B동1층, B동2층, 옥외, 기타</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><strong>발생 시간대</strong></td>
+                                            <td>선택</td>
+                                            <td>주간(08~18시), 야간(18~08시)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #f59e0b;">🔹 사고 유형</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>질문</th>
+                                            <th>유형</th>
+                                            <th>선택지</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><strong>아차 사고 유형</strong></td>
+                                            <td>선택 (복수)</td>
+                                            <td>
+                                                • 떨어짐/넘어짐 위험<br>
+                                                • 끼임/감김 위험<br>
+                                                • 충돌/부딪힘 위험<br>
+                                                • 화재/폭발 위험<br>
+                                                • 전기 감전 위험<br>
+                                                • 유해물질 노출<br>
+                                                • 중량물 낙하<br>
+                                                • 기타
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><strong>관련 설비/작업</strong></td>
+                                            <td>텍스트</td>
+                                            <td>짧은 답변, (예: 지게차, 컨베이어, 용접작업)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #0078d4;">🔹 상세 내용</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>질문</th>
+                                            <th>유형</th>
+                                            <th>설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>6</td>
+                                            <td><strong>어떤 상황이었나요?</strong></td>
+                                            <td>텍스트</td>
+                                            <td>긴 답변, 필수</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td><strong>왜 위험했나요?</strong></td>
+                                            <td>텍스트</td>
+                                            <td>긴 답변</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td><strong>개선 제안</strong></td>
+                                            <td>텍스트</td>
+                                            <td>긴 답변 (선택)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #10b981;">🔹 첨부 및 연락</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>질문</th>
+                                            <th>유형</th>
+                                            <th>설정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>9</td>
+                                            <td><strong>현장 사진</strong></td>
+                                            <td>파일 업로드</td>
+                                            <td>이미지만, 최대 5개</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td><strong>연락받을 이메일 (선택)</strong></td>
+                                            <td>텍스트</td>
+                                            <td>선택사항, 후속 조치 안내 희망 시</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-3</span>
+                            <div class="instruction-content">
+                                <h5>위험도 등급 자가 평가</h5>
+                                <div
+                                    style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 추가 질문: 위험도 선택</strong><br><br>
+                                    <strong>질문:</strong> "얼마나 위험했다고 생각하시나요?"<br>
+                                    <strong>유형:</strong> 등급 (Likert 척도)<br>
+                                    <strong>레이블:</strong><br>
+                                    <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                                        <span
+                                            style="background: #fef3c7; padding: 0.25rem 0.75rem; border-radius: 4px;">1
+                                            - 낮음</span>
+                                        <span
+                                            style="background: #fed7aa; padding: 0.25rem 0.75rem; border-radius: 4px;">2</span>
+                                        <span
+                                            style="background: #fdba74; padding: 0.25rem 0.75rem; border-radius: 4px;">3
+                                            - 보통</span>
+                                        <span
+                                            style="background: #fb923c; padding: 0.25rem 0.75rem; border-radius: 4px;">4</span>
+                                        <span
+                                            style="background: #f97316; padding: 0.25rem 0.75rem; border-radius: 4px;">5
+                                            - 높음</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-4</span>
+                            <div class="instruction-content">
+                                <h5>제출 후 메시지 설정</h5>
+                                <div
+                                    style="background: #d1fae5; border-left: 4px solid #10b981; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 감사 메시지 (설정 → 제출 후 메시지):</strong><br><br>
+                                    <div
+                                        style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #d1fae5;">
+                                        ✅ <strong>신고해 주셔서 감사합니다!</strong><br><br>
+                                        귀하의 신고는 안전한 작업 환경을 만드는 데 큰 도움이 됩니다.<br><br>
+                                        📋 접수된 내용은 안전팀에서 검토 후 개선 조치를 진행합니다.<br>
+                                        📧 이메일을 남기셨다면 조치 결과를 안내드리겠습니다.<br><br>
+                                        <em>안전은 우리 모두의 책임입니다. 🛡️</em>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> 익명 양식은 조직 외부 공유 설정이므로, 링크가 유출되지 않도록
+                        사내 게시판/Teams에만 공유하세요.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 2: 신고 관리 Lists ===== -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool sharepoint"><i class="fas fa-share-alt"></i><span>SharePoint Lists</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (수~목)</span>
+                </div>
+                <h3>신고 접수/처리 관리 Lists</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>"아차사고관리" Lists 컬럼 (15개)</h5>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>신고번호</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>NM-2025-0001 (자동채번)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>접수일</strong></td>
+                                            <td>날짜</td>
+                                            <td>Power Automate에서 자동</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>발생일시</strong></td>
+                                            <td>날짜</td>
+                                            <td>Forms 연동</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>발생장소</strong></td>
+                                            <td>선택</td>
+                                            <td>Forms 연동</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>사고유형</strong></td>
+                                            <td>선택(복수)</td>
+                                            <td>Forms 연동</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>상황설명</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>Forms 연동</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>위험도</strong></td>
+                                            <td>선택</td>
+                                            <td>1~5단계</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>처리상태</strong></td>
+                                            <td>선택</td>
+                                            <td>접수, 검토중, 조치중, 완료, 모니터링</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>담당자</strong></td>
+                                            <td>사용자</td>
+                                            <td>조치 담당자 지정</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>조치내용</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>담당자 작성</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>조치완료일</strong></td>
+                                            <td>날짜</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>재발방지책</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>첨부사진</strong></td>
+                                            <td>하이퍼링크</td>
+                                            <td>OneDrive 링크</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>신고자이메일</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>피드백 희망 시</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>피드백발송</strong></td>
+                                            <td>예/아니요</td>
+                                            <td>조치 완료 시 체크</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>처리 상태별 뷰 설정</h5>
+                                <table class="excel-table">
+                                    <thead>
+                                        <tr>
+                                            <th>뷰 이름</th>
+                                            <th>필터</th>
+                                            <th>정렬</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>🆕 신규 접수</td>
+                                            <td>처리상태 = 접수</td>
+                                            <td>접수일 오름차순</td>
+                                        </tr>
+                                        <tr>
+                                            <td>🔧 조치 진행</td>
+                                            <td>처리상태 = 검토중, 조치중</td>
+                                            <td>위험도 내림차순</td>
+                                        </tr>
+                                        <tr>
+                                            <td>✅ 완료</td>
+                                            <td>처리상태 = 완료</td>
+                                            <td>조치완료일 내림차순</td>
+                                        </tr>
+                                        <tr>
+                                            <td>⚠️ 고위험</td>
+                                            <td>위험도 = 4,5</td>
+                                            <td>접수일 오름차순</td>
+                                        </tr>
+                                        <tr>
+                                            <td>📧 피드백 필요</td>
+                                            <td>신고자이메일 ≠ 빈값 AND 피드백발송 = 아니요</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 3: Power Automate 연동 ===== -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool powerautomate"><i class="fas fa-cog"></i><span>Power Automate</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (금) ~ Week 2 (월)</span>
+                </div>
+                <h3>자동화 흐름 구축 (4개)</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-bolt"></i> 흐름 1: Forms → Lists 자동 저장</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>신고 접수 시 자동 등록</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+                                        <div
+                                            style="background: #fee2e2; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>트리거: Forms 새 응답</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>응답 세부 정보 가져오기</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #d1fae5; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>SharePoint - 항목 만들기</strong><br>
+                                            <small>아차사고관리 Lists에 저장</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #e0e7ff; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>신고번호 자동 채번 후 업데이트</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;"><i class="fas fa-bolt"></i> 흐름 2: 고위험 즉시 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>위험도 4-5 신고 시 긴급 알림</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                                    <strong style="color: #ef4444;">// 조건: 위험도 4 이상</strong><br>
+                                    @or(<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r위험도'], '4'),<br>
+                                    &nbsp;&nbsp;equals(outputs('응답_세부_정보_가져오기')?['body/r위험도'], '5')<br>
+                                    )<br><br>
+
+                                    <strong style="color: #60a5fa;">// 예 → Teams 긴급 알림</strong><br>
+                                    🚨🚨🚨 <strong>고위험 아차 사고 신고!</strong> 🚨🚨🚨<br><br>
+                                    📍 장소: @{outputs('응답_세부_정보_가져오기')?['body/r발생장소']}<br>
+                                    ⚠️ 유형: @{outputs('응답_세부_정보_가져오기')?['body/r아차사고유형']}<br>
+                                    📝 상황: @{outputs('응답_세부_정보_가져오기')?['body/r어떤상황이었나요']}<br>
+                                    🔴 위험도: @{outputs('응답_세부_정보_가져오기')?['body/r위험도']}점<br><br>
+                                    &lt;at&gt;안전팀&lt;/at&gt; 즉시 현장 확인 바랍니다!
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;"><i class="fas fa-bolt"></i> 흐름 3: 담당자 지정 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-3</span>
+                            <div class="instruction-content">
+                                <h5>조치 담당자 지정 시 알림</h5>
+                                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                                    <strong>트리거:</strong> Lists 항목 수정됨 + 담당자 필드 변경<br>
+                                    <strong>액션:</strong> 담당자에게 Teams 1:1 채팅으로 알림<br><br>
+                                    <em>"[NM-2025-0012] 아차 사고 조치가 배정되었습니다. 확인 부탁드립니다."</em>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;"><i class="fas fa-bolt"></i> 흐름 4: 신고자 피드백 발송</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-4</span>
+                            <div class="instruction-content">
+                                <h5>조치 완료 시 신고자에게 이메일</h5>
+                                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                                    <strong>트리거:</strong> Lists 처리상태 = "완료"로 변경<br>
+                                    <strong>조건:</strong> 신고자이메일이 비어있지 않음<br>
+                                    <strong>액션:</strong> Outlook - 이메일 보내기<br><br>
+                                    <div
+                                        style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                        <strong>제목:</strong> [아차사고 신고] 조치 완료 안내
+                                        (@{triggerOutputs()?['body/신고번호']})<br><br>
+                                        <strong>본문:</strong><br>
+                                        안녕하세요, 귀하께서 신고해 주신 아차 사고에 대한 조치가 완료되었습니다.<br><br>
+                                        📋 신고번호: @{triggerOutputs()?['body/신고번호']}<br>
+                                        🔧 조치내용: @{triggerOutputs()?['body/조치내용']}<br>
+                                        ✅ 완료일: @{triggerOutputs()?['body/조치완료일']}<br><br>
+                                        소중한 의견 감사드립니다. 안전한 작업장을 위해 계속 노력하겠습니다.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 4: 분석 대시보드 ===== -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool excel"><i class="fas fa-chart-bar"></i><span>Excel / Power BI</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (화~수)</span>
+                </div>
+                <h3>아차 사고 분석 대시보드</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-1</span>
+                            <div class="instruction-content">
+                                <h5>월간 현황 대시보드</h5>
+                                <div class="dashboard-layout">
+                                    <div class="dash-item" style="background: #dbeafe;">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <h5>이번달 신고</h5>
+                                        <span class="dash-value">28건</span>
+                                    </div>
+                                    <div class="dash-item" style="background: #fee2e2;">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <h5>고위험</h5>
+                                        <span class="dash-value">3건</span>
+                                    </div>
+                                    <div class="dash-item success" style="background: #d1fae5;">
+                                        <i class="fas fa-check-circle"></i>
+                                        <h5>조치 완료</h5>
+                                        <span class="dash-value">24건</span>
+                                    </div>
+                                    <div class="dash-item" style="background: #fef3c7;">
+                                        <i class="fas fa-clock"></i>
+                                        <h5>처리중</h5>
+                                        <span class="dash-value">4건</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-2</span>
+                            <div class="instruction-content">
+                                <h5>유형별/장소별 분석</h5>
+                                <div class="excel-template">
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>유형</th>
+                                                <th>건수</th>
+                                                <th>비율</th>
+                                                <th>주요 발생 장소</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>떨어짐/넘어짐</td>
+                                                <td>8건</td>
+                                                <td>29%</td>
+                                                <td>옥외 야적장</td>
+                                            </tr>
+                                            <tr>
+                                                <td>끼임/감김</td>
+                                                <td>7건</td>
+                                                <td>25%</td>
+                                                <td>A동 생산라인</td>
+                                            </tr>
+                                            <tr>
+                                                <td>충돌/부딪힘</td>
+                                                <td>6건</td>
+                                                <td>21%</td>
+                                                <td>B동 창고</td>
+                                            </tr>
+                                            <tr>
+                                                <td>중량물 낙하</td>
+                                                <td>4건</td>
+                                                <td>14%</td>
+                                                <td>A동 조립라인</td>
+                                            </tr>
+                                            <tr>
+                                                <td>기타</td>
+                                                <td>3건</td>
+                                                <td>11%</td>
+                                                <td>-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-3</span>
+                            <div class="instruction-content">
+                                <h5>하인리히 법칙 적용</h5>
+                                <div
+                                    style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📊 하인리히 법칙</strong><br><br>
+                                    <strong>1</strong> 중대 사고 : <strong>29</strong> 경상 사고 : <strong>300</strong> 아차
+                                    사고<br><br>
+                                    <strong>우리 현황:</strong><br>
+                                    • 월 30건 아차 사고 신고 목표<br>
+                                    • 연간 360건 발굴 시, 약 1.2건의 중대 사고 예방 효과<br><br>
+                                    <span style="color: #dc2626;">💡 아차 사고 신고가 늘어나는 것은 <strong>좋은 신호</strong>입니다!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 5: 운영 및 문화 ===== -->
+            <div class="step-card" id="step5">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>운영</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 3</span>
+                </div>
+                <h3>신고 활성화 및 안전 문화 정착</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">5-1</span>
+                            <div class="instruction-content">
+                                <h5>신고 활성화 방안</h5>
+                                <div class="insight-cards"
+                                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                                    <div class="insight-card"
+                                        style="background: #f0fdf4; border-left: 4px solid #10b981;">
+                                        <h4>🏆 우수 신고자 포상</h4>
+                                        <p>월간 Best Near-Miss 선정<br>소정의 상품권 지급</p>
+                                    </div>
+                                    <div class="insight-card"
+                                        style="background: #dbeafe; border-left: 4px solid #3b82f6;">
+                                        <h4>📢 조치 결과 공유</h4>
+                                        <p>월간 안전회의에서<br>주요 사례 및 개선 내용 발표</p>
+                                    </div>
+                                    <div class="insight-card"
+                                        style="background: #fef3c7; border-left: 4px solid #f59e0b;">
+                                        <h4>👤 익명 보장 강조</h4>
+                                        <p>정기적으로 익명성 보장<br>캠페인 진행</p>
+                                    </div>
+                                    <div class="insight-card"
+                                        style="background: #fae8ff; border-left: 4px solid #c026d3;">
+                                        <h4>⏰ 빠른 피드백</h4>
+                                        <p>신고 후 48시간 이내<br>초기 검토 결과 공유</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="retro-board">
+                        <div class="retro-column start">
+                            <h4>✅ 시작할 것</h4>
+                            <ul>
+                                <li>아차 사고 신고 = 긍정적 행동으로 인식</li>
+                                <li>월간 신고 현황 팀 공유</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column stop">
+                            <h4>🛑 멈출 것</h4>
+                            <ul>
+                                <li>"신고하면 불이익" 인식</li>
+                                <li>신고 후 조치 없이 방치</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column continue">
+                            <h4>🔄 계속할 것</h4>
+                            <ul>
+                                <li>익명 신고 옵션 유지</li>
+                                <li>조치 완료 후 피드백 발송</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="step-guide" style="background: #fef2f2;">
+        <div class="container">
+            <h2 class="section-title">❓ 자주 묻는 질문 (FAQ)</h2>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q1. 정말 익명이 보장되나요?</h3>
+                <div class="step-content">
+                    <div style="background: #d1fae5; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> 네, Forms 설정에서 "이름 기록"을 끄면 제출자 정보가 기록되지 않습니다.<br><br>
+                        <strong>단, 주의사항:</strong><br>
+                        • 이메일을 직접 입력한 경우 그 이메일로 식별 가능<br>
+                        • 사진에 메타데이터가 있을 수 있음 → 업로드 전 자동 제거됨
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q2. 허위 신고가 걱정돼요</h3>
+                <div class="step-content">
+                    <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> 허위 신고보다 미신고가 더 위험합니다.<br><br>
+                        • 검토 단계에서 현장 확인으로 사실 여부 판단<br>
+                        • 악의적 허위 신고는 극소수 (1% 미만)<br>
+                        • 신고 문화 활성화가 우선
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q3. 중복 신고는 어떻게 처리하나요?</h3>
+                <div class="step-content">
+                    <div style="background: #dbeafe; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> Lists에서 유사 건 검색 후 병합합니다.<br><br>
+                        • 발생장소 + 유형 + 날짜가 유사하면 같은 건으로 처리<br>
+                        • 비고에 "중복 신고" 표시<br>
+                        • 중복이어도 신고 건수에는 포함 (신고 활성화를 위해)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card value-card">
+                <h2><i class="fas fa-chart-line"></i> 개선 결과</h2>
+                <div class="result-grid">
+                    <div class="result-item"><i class="fas fa-clipboard-list"></i>
+                        <h4>30건/월</h4>
+                        <p>신고 건수</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-user-secret"></i>
+                        <h4>익명</h4>
+                        <p>보장</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-clock"></i>
+                        <h4>48시간</h4>
+                        <p>초기 대응</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-shield-alt"></i>
+                        <h4>예방</h4>
+                        <p>사고 선제 대응</p>
+                    </div>
+                </div>
+                <div class="value-metrics">
+                    <div class="value-item">
+                        <div class="value-icon" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                            <i class="fas fa-hard-hat"></i></div>
+                        <div class="value-info">
+                            <h4>중대재해 예방</h4>
+                            <p>아차 사고 300건 발굴 시 중대 사고 1건 예방</p>
+                            <span class="value-tag">하인리히 법칙 기반 선제 대응</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview safety">
+                <span class="preview-label">다음 사례</span>
+                <h2>Case 09: 위험성 평가 관리</h2>
+                <p>SharePoint에서 위험성 평가 DB 구축 및 이력 관리</p>
+                <a href="case09.html" class="btn btn-primary">다음 사례 보기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="cases.html">사례 목록</a> | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
