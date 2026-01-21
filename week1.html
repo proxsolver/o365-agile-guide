@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1: 환경 구축 | Office 365 Agile</title>
+    <meta name="description" content="Office 365 Agile 도입 1주차: Teams, Planner, SharePoint, OneNote 환경 구축 상세 가이드">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="week-nav">
+        <a href="index.html" class="nav-back">
+            <i class="fas fa-arrow-left"></i> 전체 로드맵으로 돌아가기
+        </a>
+        <div class="week-indicator">
+            <span class="current">Week 1</span>
+            <a href="week2.html" class="next">Week 2 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="week-hero week1-theme">
+        <div class="hero-content">
+            <span class="week-badge">Week 1 of 4</span>
+            <h1>🏗️ 환경 구축</h1>
+            <p>Agile 실천을 위한 Office 365 기반 협업 환경을 구축합니다</p>
+            <div class="week-progress">
+                <div class="progress-bar" style="--progress: 25%"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="week-overview">
+        <div class="container">
+            <div class="overview-card">
+                <h2><i class="fas fa-bullseye"></i> 이번 주 목표</h2>
+                <p>Agile 팀이 협업할 수 있는 <strong>디지털 워크스페이스</strong>를 구축합니다. 모든 팀원이 동일한 공간에서 소통하고,
+                    작업을 관리하며, 문서를 공유할 수 있는 환경을 만듭니다.</p>
+                <div class="expected-time">
+                    <i class="fas fa-clock"></i>
+                    <span>예상 소요 시간: <strong>2~4시간</strong> (초기 설정)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Guide -->
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 단계별 실행 가이드</h2>
+
+            <!-- Step 1: Teams -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool teams">
+                        <i class="fab fa-microsoft"></i>
+                        <span>Microsoft Teams</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 30분</span>
+                </div>
+
+                <h3>Teams 팀 및 채널 생성</h3>
+
+                <div class="step-content">
+                    <div class="why-box">
+                        <h4><i class="fas fa-question-circle"></i> 왜 필요한가요?</h4>
+                        <p>Teams는 Agile 팀의 <strong>커뮤니케이션 허브</strong>입니다. Daily Standup, Sprint Planning 등
+                            모든 스크럼 이벤트가 여기서 진행되며, 팀원 간 실시간 소통이 가능합니다.</p>
+                    </div>
+
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>Teams 앱 실행</h5>
+                                <p>Windows: 시작 메뉴에서 "Microsoft Teams" 검색 후 실행<br>
+                                    웹: <a href="https://teams.microsoft.com" target="_blank">teams.microsoft.com</a> 접속
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>새 팀 만들기</h5>
+                                <p>왼쪽 메뉴에서 <strong>"팀"</strong> 클릭 → 하단의 <strong>"팀 참가 또는 만들기"</strong> 클릭 →
+                                    <strong>"팀 만들기"</strong> 선택
+                                </p>
+                                <div class="tip-box">
+                                    💡 <strong>Tip:</strong> "처음부터 만들기"를 선택하고, 팀 유형은 "비공개"를 권장합니다.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-3</span>
+                            <div class="instruction-content">
+                                <h5>팀 이름 및 설명 입력</h5>
+                                <p>예시:<br>
+                                    • 팀 이름: <code>[프로젝트명] Agile Team</code><br>
+                                    • 설명: <code>스크럼 기반 Agile 개발팀 협업 공간</code></p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-4</span>
+                            <div class="instruction-content">
+                                <h5>팀원 초대</h5>
+                                <p>팀 생성 후 나타나는 화면에서 팀원 이메일 입력하여 초대<br>
+                                    (나중에 추가 가능: 팀 이름 옆 <strong>"..."</strong> → <strong>"구성원 추가"</strong>)</p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-5</span>
+                            <div class="instruction-content">
+                                <h5>채널 구성</h5>
+                                <p>기본 "일반" 채널 외에 다음 채널들을 추가로 생성하세요:</p>
+                                <ul class="channel-list">
+                                    <li><strong>📋 Sprint Planning</strong> - 스프린트 계획 논의</li>
+                                    <li><strong>🔄 Daily Standup</strong> - 일일 스탠드업 미팅</li>
+                                    <li><strong>🎯 Sprint Review</strong> - 스프린트 리뷰 및 데모</li>
+                                    <li><strong>💡 Retrospective</strong> - 회고 미팅</li>
+                                    <li><strong>📚 Resources</strong> - 참고 자료 공유</li>
+                                </ul>
+                                <p>채널 추가 방법: 팀 이름 옆 <strong>"..."</strong> → <strong>"채널 추가"</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist">
+                        <h4><i class="fas fa-check-square"></i> 완료 체크리스트</h4>
+                        <label><input type="checkbox"> Teams 팀 생성 완료</label>
+                        <label><input type="checkbox"> 모든 팀원 초대 완료</label>
+                        <label><input type="checkbox"> 5개 채널 생성 완료</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Planner -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool planner">
+                        <i class="fas fa-tasks"></i>
+                        <span>Microsoft Planner</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 20분</span>
+                </div>
+
+                <h3>Planner 칸반 보드 설정</h3>
+
+                <div class="step-content">
+                    <div class="why-box">
+                        <h4><i class="fas fa-question-circle"></i> 왜 필요한가요?</h4>
+                        <p>Planner는 <strong>시각적 태스크 관리 도구</strong>입니다. Jira나 Trello와 유사하게
+                            칸반 보드 형태로 작업 진행 상황을 한눈에 파악할 수 있습니다.</p>
+                    </div>
+
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>Teams에서 Planner 탭 추가</h5>
+                                <p>Teams의 "일반" 채널 상단 <strong>"+"</strong> 버튼 클릭 →
+                                    <strong>"Planner"</strong> 검색 후 선택 → "새 계획 만들기" 선택
+                                </p>
+                                <div class="tip-box">
+                                    💡 <strong>Tip:</strong> Teams 내에서 Planner를 추가하면 자동으로 팀과 연동됩니다.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>계획(플랜) 이름 설정</h5>
+                                <p>예시: <code>Sprint Board - [프로젝트명]</code></p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-3</span>
+                            <div class="instruction-content">
+                                <h5>버킷(열) 구성</h5>
+                                <p>기본 "To do" 버킷을 클릭하여 다음과 같이 버킷을 구성하세요:</p>
+                                <div class="kanban-preview">
+                                    <div class="kanban-column">
+                                        <div class="column-header backlog">📋 Backlog</div>
+                                        <p>스프린트에 들어오기 전</p>
+                                    </div>
+                                    <div class="kanban-column">
+                                        <div class="column-header todo">📌 To Do</div>
+                                        <p>이번 스프린트 할 일</p>
+                                    </div>
+                                    <div class="kanban-column">
+                                        <div class="column-header doing">🔄 In Progress</div>
+                                        <p>진행 중인 작업</p>
+                                    </div>
+                                    <div class="kanban-column">
+                                        <div class="column-header review">👀 Review</div>
+                                        <p>검토 대기 중</p>
+                                    </div>
+                                    <div class="kanban-column">
+                                        <div class="column-header done">✅ Done</div>
+                                        <p>완료된 작업</p>
+                                    </div>
+                                </div>
+                                <p>새 버킷 추가: 오른쪽 <strong>"새 버킷 추가"</strong> 클릭</p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-4</span>
+                            <div class="instruction-content">
+                                <h5>레이블 설정</h5>
+                                <p>상단 <strong>"..."</strong> → <strong>"플랜 설정"</strong> → 레이블 탭에서 색상별 의미 지정</p>
+                                <ul class="label-list">
+                                    <li><span class="label-color" style="background: #e74c3c"></span>
+                                        <strong>긴급</strong> - 즉시 처리 필요</li>
+                                    <li><span class="label-color" style="background: #f39c12"></span>
+                                        <strong>중요</strong> - 높은 우선순위</li>
+                                    <li><span class="label-color" style="background: #3498db"></span>
+                                        <strong>기능</strong> - 새 기능 개발</li>
+                                    <li><span class="label-color" style="background: #9b59b6"></span>
+                                        <strong>버그</strong> - 버그 수정</li>
+                                    <li><span class="label-color" style="background: #1abc9c"></span>
+                                        <strong>개선</strong> - 기존 기능 개선</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist">
+                        <h4><i class="fas fa-check-square"></i> 완료 체크리스트</h4>
+                        <label><input type="checkbox"> Planner 탭 추가 완료</label>
+                        <label><input type="checkbox"> 5개 버킷(열) 구성 완료</label>
+                        <label><input type="checkbox"> 레이블 설정 완료</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: SharePoint -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool sharepoint">
+                        <i class="fas fa-share-alt"></i>
+                        <span>SharePoint</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 30분</span>
+                </div>
+
+                <h3>SharePoint 문서 라이브러리 구조화</h3>
+
+                <div class="step-content">
+                    <div class="why-box">
+                        <h4><i class="fas fa-question-circle"></i> 왜 필요한가요?</h4>
+                        <p>SharePoint는 팀의 <strong>중앙 문서 저장소</strong>입니다. 프로젝트 산출물,
+                            스프린트 결과물, 회의록 등 모든 문서를 버전 관리하며 저장합니다.</p>
+                    </div>
+
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>SharePoint 사이트 접근</h5>
+                                <p>Teams 팀을 생성하면 SharePoint 사이트가 <strong>자동 생성</strong>됩니다.<br>
+                                    Teams 상단 채널 이름 옆 <strong>"파일"</strong> 탭 → <strong>"SharePoint에서 열기"</strong> 클릭</p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>폴더 구조 생성</h5>
+                                <p><strong>"+ 새로 만들기"</strong> → <strong>"폴더"</strong>를 선택하여 다음 구조를 만드세요:</p>
+                                <div class="folder-structure">
+                                    <div class="folder">
+                                        <i class="fas fa-folder"></i> 📁 01_Product_Backlog
+                                    </div>
+                                    <div class="folder">
+                                        <i class="fas fa-folder"></i> 📁 02_Sprint_Deliverables
+                                        <div class="subfolder">
+                                            <i class="fas fa-folder"></i> Sprint_01
+                                        </div>
+                                        <div class="subfolder">
+                                            <i class="fas fa-folder"></i> Sprint_02
+                                        </div>
+                                        <div class="subfolder">
+                                            <i class="fas fa-folder"></i> (스프린트별 폴더 추가)
+                                        </div>
+                                    </div>
+                                    <div class="folder">
+                                        <i class="fas fa-folder"></i> 📁 03_Meeting_Notes
+                                    </div>
+                                    <div class="folder">
+                                        <i class="fas fa-folder"></i> 📁 04_Templates
+                                    </div>
+                                    <div class="folder">
+                                        <i class="fas fa-folder"></i> 📁 05_References
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-3</span>
+                            <div class="instruction-content">
+                                <h5>버전 기록 확인</h5>
+                                <p>파일 우클릭 → <strong>"버전 기록"</strong>에서 이전 버전 확인 가능<br>
+                                    (기본적으로 500개 버전까지 자동 저장됨)</p>
+                                <div class="tip-box">
+                                    💡 <strong>Tip:</strong> 중요한 문서는 파일명에 날짜를 붙이지 않아도 됩니다.
+                                    SharePoint가 자동으로 버전을 관리해줍니다.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-4</span>
+                            <div class="instruction-content">
+                                <h5>Teams에서 바로가기 추가</h5>
+                                <p>자주 사용하는 폴더를 Teams 탭에 추가:<br>
+                                    채널 상단 <strong>"+"</strong> → <strong>"SharePoint"</strong> 또는 <strong>"문서
+                                        라이브러리"</strong> 선택</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist">
+                        <h4><i class="fas fa-check-square"></i> 완료 체크리스트</h4>
+                        <label><input type="checkbox"> SharePoint 사이트 접근 확인</label>
+                        <label><input type="checkbox"> 5개 최상위 폴더 생성 완료</label>
+                        <label><input type="checkbox"> 스프린트 하위 폴더 2개 이상 생성</label>
+                        <label><input type="checkbox"> Teams에서 SharePoint 접근 테스트</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: OneNote -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool onenote">
+                        <i class="fas fa-book"></i>
+                        <span>OneNote</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 20분</span>
+                </div>
+
+                <h3>OneNote 팀 전자 필기장 생성</h3>
+
+                <div class="step-content">
+                    <div class="why-box">
+                        <h4><i class="fas fa-question-circle"></i> 왜 필요한가요?</h4>
+                        <p>OneNote는 팀의 <strong>회의록 및 아이디어 허브</strong>입니다.
+                            비정형 정보, 브레인스토밍, 회고 내용 등을 자유롭게 기록하고 공유할 수 있습니다.</p>
+                    </div>
+
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-1</span>
+                            <div class="instruction-content">
+                                <h5>Teams에서 OneNote 탭 추가</h5>
+                                <p>채널 상단 <strong>"+"</strong> 버튼 → <strong>"OneNote"</strong> 검색 후 선택 →
+                                    <strong>"새 전자 필기장 만들기"</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-2</span>
+                            <div class="instruction-content">
+                                <h5>전자 필기장 이름 설정</h5>
+                                <p>예시: <code>Agile Team Notebook - [프로젝트명]</code></p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-3</span>
+                            <div class="instruction-content">
+                                <h5>섹션 구성</h5>
+                                <p>다음 섹션(탭)들을 생성하세요:</p>
+                                <div class="onenote-preview">
+                                    <div class="onenote-section" style="border-color: #e74c3c;">📋 Sprint Planning</div>
+                                    <div class="onenote-section" style="border-color: #3498db;">🔄 Daily Standup</div>
+                                    <div class="onenote-section" style="border-color: #2ecc71;">🎯 Sprint Review</div>
+                                    <div class="onenote-section" style="border-color: #9b59b6;">💡 Retrospective</div>
+                                    <div class="onenote-section" style="border-color: #f39c12;">📝 Meeting Notes</div>
+                                    <div class="onenote-section" style="border-color: #1abc9c;">💭 Ideas & Brainstorm
+                                    </div>
+                                </div>
+                                <p>섹션 추가: 섹션 탭 영역에서 우클릭 → <strong>"새 섹션"</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-4</span>
+                            <div class="instruction-content">
+                                <h5>템플릿 페이지 생성</h5>
+                                <p>각 섹션에 템플릿 페이지를 미리 만들어두면 편리합니다:</p>
+                                <div class="template-example">
+                                    <h5>Daily Standup 템플릿 예시:</h5>
+                                    <pre>
+📅 날짜: [YYYY-MM-DD]
+👥 참석자: 
+
+---
+🟢 어제 한 일:
+• 
+
+🔵 오늘 할 일:
+• 
+
+🔴 장애물/블로커:
+• 
+
+---
+📝 기타 논의:
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist">
+                        <h4><i class="fas fa-check-square"></i> 완료 체크리스트</h4>
+                        <label><input type="checkbox"> OneNote 전자 필기장 생성 완료</label>
+                        <label><input type="checkbox"> 6개 섹션 생성 완료</label>
+                        <label><input type="checkbox"> Daily Standup 템플릿 페이지 생성</label>
+                        <label><input type="checkbox"> 팀원 접근 권한 확인</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Week Summary -->
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card">
+                <h2><i class="fas fa-flag-checkered"></i> Week 1 완료 후 결과물</h2>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <i class="fab fa-microsoft"></i>
+                        <h4>Teams 팀</h4>
+                        <p>5개 채널이 구성된 협업 공간</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-tasks"></i>
+                        <h4>Planner 보드</h4>
+                        <p>5단계 칸반 보드</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-share-alt"></i>
+                        <h4>SharePoint</h4>
+                        <p>체계적인 폴더 구조</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-book"></i>
+                        <h4>OneNote</h4>
+                        <p>6개 섹션 전자 필기장</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Week Preview -->
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card">
+                <span class="preview-label">다음 주 미리보기</span>
+                <h2>Week 2: 백로그 정의</h2>
+                <p>환경이 구축되었으니, 이제 제품 백로그를 작성하고 첫 번째 스프린트를 계획합니다.</p>
+                <a href="week2.html" class="btn btn-primary">
+                    Week 2 시작하기 <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="index.html">전체 로드맵 보기</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

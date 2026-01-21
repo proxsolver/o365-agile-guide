@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3: 스프린트 실행 | Office 365 Agile</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> 전체 로드맵</a>
+        <div class="week-indicator">
+            <a href="week2.html" class="prev"><i class="fas fa-arrow-left"></i> Week 2</a>
+            <span class="current">Week 3</span>
+            <a href="week4.html" class="next">Week 4 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <section class="week-hero week3-theme">
+        <div class="hero-content">
+            <span class="week-badge">Week 3 of 4</span>
+            <h1>🚀 스프린트 실행</h1>
+            <p>Daily Standup과 함께 첫 번째 스프린트를 실행합니다</p>
+            <div class="week-progress">
+                <div class="progress-bar" style="--progress: 75%"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 단계별 실행 가이드</h2>
+
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 10분/일</span>
+                </div>
+                <h3>Teams 반복 회의 설정 (Daily Standup)</h3>
+                <div class="step-content">
+                    <div class="why-box">
+                        <h4><i class="fas fa-question-circle"></i> 왜 필요한가요?</h4>
+                        <p>Daily Standup은 팀원 간 <strong>동기화</strong>를 위한 짧은 미팅입니다. 장애물을 빠르게 발견하고 해결합니다.</p>
+                    </div>
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>반복 미팅 예약</h5>
+                                <p>Teams → 캘린더 → "새 모임" → <strong>반복: 매일</strong></p>
+                                <ul>
+                                    <li>제목: Daily Standup</li>
+                                    <li>시간: 오전 9:30 (15분)</li>
+                                    <li>채널: Daily Standup 채널</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>미팅 진행 방식</h5>
+                                <p>각 팀원이 3가지 질문에 답합니다:</p>
+                                <ul>
+                                    <li>🟢 어제 무엇을 완료했나요?</li>
+                                    <li>🔵 오늘 무엇을 할 예정인가요?</li>
+                                    <li>🔴 장애물이 있나요?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checklist">
+                        <h4><i class="fas fa-check-square"></i> 완료 체크리스트</h4>
+                        <label><input type="checkbox"> 반복 미팅 예약 완료</label>
+                        <label><input type="checkbox"> 팀원 전원 초대</label>
+                        <label><input type="checkbox"> 첫 Daily Standup 진행</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool planner"><i class="fas fa-tasks"></i><span>Planner</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 수시</span>
+                </div>
+                <h3>Planner 차트로 진행 현황 모니터링</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>태스크 상태 업데이트</h5>
+                                <p>작업 시작 시: To Do → In Progress로 드래그<br>
+                                    작업 완료 시: In Progress → Done으로 드래그</p>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>차트 뷰 확인</h5>
+                                <p>상단 "차트" 탭 클릭하여 진행 상황 시각화</p>
+                                <ul>
+                                    <li>상태별 작업 수</li>
+                                    <li>담당자별 작업 분포</li>
+                                    <li>우선순위별 현황</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool onenote"><i class="fas fa-book"></i><span>OneNote</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 5분/일</span>
+                </div>
+                <h3>OneNote에 회의록/의사결정 기록</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>Daily Standup 기록</h5>
+                                <p>Daily Standup 섹션에 매일 페이지 생성</p>
+                                <pre>
+📅 2025-01-21 Daily Standup
+---
+홍길동:
+- 어제: 로그인 기능 개발 완료
+- 오늘: 대시보드 UI 작업
+- 블로커: 없음
+
+김철수:
+- 어제: API 설계
+- 오늘: API 구현 시작
+- 블로커: DB 스키마 확정 필요
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>의사결정 기록</h5>
+                                <p>중요한 기술적/비즈니스 결정은 별도 페이지에 기록</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool sharepoint"><i class="fas fa-share-alt"></i><span>SharePoint</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 수시</span>
+                </div>
+                <h3>SharePoint 산출물 버전 관리</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-1</span>
+                            <div class="instruction-content">
+                                <h5>산출물 저장</h5>
+                                <p>02_Sprint_Deliverables → Sprint_01 폴더에 저장</p>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-2</span>
+                            <div class="instruction-content">
+                                <h5>버전 기록 활용</h5>
+                                <p>파일 우클릭 → "버전 기록"으로 이전 버전 확인/복원</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card">
+                <span class="preview-label">다음 주</span>
+                <h2>Week 4: 검토 및 개선</h2>
+                <p>Sprint Review와 Retrospective로 첫 스프린트를 마무리합니다.</p>
+                <a href="week4.html" class="btn btn-primary">Week 4 시작하기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

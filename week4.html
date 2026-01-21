@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4: 검토 및 개선 | Office 365 Agile</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> 전체 로드맵</a>
+        <div class="week-indicator">
+            <a href="week3.html" class="prev"><i class="fas fa-arrow-left"></i> Week 3</a>
+            <span class="current">Week 4</span>
+            <span class="next complete">🎉 완료!</span>
+        </div>
+    </nav>
+
+    <section class="week-hero week4-theme">
+        <div class="hero-content">
+            <span class="week-badge">Week 4 of 4</span>
+            <h1>🎯 검토 및 개선</h1>
+            <p>Sprint Review와 Retrospective로 첫 스프린트를 마무리합니다</p>
+            <div class="week-progress">
+                <div class="progress-bar" style="--progress: 100%"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 단계별 실행 가이드</h2>
+
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 1시간</span>
+                </div>
+                <h3>스프린트 리뷰 데모 (Teams 미팅)</h3>
+                <div class="step-content">
+                    <div class="why-box">
+                        <h4><i class="fas fa-question-circle"></i> 왜 필요한가요?</h4>
+                        <p>Sprint Review는 완료된 작업을 <strong>이해관계자에게 시연</strong>하고 피드백을 받는 자리입니다.</p>
+                    </div>
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>Sprint Review 미팅 예약</h5>
+                                <p>Teams → 캘린더 → "새 모임"</p>
+                                <ul>
+                                    <li>제목: Sprint 1 Review Demo</li>
+                                    <li>시간: 1시간</li>
+                                    <li>참석자: 팀원 + 이해관계자(PO)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>데모 진행</h5>
+                                <p>화면 공유로 완료된 기능 시연</p>
+                                <ul>
+                                    <li>각 기능 담당자가 직접 시연</li>
+                                    <li>이해관계자 피드백 수집</li>
+                                    <li>새로운 요구사항 백로그에 추가</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checklist">
+                        <h4><i class="fas fa-check-square"></i> 완료 체크리스트</h4>
+                        <label><input type="checkbox"> 리뷰 미팅 예약</label>
+                        <label><input type="checkbox"> 데모 시나리오 준비</label>
+                        <label><input type="checkbox"> 이해관계자 참석</label>
+                        <label><input type="checkbox"> 피드백 기록</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool excel"><i class="fas fa-chart-line"></i><span>Excel</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 30분</span>
+                </div>
+                <h3>Excel 번다운 차트 분석</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>번다운 차트 작성</h5>
+                                <p>새 시트 생성 → 날짜별 남은 스토리 포인트 기록</p>
+                                <pre>
+날짜        | 남은 SP | 이상적
+--------------------------
+Day 1      | 30      | 30
+Day 2      | 28      | 27
+Day 3      | 25      | 24
+...
+Day 10     | 0       | 0
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>차트 삽입</h5>
+                                <p>데이터 선택 → 삽입 → 꺾은선형 차트</p>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-3</span>
+                            <div class="instruction-content">
+                                <h5>분석</h5>
+                                <ul>
+                                    <li>이상적 라인보다 위: 작업 지연</li>
+                                    <li>이상적 라인보다 아래: 순조로움</li>
+                                    <li>수평 구간: 블로커 발생 가능</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool teams"><i class="fas fa-comments"></i><span>회고</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 1시간</span>
+                </div>
+                <h3>회고 미팅 및 개선점 도출</h3>
+                <div class="step-content">
+                    <div class="why-box">
+                        <h4><i class="fas fa-question-circle"></i> 왜 필요한가요?</h4>
+                        <p>Retrospective는 <strong>프로세스를 개선</strong>하는 시간입니다. 무엇이 잘 되었고, 무엇을 개선할지 논의합니다.</p>
+                    </div>
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>회고 미팅 예약</h5>
+                                <p>Retrospective 채널에서 1시간 미팅 예약</p>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>Start-Stop-Continue 기법</h5>
+                                <ul>
+                                    <li>🟢 <strong>Start:</strong> 새로 시작할 것</li>
+                                    <li>🔴 <strong>Stop:</strong> 그만할 것</li>
+                                    <li>🔵 <strong>Continue:</strong> 계속할 것</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-3</span>
+                            <div class="instruction-content">
+                                <h5>개선 액션 도출</h5>
+                                <p>1~2개 구체적인 개선 사항 선정 → 다음 스프린트에 적용</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool planner"><i class="fas fa-redo"></i><span>다음 스프린트</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 30분</span>
+                </div>
+                <h3>다음 스프린트 계획 수립</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-1</span>
+                            <div class="instruction-content">
+                                <h5>Planner 보드 정리</h5>
+                                <p>Done 버킷의 완료 태스크 확인 및 아카이브</p>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-2</span>
+                            <div class="instruction-content">
+                                <h5>다음 스프린트 항목 선정</h5>
+                                <p>Excel 백로그에서 Sprint 2 항목 선정 → Planner에 등록</p>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-3</span>
+                            <div class="instruction-content">
+                                <h5>Velocity 기록</h5>
+                                <p>Sprint 1에서 완료한 총 스토리 포인트 = <strong>Velocity</strong></p>
+                                <p>다음 스프린트 계획 시 참고</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="completion-section">
+        <div class="container">
+            <div class="completion-card">
+                <h2>🎉 축하합니다!</h2>
+                <p>Office 365로 첫 번째 Agile 스프린트를 완료했습니다!</p>
+                <p>이제 Sprint 2, 3, 4...를 반복하며 팀의 Agile 역량을 키워나가세요.</p>
+                <a href="index.html" class="btn btn-primary">전체 로드맵 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

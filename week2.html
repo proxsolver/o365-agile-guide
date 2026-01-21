@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: 백로그 정의 | Office 365 Agile</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> 전체 로드맵</a>
+        <div class="week-indicator">
+            <a href="week1.html" class="prev"><i class="fas fa-arrow-left"></i> Week 1</a>
+            <span class="current">Week 2</span>
+            <a href="week3.html" class="next">Week 3 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <section class="week-hero week2-theme">
+        <div class="hero-content">
+            <span class="week-badge">Week 2 of 4</span>
+            <h1>📋 백로그 정의</h1>
+            <p>Product Backlog를 작성하고 첫 번째 Sprint를 계획합니다</p>
+            <div class="week-progress">
+                <div class="progress-bar" style="--progress: 50%"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 단계별 실행 가이드</h2>
+
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 1시간</span>
+                </div>
+                <h3>Excel로 Product Backlog 작성</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>SharePoint에서 새 Excel 파일 생성</h5>
+                                <p>SharePoint → 01_Product_Backlog → "새로 만들기" → Excel 통합 문서</p>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>백로그 테이블 헤더 설정</h5>
+                                <p>ID, 유형, 제목, 설명, 우선순위, 스토리포인트, 스프린트, 상태, 담당자</p>
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-3</span>
+                            <div class="instruction-content">
+                                <h5>테이블 서식 적용</h5>
+                                <p>데이터 범위 선택 → 홈 탭 → 테이블로 서식</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool excel"><i class="fas fa-sort-amount-down"></i><span>우선순위</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 30분</span>
+                </div>
+                <h3>우선순위 및 스토리 포인트 부여</h3>
+                <div class="step-content">
+                    <p><strong>우선순위:</strong> 긴급 → 높음 → 중간 → 낮음</p>
+                    <p><strong>스토리 포인트:</strong> 1, 2, 3, 5, 8, 13 (피보나치)</p>
+                </div>
+            </div>
+
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool planner"><i class="fas fa-tasks"></i><span>Planner</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 45분</span>
+                </div>
+                <h3>Planner에 스프린트 백로그 등록</h3>
+                <div class="step-content">
+                    <p>Sprint 1 항목(20~30 포인트) 선정 후 Planner To Do 버킷에 등록</p>
+                </div>
+            </div>
+
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> 1~2시간</span>
+                </div>
+                <h3>Teams 미팅으로 백로그 리뷰</h3>
+                <div class="step-content">
+                    <p>Sprint Planning 미팅 예약 → 백로그 화면 공유 → 팀 합의 → OneNote 기록</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card">
+                <span class="preview-label">다음 주</span>
+                <h2>Week 3: 스프린트 실행</h2>
+                <a href="week3.html" class="btn btn-primary">Week 3 시작하기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
