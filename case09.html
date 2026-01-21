@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 09: 위험성 평가 관리 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="cases.html" class="nav-back"><i class="fas fa-arrow-left"></i> 사례 목록</a>
+        <div class="week-indicator">
+            <a href="case08.html" class="prev"><i class="fas fa-arrow-left"></i> Case 08</a>
+            <span class="current case">Case 09</span>
+            <a href="case10.html" class="next">Case 10 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="case-study-banner safety-theme">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Case 09: 위험성 평가 관리</h2>
+            <p>SharePoint에서 위험성 평가 DB 구축, 평가-조치-모니터링 체계화</p>
+        </div>
+    </div>
+
+    <section class="week-hero week9-theme">
+        <div class="hero-content">
+            <span class="week-badge">Case 09 | 안전관리</span>
+            <h1>📊 위험성 평가 관리</h1>
+            <p>산업안전보건법 필수 요건인 위험성 평가를 체계적으로 관리하고 이력을 추적합니다</p>
+            <div class="kpi-focus">
+                <div class="kpi-item active"><i class="fas fa-clipboard-check"></i><span>평가 DB화</span></div>
+                <div class="kpi-item"><i class="fas fa-sync"></i><span>주기적 재평가</span></div>
+                <div class="kpi-item"><i class="fas fa-chart-line"></i><span>위험 추이</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card safety">
+                <h2><i class="fas fa-exclamation-circle"></i> 문제 상황</h2>
+                <div class="scenario-box">
+                    <h4><i class="fas fa-users"></i> 현장의 목소리</h4>
+                    <p>안전보건팀 이OO 차장이 법적 대응의 어려움을 이야기합니다:<br>
+                        <em>"산안법 개정으로 위험성 평가가 더 중요해졌는데, 지금은 Excel 파일 수십 개에 흩어져 있어요.
+                            '어떤 공정의 위험성이 얼마인지', '언제 마지막으로 평가했는지' 한눈에 안 보입니다.
+                            노동부 점검 나오면 자료 찾느라 며칠이 걸리고, 평가 후 조치 이행 여부도 추적이 안 돼요.
+                            재평가 주기도 놓치기 일쑤입니다."</em>
+                    </p>
+                </div>
+                <div class="goal-metrics">
+                    <div class="metric"><span class="metric-label">평가 대상</span><span class="metric-value">120개 작업</span>
+                    </div>
+                    <div class="metric"><span class="metric-label">연간 재평가</span><span class="metric-value">50건</span>
+                    </div>
+                    <div class="metric"><span class="metric-label">개선 기간</span><span class="metric-value">4주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 실행 가이드</h2>
+
+            <!-- ===== STEP 1: 위험성 평가 Lists ===== -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool sharepoint"><i class="fas fa-share-alt"></i><span>SharePoint Lists</span>
+                    </div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (월~수)</span>
+                </div>
+                <h3>위험성 평가 DB 구축</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>위험성 평가의 법적 요건 이해</h5>
+                                <div
+                                    style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📋 산업안전보건법 제36조</strong><br><br>
+                                    • 사업주는 유해·위험요인을 파악하고 위험성을 결정하여 조치해야 함<br>
+                                    • 위험성: <strong>가능성(빈도) × 중대성(강도)</strong><br>
+                                    • 최초 평가 + 정기적 재평가 + 수시 재평가(변경 시)<br><br>
+                                    <strong>보존 기간:</strong> 3년 (기록 유지 의무)<br><br>
+                                    <span style="color: #dc2626;">⚠️ 미실시 시 과태료 최대 1,500만원</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>"위험성평가" Lists 생성 (18개 컬럼)</h5>
+
+                                <h6 style="margin-top: 1.5rem; color: #0078d4;">🔹 작업 정보</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>평가번호</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>RA-2025-001 (자동채번)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>부서</strong></td>
+                                            <td>선택</td>
+                                            <td>생산1팀, 생산2팀, 물류팀, 정비팀</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>공정</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>예: 용접, 프레스, 도장</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>작업명</strong></td>
+                                            <td>한 줄 텍스트</td>
+                                            <td>필수, 예: 지게차 운반 작업</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>작업장소</strong></td>
+                                            <td>선택</td>
+                                            <td>A동, B동, 옥외 등</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #ef4444;">🔹 유해·위험 요인</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>유해위험요인</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>구체적 위험 요인 기술<br>예: 지게차 후진 시 보행자 충돌 위험</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>위험 유형</strong></td>
+                                            <td>선택(복수)</td>
+                                            <td>떨어짐, 끼임, 충돌, 화재, 전기, 질식, 폭발, 낙하, 기타</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>현재 안전조치</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>현재 시행 중인 안전 대책</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #f59e0b;">🔹 위험성 결정</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>가능성(빈도)</strong></td>
+                                            <td>선택</td>
+                                            <td>
+                                                1 - 거의 없음 (1년에 1회 미만)<br>
+                                                2 - 가끔 (월 1회)<br>
+                                                3 - 자주 (주 1회)<br>
+                                                4 - 빈번 (매일)<br>
+                                                5 - 상시 (작업 중 항상)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>중대성(강도)</strong></td>
+                                            <td>선택</td>
+                                            <td>
+                                                1 - 경미 (응급처치 수준)<br>
+                                                2 - 경상 (통원 치료)<br>
+                                                3 - 중상 (입원 치료)<br>
+                                                4 - 중대 (영구 장애)<br>
+                                                5 - 치명 (사망 가능)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>위험성 점수</strong></td>
+                                            <td>계산됨</td>
+                                            <td>[가능성] × [중대성]<br>결과: 1~25점</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>위험 등급</strong></td>
+                                            <td>계산됨</td>
+                                            <td>
+                                                15~25: 🔴 매우 높음<br>
+                                                10~14: 🟠 높음<br>
+                                                5~9: 🟡 보통<br>
+                                                1~4: 🟢 낮음
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #10b981;">🔹 개선 조치</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>개선 조치 계획</strong></td>
+                                            <td>여러 줄 텍스트</td>
+                                            <td>위험성 감소를 위한 조치</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>조치 담당자</strong></td>
+                                            <td>사용자</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>조치 기한</strong></td>
+                                            <td>날짜</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>조치 상태</strong></td>
+                                            <td>선택</td>
+                                            <td>미착수, 진행중, 완료, 지연</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>조치 완료일</strong></td>
+                                            <td>날짜</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>잔여 위험성</strong></td>
+                                            <td>선택</td>
+                                            <td>조치 후 재평가 점수</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h6 style="margin-top: 1.5rem; color: #8b5cf6;">🔹 평가 관리</h6>
+                                <table class="excel-table" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>컬럼명</th>
+                                            <th>유형</th>
+                                            <th>상세</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>평가일</strong></td>
+                                            <td>날짜</td>
+                                            <td>최초 평가일</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>평가자</strong></td>
+                                            <td>사용자</td>
+                                            <td>평가 수행자</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>재평가 주기</strong></td>
+                                            <td>선택</td>
+                                            <td>6개월, 1년, 2년</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>다음 재평가일</strong></td>
+                                            <td>날짜</td>
+                                            <td>계산 또는 수동 입력</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-3</span>
+                            <div class="instruction-content">
+                                <h5>계산 컬럼 수식</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                                    <strong style="color: #60a5fa;">// 위험성 점수 (가능성 × 중대성)</strong><br>
+                                    =INT(LEFT([가능성],1))*INT(LEFT([중대성],1))<br><br>
+
+                                    <strong style="color: #60a5fa;">// 위험 등급 (조건부)</strong><br>
+                                    =IF([위험성점수]>=15,"🔴 매우높음",<br>
+                                    &nbsp;&nbsp;IF([위험성점수]>=10,"🟠 높음",<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;IF([위험성점수]>=5,"🟡 보통","🟢 낮음")))<br><br>
+
+                                    <strong style="color: #60a5fa;">// 다음 재평가일 (평가일 + 주기)</strong><br>
+                                    =IF([재평가주기]="6개월", DATE(YEAR([평가일]),MONTH([평가일])+6,DAY([평가일])),<br>
+                                    &nbsp;&nbsp;IF([재평가주기]="1년", DATE(YEAR([평가일])+1,MONTH([평가일]),DAY([평가일])),<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;DATE(YEAR([평가일])+2,MONTH([평가일]),DAY([평가일]))))
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-4</span>
+                            <div class="instruction-content">
+                                <h5>위험성 매트릭스 시각화</h5>
+                                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                                    <table style="width: 100%; text-align: center; border-collapse: collapse;">
+                                        <thead>
+                                            <tr>
+                                                <th style="padding: 0.5rem; border: 1px solid #e2e8f0;">가능성 \ 중대성</th>
+                                                <th style="padding: 0.5rem; border: 1px solid #e2e8f0;">1 경미</th>
+                                                <th style="padding: 0.5rem; border: 1px solid #e2e8f0;">2 경상</th>
+                                                <th style="padding: 0.5rem; border: 1px solid #e2e8f0;">3 중상</th>
+                                                <th style="padding: 0.5rem; border: 1px solid #e2e8f0;">4 중대</th>
+                                                <th style="padding: 0.5rem; border: 1px solid #e2e8f0;">5 치명</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0.5rem; border: 1px solid #e2e8f0; font-weight: bold;">
+                                                    5 상시</td>
+                                                <td style="background: #fef3c7; border: 1px solid #e2e8f0;">5</td>
+                                                <td style="background: #fed7aa; border: 1px solid #e2e8f0;">10</td>
+                                                <td style="background: #fecaca; border: 1px solid #e2e8f0;">15</td>
+                                                <td style="background: #fecaca; border: 1px solid #e2e8f0;">20</td>
+                                                <td style="background: #fecaca; border: 1px solid #e2e8f0;">25</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0.5rem; border: 1px solid #e2e8f0; font-weight: bold;">
+                                                    4 빈번</td>
+                                                <td style="background: #d1fae5; border: 1px solid #e2e8f0;">4</td>
+                                                <td style="background: #fef3c7; border: 1px solid #e2e8f0;">8</td>
+                                                <td style="background: #fed7aa; border: 1px solid #e2e8f0;">12</td>
+                                                <td style="background: #fecaca; border: 1px solid #e2e8f0;">16</td>
+                                                <td style="background: #fecaca; border: 1px solid #e2e8f0;">20</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0.5rem; border: 1px solid #e2e8f0; font-weight: bold;">
+                                                    3 자주</td>
+                                                <td style="background: #d1fae5; border: 1px solid #e2e8f0;">3</td>
+                                                <td style="background: #fef3c7; border: 1px solid #e2e8f0;">6</td>
+                                                <td style="background: #fef3c7; border: 1px solid #e2e8f0;">9</td>
+                                                <td style="background: #fed7aa; border: 1px solid #e2e8f0;">12</td>
+                                                <td style="background: #fecaca; border: 1px solid #e2e8f0;">15</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0.5rem; border: 1px solid #e2e8f0; font-weight: bold;">
+                                                    2 가끔</td>
+                                                <td style="background: #d1fae5; border: 1px solid #e2e8f0;">2</td>
+                                                <td style="background: #d1fae5; border: 1px solid #e2e8f0;">4</td>
+                                                <td style="background: #fef3c7; border: 1px solid #e2e8f0;">6</td>
+                                                <td style="background: #fef3c7; border: 1px solid #e2e8f0;">8</td>
+                                                <td style="background: #fed7aa; border: 1px solid #e2e8f0;">10</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0.5rem; border: 1px solid #e2e8f0; font-weight: bold;">
+                                                    1 거의없음</td>
+                                                <td style="background: #d1fae5; border: 1px solid #e2e8f0;">1</td>
+                                                <td style="background: #d1fae5; border: 1px solid #e2e8f0;">2</td>
+                                                <td style="background: #d1fae5; border: 1px solid #e2e8f0;">3</td>
+                                                <td style="background: #d1fae5; border: 1px solid #e2e8f0;">4</td>
+                                                <td style="background: #fef3c7; border: 1px solid #e2e8f0;">5</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div
+                                        style="margin-top: 1rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                                        <span
+                                            style="background: #d1fae5; padding: 0.25rem 0.75rem; border-radius: 4px;">🟢
+                                            1~4: 낮음</span>
+                                        <span
+                                            style="background: #fef3c7; padding: 0.25rem 0.75rem; border-radius: 4px;">🟡
+                                            5~9: 보통</span>
+                                        <span
+                                            style="background: #fed7aa; padding: 0.25rem 0.75rem; border-radius: 4px;">🟠
+                                            10~14: 높음</span>
+                                        <span
+                                            style="background: #fecaca; padding: 0.25rem 0.75rem; border-radius: 4px;">🔴
+                                            15~25: 매우높음</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-5</span>
+                            <div class="instruction-content">
+                                <h5>관리용 뷰 설정</h5>
+                                <table class="excel-table">
+                                    <thead>
+                                        <tr>
+                                            <th>뷰 이름</th>
+                                            <th>필터</th>
+                                            <th>정렬</th>
+                                            <th>용도</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>🔴 고위험 작업</td>
+                                            <td>위험등급 = 매우높음, 높음</td>
+                                            <td>위험성점수 내림차순</td>
+                                            <td>우선 관리</td>
+                                        </tr>
+                                        <tr>
+                                            <td>📅 재평가 임박</td>
+                                            <td>다음재평가일 ≤ 오늘+30일</td>
+                                            <td>다음재평가일 오름차순</td>
+                                            <td>주기 관리</td>
+                                        </tr>
+                                        <tr>
+                                            <td>🔧 미조치 항목</td>
+                                            <td>조치상태 ≠ 완료</td>
+                                            <td>조치기한 오름차순</td>
+                                            <td>이행 점검</td>
+                                        </tr>
+                                        <tr>
+                                            <td>📊 부서별</td>
+                                            <td>-</td>
+                                            <td>부서 그룹화</td>
+                                            <td>현황 파악</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> 조건부 서식을 활용하여 위험 등급별로 행 배경색을 자동 지정하면
+                        한눈에 고위험 항목을 식별할 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 2: Power Automate ===== -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool powerautomate"><i class="fas fa-cog"></i><span>Power Automate</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (월~화)</span>
+                </div>
+                <h3>자동화 알림 구축</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-bolt"></i> 흐름 1: 재평가 30일 전 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>재평가 일정 사전 알림</h5>
+                                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+                                        <div
+                                            style="background: #dbeafe; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>예약: 매일 오전 8시</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #fef3c7; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>여러 항목 가져오기</strong><br>
+                                            <small>필터: 다음재평가일 ≤ 오늘+30일</small>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #e0e7ff; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>Apply to each</strong>
+                                        </div>
+                                        <div style="font-size: 1.5rem;">↓</div>
+                                        <div
+                                            style="background: #d1fae5; padding: 1rem 2rem; border-radius: 8px; width: 85%; text-align: center;">
+                                            <strong>Teams 메시지 전송</strong><br>
+                                            <small>평가자에게 재평가 안내</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;"><i class="fas fa-bolt"></i> 흐름 2: 고위험 신규 등록 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>위험 등급 "매우높음" 등록 시 즉시 알림</h5>
+                                <div
+                                    style="background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                                    <strong style="color: #60a5fa;">// 트리거: Lists 항목 생성됨</strong><br><br>
+                                    <strong style="color: #60a5fa;">// 조건: 위험 등급 = "🔴 매우높음"</strong><br>
+                                    @contains(triggerOutputs()?['body/위험등급'], '매우높음')<br><br>
+
+                                    <strong style="color: #ef4444;">// Teams 알림 메시지</strong><br>
+                                    🚨 <strong>고위험 작업 신규 등록!</strong><br><br>
+                                    📋 평가번호: @{triggerOutputs()?['body/평가번호']}<br>
+                                    🏭 부서/공정: @{triggerOutputs()?['body/부서']} / @{triggerOutputs()?['body/공정']}<br>
+                                    ⚠️ 작업: @{triggerOutputs()?['body/작업명']}<br>
+                                    🔴 위험성: @{triggerOutputs()?['body/위험성점수']}점<br><br>
+                                    즉각적인 개선 조치가 필요합니다!<br>
+                                    &lt;at&gt;안전보건팀&lt;/at&gt;
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;"><i class="fas fa-bolt"></i> 흐름 3: 조치 기한 초과 알림</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-3</span>
+                            <div class="instruction-content">
+                                <h5>조치 기한 경과 항목 알림</h5>
+                                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                                    <strong>예약:</strong> 매일 오전 9시<br>
+                                    <strong>필터:</strong> 조치기한 < 오늘 AND 조치상태 ≠ 완료<br>
+                                        <strong>알림 대상:</strong> 조치 담당자 + 안전보건팀<br><br>
+                                        <em>"[RA-2025-015] 개선 조치 기한이 경과하였습니다. 즉시 조치 바랍니다."</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 3: 대시보드 ===== -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool excel"><i class="fas fa-chart-bar"></i><span>Excel / Power BI</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (수~목)</span>
+                </div>
+                <h3>위험성 평가 대시보드</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>전체 현황 대시보드</h5>
+                                <div class="dashboard-layout">
+                                    <div class="dash-item" style="background: #dbeafe;">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <h5>총 평가 건수</h5>
+                                        <span class="dash-value">120건</span>
+                                    </div>
+                                    <div class="dash-item" style="background: #fecaca;">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <h5>고위험</h5>
+                                        <span class="dash-value">8건</span>
+                                    </div>
+                                    <div class="dash-item" style="background: #fef3c7;">
+                                        <i class="fas fa-clock"></i>
+                                        <h5>조치 진행중</h5>
+                                        <span class="dash-value">12건</span>
+                                    </div>
+                                    <div class="dash-item success" style="background: #d1fae5;">
+                                        <i class="fas fa-check-circle"></i>
+                                        <h5>조치 완료</h5>
+                                        <span class="dash-value">100건</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>위험 등급별 분포</h5>
+                                <div class="excel-template">
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>위험 등급</th>
+                                                <th>건수</th>
+                                                <th>비율</th>
+                                                <th>조치 완료율</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>🔴 매우높음</td>
+                                                <td>3건</td>
+                                                <td>2.5%</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🟠 높음</td>
+                                                <td>12건</td>
+                                                <td>10%</td>
+                                                <td>92%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🟡 보통</td>
+                                                <td>45건</td>
+                                                <td>37.5%</td>
+                                                <td>85%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🟢 낮음</td>
+                                                <td>60건</td>
+                                                <td>50%</td>
+                                                <td>100%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STEP 4: 운영 ===== -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>운영</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 3-4</span>
+                </div>
+                <h3>기존 데이터 이관 및 운영</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">4-1</span>
+                            <div class="instruction-content">
+                                <h5>기존 Excel 데이터 이관</h5>
+                                <div
+                                    style="background: #f0f9ff; border-left: 4px solid #0078d4; padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0;">
+                                    <strong>📍 이관 절차:</strong><br><br>
+                                    1. 기존 Excel 파일 양식을 Lists 컬럼에 맞게 정리<br>
+                                    2. 컬럼명 매핑 (Excel ↔ Lists)<br>
+                                    3. 그리드 보기에서 복사/붙여넣기 또는 "Excel에서 가져오기"<br>
+                                    4. 데이터 검증 (건수 일치, 필수 값 체크)<br><br>
+                                    <span style="color: #0078d4;">💡 120건 정도는 수동 이관도 가능 (약 2시간)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="retro-board">
+                        <div class="retro-column start">
+                            <h4>✅ 시작할 것</h4>
+                            <ul>
+                                <li>신규 작업 시 위험성 평가 먼저 등록</li>
+                                <li>재평가 알림 수신 시 7일 내 완료</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column stop">
+                            <h4>🛑 멈출 것</h4>
+                            <ul>
+                                <li>개인 Excel에 평가 결과 보관</li>
+                                <li>평가 후 조치 없이 방치</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column continue">
+                            <h4>🔄 계속할 것</h4>
+                            <ul>
+                                <li>위험성 평가 주기 준수</li>
+                                <li>고위험 항목 우선 조치</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="step-guide" style="background: #fef2f2;">
+        <div class="container">
+            <h2 class="section-title">❓ 자주 묻는 질문 (FAQ)</h2>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q1. 계산 컬럼 수식이 작동 안 해요</h3>
+                <div class="step-content">
+                    <div style="background: #d1fae5; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> SharePoint 계산 컬럼은 선택 컬럼의 값을 직접 처리 못합니다.<br><br>
+                        <strong>해결:</strong> "선택" 컬럼 값을 숫자로 저장하는 별도 컬럼 생성,
+                        또는 Power Automate로 계산 처리
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><i class="fas fa-question-circle"></i> Q2. 재평가 시 이전 기록은 어떻게 하나요?</h3>
+                <div class="step-content">
+                    <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px;">
+                        <strong>A:</strong> 두 가지 방법이 있습니다.<br><br>
+                        <strong>방법 1:</strong> 같은 항목에서 평가일, 평가자만 업데이트 (버전 기록 유지)<br>
+                        <strong>방법 2 (권장):</strong> "평가이력" 별도 Lists 생성하여 이력 관리
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card value-card">
+                <h2><i class="fas fa-chart-line"></i> 개선 결과</h2>
+                <div class="result-grid">
+                    <div class="result-item"><i class="fas fa-database"></i>
+                        <h4>120건</h4>
+                        <p>중앙 DB화</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-bell"></i>
+                        <h4>자동</h4>
+                        <p>재평가 알림</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-search"></i>
+                        <h4>즉시</h4>
+                        <p>이력 검색</p>
+                    </div>
+                    <div class="result-item"><i class="fas fa-certificate"></i>
+                        <h4>100%</h4>
+                        <p>법적 대응</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview safety">
+                <span class="preview-label">다음 사례</span>
+                <h2>Case 10: 안전 교육 이수 관리</h2>
+                <p>법정 의무 교육 이수 현황 대시보드, 미이수자 자동 알림</p>
+                <a href="case10.html" class="btn btn-primary">다음 사례 보기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="cases.html">사례 목록</a> | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
