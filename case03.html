@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 03: 예방정비 스케줄 최적화 | Technical Service Team</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-detail.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+
+<body>
+    <nav class="week-nav">
+        <a href="cases.html" class="nav-back"><i class="fas fa-arrow-left"></i> 사례 목록</a>
+        <div class="week-indicator">
+            <a href="case02.html" class="prev"><i class="fas fa-arrow-left"></i> Case 02</a>
+            <span class="current case">Case 03</span>
+            <a href="case04.html" class="next">Case 04 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Case Study Banner -->
+    <div class="case-study-banner rm-theme">
+        <div class="container">
+            <span class="case-badge"><i class="fas fa-industry"></i> Technical Service Team 실전 사례</span>
+            <h2>Case 03: 예방정비 스케줄 최적화</h2>
+            <p>사후정비(BM) 비중 70%에서 40%로 감소, 정비비용 35% 절감</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="week-hero week7-theme">
+        <div class="hero-content">
+            <span class="week-badge">Case 03 | R&M Cost</span>
+            <h1>🔧 예방정비 스케줄 최적화</h1>
+            <p>데이터 기반 예방정비 체계를 구축하여 돌발 고장을 예방하고 정비 비용을 절감합니다</p>
+            <div class="kpi-focus">
+                <div class="kpi-item active">
+                    <i class="fas fa-tools"></i>
+                    <span>PM 비율 향상</span>
+                </div>
+                <div class="kpi-item">
+                    <i class="fas fa-won-sign"></i>
+                    <span>정비비용 절감</span>
+                </div>
+                <div class="kpi-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>설비 가동률 향상</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Definition -->
+    <section class="sprint-goal">
+        <div class="container">
+            <div class="goal-card rm">
+                <h2><i class="fas fa-exclamation-circle"></i> 문제 상황</h2>
+                <div class="scenario-box">
+                    <h4><i class="fas fa-users"></i> 현장의 목소리</h4>
+                    <p>
+                        정비팀 박OO 팀장이 월간 정비 실적 보고에서 이야기합니다:<br>
+                        <em>"이번 달 정비 건수 47건 중 35건이 돌발 고장입니다. 예방정비를 하고 싶어도
+                            갑자기 터지는 고장 처리하느라 시간이 없어요. 같은 설비가 반복해서 고장나는데
+                            패턴 분석할 여유도 없고, 정비 일정 관리가 엑셀 파일 여기저기 흩어져 있어서
+                            누가 언제 뭘 해야 하는지 파악도 안 됩니다."</em>
+                    </p>
+                </div>
+                <div class="goal-metrics">
+                    <div class="metric">
+                        <span class="metric-label">현재 BM 비율</span>
+                        <span class="metric-value">70%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">목표 PM 비율</span>
+                        <span class="metric-value">60%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">개선 기간</span>
+                        <span class="metric-value">6주</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Guide -->
+    <section class="step-guide">
+        <div class="container">
+            <h2 class="section-title">📋 실행 가이드</h2>
+
+            <!-- Step 1: Data Analysis -->
+            <div class="step-card" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 1 (월~수)</span>
+                </div>
+                <h3>설비 고장 이력 분석 및 패턴 파악</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-1</span>
+                            <div class="instruction-content">
+                                <h5>최근 24개월 정비 이력 추출</h5>
+                                <p>정비 관리 시스템에서 전체 정비 이력 데이터를 추출합니다.</p>
+                                <div class="excel-template">
+                                    <h5>정비이력_분석.xlsx:</h5>
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>정비일</th>
+                                                <th>설비코드</th>
+                                                <th>설비명</th>
+                                                <th>고장부위</th>
+                                                <th>정비유형</th>
+                                                <th>정비시간</th>
+                                                <th>비용(원)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2025-11-15</td>
+                                                <td>CV-001</td>
+                                                <td>컨베이어 #1</td>
+                                                <td>구동모터</td>
+                                                <td>BM</td>
+                                                <td>4.5h</td>
+                                                <td>1,250,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2025-11-20</td>
+                                                <td>CV-001</td>
+                                                <td>컨베이어 #1</td>
+                                                <td>베어링</td>
+                                                <td>PM</td>
+                                                <td>1.0h</td>
+                                                <td>85,000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-2</span>
+                            <div class="instruction-content">
+                                <h5>설비별 MTBF/MTTR 산출</h5>
+                                <p>핵심 신뢰성 지표를 계산합니다.</p>
+                                <div class="excel-template">
+                                    <h5>신뢰성 지표 수식:</h5>
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>지표</th>
+                                                <th>수식</th>
+                                                <th>의미</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>MTBF</td>
+                                                <td>=총가동시간/고장횟수</td>
+                                                <td>평균 고장간격 (높을수록 좋음)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MTTR</td>
+                                                <td>=총정비시간/정비횟수</td>
+                                                <td>평균 복구시간 (낮을수록 좋음)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>가동률</td>
+                                                <td>=MTBF/(MTBF+MTTR)*100</td>
+                                                <td>설비 가용성 (%)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">1-3</span>
+                            <div class="instruction-content">
+                                <h5>고장 빈도 파레토 분석</h5>
+                                <p>상위 20% 설비가 80% 고장을 유발하는지 확인합니다.</p>
+                                <div class="insight-cards">
+                                    <div class="insight-card">
+                                        <h4>🔴 Top 5 고장 설비</h4>
+                                        <p>컨베이어 #1, #3, 포장기 #2, 믹서 #1, 펌프 #5</p>
+                                        <span class="insight-action">→ 집중 예방정비 대상</span>
+                                    </div>
+                                    <div class="insight-card">
+                                        <h4>🔴 Top 3 고장 부위</h4>
+                                        <p>베어링 (35%), 모터 (25%), 실린더 (15%)</p>
+                                        <span class="insight-action">→ 부위별 점검 주기 설정</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> 피벗 테이블로 설비코드별 정비유형(BM/PM) 건수와 비용을
+                        한눈에 비교하세요. BM 비용이 높은 설비가 PM 우선 대상입니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Planner Setup -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-tool planner"><i class="fas fa-tasks"></i><span>Planner</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (월~화)</span>
+                </div>
+                <h3>예방정비 스케줄 Planner 보드 구축</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-1</span>
+                            <div class="instruction-content">
+                                <h5>"예방정비 관리" Planner 보드 생성</h5>
+                                <p>Teams → 정비팀 채널 → Planner 탭 추가</p>
+                                <div class="planner-board">
+                                    <div class="planner-column">
+                                        <h5>📅 이번 주</h5>
+                                        <div class="planner-task">CV-001 베어링 점검</div>
+                                        <div class="planner-task">MX-001 오일 교환</div>
+                                    </div>
+                                    <div class="planner-column">
+                                        <h5>🔧 진행 중</h5>
+                                        <div class="planner-task">PK-002 실린더 교체</div>
+                                    </div>
+                                    <div class="planner-column">
+                                        <h5>✅ 완료</h5>
+                                        <div class="planner-task">PP-005 펌프 점검</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-2</span>
+                            <div class="instruction-content">
+                                <h5>정비 태스크 템플릿 작성</h5>
+                                <p>각 태스크에 포함할 정보를 표준화합니다.</p>
+                                <div class="backlog-example">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>항목</th>
+                                                <th>내용</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>제목</td>
+                                                <td>[설비코드] 정비내용</td>
+                                            </tr>
+                                            <tr>
+                                                <td>버킷</td>
+                                                <td>주차별 (Week 1, 2, 3, 4)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>레이블</td>
+                                                <td>🟢일상점검 / 🟡정기점검 / 🔴교체</td>
+                                            </tr>
+                                            <tr>
+                                                <td>체크리스트</td>
+                                                <td>점검항목 상세 (예: □오일레벨 □이음 □진동)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>첨부파일</td>
+                                                <td>점검표, 매뉴얼 링크</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">2-3</span>
+                            <div class="instruction-content">
+                                <h5>반복 정비 일정 등록</h5>
+                                <p>분석 결과를 반영하여 주기별 정비 태스크를 등록합니다.</p>
+                                <div class="excel-template">
+                                    <h5>PM 주기 기준:</h5>
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>정비 유형</th>
+                                                <th>주기</th>
+                                                <th>대상 설비</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>일상 점검</td>
+                                                <td>매일</td>
+                                                <td>전 설비 (운전자 점검)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>주간 점검</td>
+                                                <td>매주</td>
+                                                <td>핵심 설비 15대</td>
+                                            </tr>
+                                            <tr>
+                                                <td>월간 정비</td>
+                                                <td>매월</td>
+                                                <td>전 설비</td>
+                                            </tr>
+                                            <tr>
+                                                <td>분기 교체</td>
+                                                <td>3개월</td>
+                                                <td>소모품 (오일, 필터 등)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Power Automate -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-tool powerautomate"><i class="fas fa-cog"></i><span>Power Automate</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 2 (수~목)</span>
+                </div>
+                <h3>정비 일정 자동 알림 설정</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <h4><i class="fas fa-list-ol"></i> 실행 순서</h4>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-1</span>
+                            <div class="instruction-content">
+                                <h5>주간 정비 예정 알림 흐름</h5>
+                                <div
+                                    style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                                    <h5 style="margin-bottom: 1rem;">자동화 흐름:</h5>
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
+                                        <div
+                                            style="background: #dbeafe; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600;">
+                                            ⏰ 매주 월요일 오전 8시</div>
+                                        <div style="color: #6b7280;">↓</div>
+                                        <div style="background: #fef3c7; padding: 0.75rem 1.5rem; border-radius: 8px;">
+                                            📋 Planner에서 이번 주 태스크 조회</div>
+                                        <div style="color: #6b7280;">↓</div>
+                                        <div style="background: #d1fae5; padding: 0.75rem 1.5rem; border-radius: 8px;">
+                                            📧 Teams 채널에 주간 정비 일정 게시</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction-step">
+                            <span class="instruction-num">3-2</span>
+                            <div class="instruction-content">
+                                <h5>정비 완료 시 후속 일정 자동 생성</h5>
+                                <p>Planner 태스크 완료 시 다음 정비 일정을 자동으로 생성합니다.</p>
+                                <div
+                                    style="background: #1e293b; color: white; padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                                    <strong>트리거:</strong> Planner 태스크 완료됨<br><br>
+                                    <strong>조건:</strong> 레이블에 "정기점검" 포함<br><br>
+                                    <strong>액션:</strong><br>
+                                    - 새 태스크 생성<br>
+                                    - 제목: 동일<br>
+                                    - 마감일: 오늘 + 30일<br>
+                                    - 담당자: 동일
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> 일상점검은 자동 반복이 아닌, 운전자가 직접 체크하는 Forms와 연동하세요.
+                        점검 누락 시 알림이 가도록 설정할 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Execution -->
+            <div class="step-card" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-tool teams"><i class="fab fa-microsoft"></i><span>Teams</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 3~5 (매일)</span>
+                </div>
+                <h3>Daily Standup: 정비 진행상황 공유</h3>
+                <div class="step-content">
+                    <div class="standup-example">
+                        <h4><i class="fas fa-comments"></i> 스탠드업 예시</h4>
+                        <div class="standup-person">
+                            <strong>정비 1조 (오전 교대)</strong>
+                            <ul>
+                                <li>🟢 어제: CV-001 베어링 점검 완료 (이상 없음)</li>
+                                <li>🔵 오늘: MX-001 오일 교환 예정</li>
+                                <li>🔴 블로커: PK-002 실린더 부품 입고 지연 (내일 도착 예정)</li>
+                            </ul>
+                        </div>
+                        <div class="standup-person">
+                            <strong>정비 2조 (오후 교대)</strong>
+                            <ul>
+                                <li>🟢 어제: 1조 인수인계 완료</li>
+                                <li>🔵 오늘: 라인 2 설비 주간 점검 진행</li>
+                                <li>🔴 블로커: 없음</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-layout">
+                        <div class="dash-item success">
+                            <i class="fas fa-check-circle"></i>
+                            <h5>완료</h5>
+                            <span class="dash-value">12건</span>
+                        </div>
+                        <div class="dash-item">
+                            <i class="fas fa-clock"></i>
+                            <h5>진행 중</h5>
+                            <span class="dash-value">3건</span>
+                        </div>
+                        <div class="dash-item warning">
+                            <i class="fas fa-exclamation"></i>
+                            <h5>지연</h5>
+                            <span class="dash-value">1건</span>
+                        </div>
+                        <div class="dash-item">
+                            <i class="fas fa-calendar"></i>
+                            <h5>예정</h5>
+                            <span class="dash-value">8건</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Review -->
+            <div class="step-card" id="step5">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-tool excel"><i class="fas fa-table"></i><span>Excel/Power BI</span></div>
+                    <span class="step-time"><i class="fas fa-clock"></i> Week 6</span>
+                </div>
+                <h3>성과 분석 및 PM 프로그램 고도화</h3>
+                <div class="step-content">
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <span class="instruction-num">5-1</span>
+                            <div class="instruction-content">
+                                <h5>BM/PM 비율 변화 추적</h5>
+                                <div class="excel-template">
+                                    <table class="excel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>지표</th>
+                                                <th>Before</th>
+                                                <th>After</th>
+                                                <th>개선</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>PM 비율</td>
+                                                <td>30%</td>
+                                                <td>60%</td>
+                                                <td>+30%p</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BM 비율</td>
+                                                <td>70%</td>
+                                                <td>40%</td>
+                                                <td>-30%p</td>
+                                            </tr>
+                                            <tr>
+                                                <td>월 정비비용</td>
+                                                <td>8,500만원</td>
+                                                <td>5,500만원</td>
+                                                <td>35% ↓</td>
+                                            </tr>
+                                            <tr>
+                                                <td>설비 가동률</td>
+                                                <td>92%</td>
+                                                <td>96%</td>
+                                                <td>+4%p</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="retro-board">
+                        <div class="retro-column start">
+                            <h4>✅ 시작할 것 (Start)</h4>
+                            <ul>
+                                <li>상태 기반 정비(CBM) 센서 도입 검토</li>
+                                <li>정비 기술 교육 월 1회 실시</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column stop">
+                            <h4>🛑 멈출 것 (Stop)</h4>
+                            <ul>
+                                <li>고장 날 때까지 방치하는 관행</li>
+                                <li>개인 메모장 기반 일정 관리</li>
+                            </ul>
+                        </div>
+                        <div class="retro-column continue">
+                            <h4>🔄 계속할 것 (Continue)</h4>
+                            <ul>
+                                <li>Planner 기반 정비 일정 관리</li>
+                                <li>Daily 정비 현황 공유</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="week-summary">
+        <div class="container">
+            <div class="summary-card value-card">
+                <h2><i class="fas fa-chart-line"></i> 개선 결과</h2>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <i class="fas fa-tools"></i>
+                        <h4>PM 60%</h4>
+                        <p>예방정비 비율</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-won-sign"></i>
+                        <h4>35%</h4>
+                        <p>정비비용 절감</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>96%</h4>
+                        <p>설비 가동률</p>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>50%↓</h4>
+                        <p>돌발 고장 감소</p>
+                    </div>
+                </div>
+
+                <div class="value-metrics">
+                    <div class="value-item">
+                        <div class="value-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <i class="fas fa-piggy-bank"></i></div>
+                        <div class="value-info">
+                            <h4>연간 정비비용 절감</h4>
+                            <p>돌발 고장 감소로 긴급 수리비, 부품비, 외주비 절감</p>
+                            <span class="value-tag">연 3.6억원 절감</span>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <i class="fas fa-industry"></i></div>
+                        <div class="value-info">
+                            <h4>생산성 향상</h4>
+                            <p>가동률 4%p 향상으로 추가 생산 가능</p>
+                            <span class="value-tag">연 2억원 생산성 증가</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Case Preview -->
+    <section class="next-week-preview">
+        <div class="container">
+            <div class="preview-card case-preview rm">
+                <span class="preview-label">다음 사례</span>
+                <h2>Case 04: 외주 정비 비용 투명화</h2>
+                <p>외주 업체별 성과 평가 시스템 구축, 외주비용 20% 절감</p>
+                <a href="case04.html" class="btn btn-primary">다음 사례 보기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Office 365 Agile Action Plan | <a href="cases.html">사례 목록</a> | <a href="index.html">전체 로드맵</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
