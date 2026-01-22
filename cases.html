@@ -336,6 +336,17 @@
             background: rgba(0, 120, 212, 0.15);
             color: var(--ms-blue);
         }
+
+        .case-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .case-card-link:hover .case-card {
+            transform: translateY(-12px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
@@ -1140,6 +1151,7 @@
                 </div>
 
                 <!-- Case 101 -->
+                <a href="case101.html" class="case-card-link">
                 <div class="case-card" data-category="inventory">
                     <div class="case-header inventory">
                         <span class="case-number">Case #101</span>
@@ -1178,6 +1190,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
 
             </div>
         </div>
